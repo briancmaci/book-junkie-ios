@@ -36,6 +36,7 @@ struct K {
         static let HeaderBarLogo = "HeaderBarLogo"
         static let Home = "IconHome"
         static let Back = "IconBack"
+        
     }
     
     //Storyboard IDs
@@ -57,5 +58,10 @@ struct K {
     //NIB Names
     struct NIBName {
         static let BottomNavigation = "BottomNavigation"
+    }
+    
+    //Strings
+    struct StringFormat {
+        static let CopyrightVersion = "©%d BookJunkie  v%@.%@"
     }
 }

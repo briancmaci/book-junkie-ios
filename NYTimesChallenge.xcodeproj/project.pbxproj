@@ -29,6 +29,7 @@
 		72268CFB1E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF51E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf */; };
 		72268CFC1E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */; };
 		72268CFD1E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */; };
+		722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8641E58D0080038B1D3 /* OverviewBookView.swift */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -36,6 +37,7 @@
 		72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */; };
 		72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D21E5803AB00A2BFCF /* BooksViewController.swift */; };
 		72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D41E5815C800A2BFCF /* BooksReadModel.swift */; };
+		72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D71E58955D00A2BFCF /* BundleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,7 @@
 		72268CF51E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Book.otf"; path = "fonts/WhitneyCondensed-Book.otf"; sourceTree = "<group>"; };
 		72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Bold.otf"; path = "fonts/WhitneyCondensed-Bold.otf"; sourceTree = "<group>"; };
 		72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Black.otf"; path = "fonts/WhitneyCondensed-Black.otf"; sourceTree = "<group>"; };
+		722BC8641E58D0080038B1D3 /* OverviewBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewBookView.swift; path = koloda_extend/OverviewBookView.swift; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwardsViewController.swift; path = viewcontroller/AwardsViewController.swift; sourceTree = "<group>"; };
 		72D619D21E5803AB00A2BFCF /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksViewController.swift; path = viewcontroller/BooksViewController.swift; sourceTree = "<group>"; };
 		72D619D41E5815C800A2BFCF /* BooksReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksReadModel.swift; path = model/BooksReadModel.swift; sourceTree = "<group>"; };
+		72D619D71E58955D00A2BFCF /* BundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = extension/BundleExtension.swift; sourceTree = "<group>"; };
 		F26D3B2616D35F1BDED903D4 /* Pods-NYTimesChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NYTimesChallenge/Pods-NYTimesChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +180,9 @@
 				72268CA31E56481200F96DB9 /* NYTimesChallenge-Bridging-Header.h */,
 				72D619C91E57EAB900A2BFCF /* custom-ui */,
 				72268CAC1E565BB700F96DB9 /* config */,
+				72D619D61E58952100A2BFCF /* extension */,
 				72268CF11E57D29200F96DB9 /* fonts */,
+				722BC8631E58CFC60038B1D3 /* koloda_extend */,
 				72268CA41E564A0F00F96DB9 /* manager */,
 				72268CE81E576A6F00F96DB9 /* model */,
 				72268CFF1E57D32E00F96DB9 /* plist */,
@@ -274,6 +280,14 @@
 			name = plist;
 			sourceTree = "<group>";
 		};
+		722BC8631E58CFC60038B1D3 /* koloda_extend */ = {
+			isa = PBXGroup;
+			children = (
+				722BC8641E58D0080038B1D3 /* OverviewBookView.swift */,
+			);
+			name = koloda_extend;
+			sourceTree = "<group>";
+		};
 		72D619C61E57E32100A2BFCF /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +303,14 @@
 				72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */,
 			);
 			name = "custom-ui";
+			sourceTree = "<group>";
+		};
+		72D619D61E58952100A2BFCF /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				72D619D71E58955D00A2BFCF /* BundleExtension.swift */,
+			);
+			name = extension;
 			sourceTree = "<group>";
 		};
 		E6514F814D6A04A2CC44E9C9 /* Frameworks */ = {
@@ -496,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */,
 				72268CF01E57BECD00F96DB9 /* OverviewBookModel.swift in Sources */,
 				72268C781E5641B200F96DB9 /* HomeViewController.swift in Sources */,
 				72D619CF1E57F6B900A2BFCF /* ListsViewController.swift in Sources */,
@@ -503,6 +526,7 @@
 				72268CEE1E57997400F96DB9 /* UserModel.swift in Sources */,
 				72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */,
 				72268CA61E564BAB00F96DB9 /* APICallManager.swift in Sources */,
+				72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */,
 				72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */,
 				72268CEA1E576E1000F96DB9 /* BestSellerListModel.swift in Sources */,
 				72268CAE1E565BD000F96DB9 /* Config.swift in Sources */,

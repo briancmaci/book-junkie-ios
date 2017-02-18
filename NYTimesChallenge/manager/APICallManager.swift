@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import AFNetworking
 
 class APICallManager: NSObject {

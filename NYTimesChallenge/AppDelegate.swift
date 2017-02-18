@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func buildBottomNavigation() {
         
+        //I build the Bottom Navigation 'sticky' over the main UIWindow. This way it does not transition with viewControllers.
+        
         let bottomNav = BottomNavigation.instanceFromNib()
         let newFrame = CGRect(x:0,
                               y:UIScreen.main.bounds.size.height - bottomNav.frame.size.height,

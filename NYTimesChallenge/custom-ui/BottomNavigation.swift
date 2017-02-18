@@ -14,6 +14,9 @@ class BottomNavigation: UIView {
     @IBOutlet weak var booksButton : UIButton?
     @IBOutlet weak var awardsButton : UIButton?
     
+    //This is tracked to remove redundant viewcontroller pushes
+    var currentVC:BookJunkieBaseViewController = HomeViewController()
+    
     @IBAction func onListsTapped(sender:UIButton){
         let newVC = getViewControllerFromStoryboard(id: K.Storyboard.ID.Lists) as! ListsViewController
         pushNewViewController(vc: newVC)
@@ -38,7 +41,13 @@ class BottomNavigation: UIView {
     
     func pushNewViewController( vc : BookJunkieBaseViewController) {
         let navController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+        
+        //check to make sure we are not navigating to the same view controller
+        if type(of: currentVC) == type(of: vc) {
+            return
+        }
         navController.pushViewController(vc, animated:true)
+        currentVC = vc
     }
     
     /*

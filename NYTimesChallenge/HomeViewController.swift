@@ -7,27 +7,30 @@
 //
 
 import UIKit
+import Koloda
+import SDWebImage
 
-class HomeViewController: BookJunkieBaseViewController {
-
+class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate {
+    
+    @IBOutlet weak var copyrightLine:UILabel?
+    @IBOutlet weak var kolodaView: KolodaView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Load Overview
+        loadOverviewBooks()
+        
+        //Init subviews
+        initCopyrightLine()
+        
         
         APICallManager.getBestSellerLists { (responseObject, error) in
             
             if responseObject != nil {
                 UserModel.sharedInstance.lists = DataParseManager.parseDataIntoLists(data: responseObject)
                 print("UserModel.lists: \(UserModel.sharedInstance.lists)")
-            }
-        }
-        
-        APICallManager.getBestSellerOverview { (responseObject, error) in
-            
-            if responseObject != nil {
-                UserModel.sharedInstance.overview = DataParseManager.parseDataIntoOverviewBooks(data: responseObject)
-                
-                print("OverviewModel? \(UserModel.sharedInstance.overview)")
             }
         }
         
@@ -45,6 +48,42 @@ class HomeViewController: BookJunkieBaseViewController {
 
     }
     
+    func loadOverviewBooks() {
+        
+        APICallManager.getBestSellerOverview { (responseObject, error) in
+            
+            if responseObject != nil {
+                UserModel.sharedInstance.overview = DataParseManager.parseDataIntoOverviewBooks(data: responseObject)
+                
+                print("OverviewModel? \(UserModel.sharedInstance.overview)")
+                
+                ////books loaded. load images.
+                self.initKoloda()
+
+                ////set interactivity on book.
+                
+            }
+        }
+        
+    }
+    
+    func initKoloda() {
+        
+        kolodaView.dataSource = self
+        kolodaView.delegate = self
+    }
+    
+    func initCopyrightLine() {
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year], from: date)
+        
+        let copyStr = String(format:K.StringFormat.CopyrightVersion, components.year!, Bundle.main.releaseVersionNumber!, Bundle.main.buildVersionNumber!)
+        
+        copyrightLine?.text = copyStr
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -53,6 +92,25 @@ class HomeViewController: BookJunkieBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    ////Koloda Methods
+    public func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
+        
+        let arr = Array(UserModel.sharedInstance.overview)
+       
+        let thisModel:OverviewBookModel = arr[index] as OverviewBookModel
+        let thisURL = thisModel.imageURL
+        
+        let imgView = OverviewBookView(model:thisModel)
+        
+        imgView.sd_setImage(with: URL(string:thisURL))
+        
+        return imgView
+    }
+    
+    public func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
+        return UserModel.sharedInstance.overview.count
     }
 
 

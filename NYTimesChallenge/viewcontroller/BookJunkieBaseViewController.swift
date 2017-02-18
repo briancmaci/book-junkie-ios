@@ -15,10 +15,10 @@ class BookJunkieBaseViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         // Initialize navigationBar titleView
-        let headerLogoImage = UIImage(named: K.Icon.HeaderBarLogo)
-        navigationItem.titleView = UIImageView(image: headerLogoImage)
         
+        customizeHeaderTitleView()
         customizeBackButton()
+        customizeRightBarButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,8 +34,13 @@ class BookJunkieBaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func customizeBackButton() {
+    func customizeHeaderTitleView() {
         
+        let headerLogoImage = UIImage(named: K.Icon.HeaderBarLogo)
+        navigationItem.titleView = UIImageView(image: headerLogoImage)
+    }
+    
+    func customizeBackButton() {
         
         let backImage = UIImage(named: K.Icon.Back)
         self.navigationController?.navigationBar.backIndicatorImage = backImage
@@ -44,6 +49,23 @@ class BookJunkieBaseViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
+    func customizeRightBarButton() {
+        
+        //check if we are already on homepage
+        if type(of: self) == type(of: HomeViewController()) {
+            return
+        }
+        
+        let homeButton = UIBarButtonItem(image: UIImage(named:K.Icon.Home), style: .plain, target: self, action: #selector(onHomeTapped(sender:)))
+        
+        navigationItem.rightBarButtonItem = homeButton
+    }
+    
+    func onHomeTapped(sender:AnyObject) {
+        
+        //pop to first view in stack
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

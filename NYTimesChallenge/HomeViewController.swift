@@ -15,6 +15,9 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
     @IBOutlet weak var copyrightLine:UILabel?
     @IBOutlet weak var kolodaView: KolodaView!
     
+    //The level of "newness" for Overview books.
+    let kMaxWeeks : Int = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -53,9 +56,7 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         APICallManager.getBestSellerOverview { (responseObject, error) in
             
             if responseObject != nil {
-                UserModel.sharedInstance.overview = DataParseManager.parseDataIntoOverviewBooks(data: responseObject)
-                
-                print("OverviewModel? \(UserModel.sharedInstance.overview)")
+                UserModel.sharedInstance.overview = DataParseManager.parseDataIntoOverviewBooks(data: responseObject, maxWeeks:self.kMaxWeeks)
                 
                 ////books loaded. load images.
                 self.initKoloda()

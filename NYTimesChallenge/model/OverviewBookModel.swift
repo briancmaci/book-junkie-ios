@@ -14,7 +14,6 @@ class OverviewBookModel: NSObject {
     var bookTitle : String = ""
     var author : String = ""
     var summary : String = ""
-    var publisher : String = ""
     
     //image information
     var imageURL : String = ""
@@ -24,26 +23,25 @@ class OverviewBookModel: NSObject {
     //list information
     var listRank : Int = 0
     var thisList : BestSellerListModel!
+    var weeksOnList : Int = 0
     
     //buy link (Amazon for now)
     var buyURL : String = ""
     
     
-    init(title:String, auth:String, sum:String, pub:String, iurl:String, width:Int, height:Int, rank:Int, list:BestSellerListModel, buy:String) {
+    init(title:String, auth:String, sum:String, iurl:String, width:Int, height:Int, rank:Int, list:BestSellerListModel, weeks:Int, buy:String) {
         
         super.init()
         
         bookTitle = title
         author = auth
         summary = sum
-        publisher = pub
         imageURL = iurl
         imageWidth = width
         imageHeight = height
         listRank = rank
         thisList = list
+        weeksOnList = weeks
         buyURL = buy
-        
-        print("Title: \(bookTitle), Rank: \(listRank), Author: \(author)")
     }
 }

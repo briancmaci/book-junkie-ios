@@ -36,7 +36,7 @@ struct K {
         static let HeaderBarLogo = "HeaderBarLogo"
         static let Home = "IconHome"
         static let Back = "IconBack"
-        
+        static let IconOverlayClose = "IconOverlayClose"
     }
     
     //Storyboard IDs

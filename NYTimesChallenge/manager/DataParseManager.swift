@@ -25,7 +25,7 @@ class DataParseManager: NSObject {
         return lists
     }
     
-    class func parseDataIntoOverviewBooks(data:Any?) -> Set<OverviewBookModel> {
+    class func parseDataIntoOverviewBooks(data:Any?, maxWeeks:Int) -> Set<OverviewBookModel> {
         
         var overviewBooks : Set<OverviewBookModel> = Set<OverviewBookModel>()
         let dataDictionary = data as! Dictionary<String, AnyObject>
@@ -38,21 +38,26 @@ class DataParseManager: NSObject {
                                                   display: list.object(forKey:"display_name") as! String,
                                                   frequency: list.object(forKey:"updated") as! String)
             
+            
             let books = list["books"] as! [AnyObject]
             
             for book in books {
                 
+                let wks = book.object(forKey:"weeks_on_list") as! Int
+                
+                if wks <= maxWeeks {
                 overviewBooks.insert(OverviewBookModel(title: book.object(forKey:"title") as! String,
                                                        auth: book.object(forKey:"author") as! String,
                                                        sum: book.object(forKey:"description") as! String,
-                                                       pub: book.object(forKey:"publisher") as! String,
                                                        iurl: book.object(forKey:"book_image") as! String,
                                                        width: book.object(forKey:"book_image_width") as! Int,
                                                        height: book.object(forKey:"book_image_height") as! Int,
                                                        rank: book.object(forKey:"rank") as! Int,
                                                        list: currentList,
+                                                       weeks: wks,
                                                        buy: book.object(forKey:"amazon_product_url") as! String)
                 )
+                }
             }
             
         }

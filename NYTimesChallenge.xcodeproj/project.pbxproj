@@ -30,6 +30,8 @@
 		72268CFC1E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */; };
 		72268CFD1E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */; };
 		722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8641E58D0080038B1D3 /* OverviewBookView.swift */; };
+		722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */; };
+		722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -102,6 +104,8 @@
 		72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Bold.otf"; path = "fonts/WhitneyCondensed-Bold.otf"; sourceTree = "<group>"; };
 		72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Black.otf"; path = "fonts/WhitneyCondensed-Black.otf"; sourceTree = "<group>"; };
 		722BC8641E58D0080038B1D3 /* OverviewBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewBookView.swift; path = koloda_extend/OverviewBookView.swift; sourceTree = "<group>"; };
+		722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookDetailOverlay.swift; path = "custom-ui/BookDetailOverlay.swift"; sourceTree = "<group>"; };
+		722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailOverlay.xib; path = "custom-ui/BookDetailOverlay.xib"; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 			children = (
 				72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */,
 				72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */,
+				722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */,
+				722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */,
 			);
 			name = "custom-ui";
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				72268C801E5641B200F96DB9 /* LaunchScreen.storyboard in Resources */,
 				72268C7D1E5641B200F96DB9 /* Assets.xcassets in Resources */,
 				72268CFB1E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf in Resources */,
+				722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */,
 				72268C7B1E5641B200F96DB9 /* Main.storyboard in Resources */,
 				72268CF81E57D2AF00F96DB9 /* WhitneyCondensed-Semibold.otf in Resources */,
 				72268CFA1E57D2AF00F96DB9 /* WhitneyCondensed-Light.otf in Resources */,
@@ -534,6 +541,7 @@
 				72268CAB1E5658F200F96DB9 /* AppUtilities.swift in Sources */,
 				72268C761E5641B200F96DB9 /* AppDelegate.swift in Sources */,
 				72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */,
+				722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */,
 				72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

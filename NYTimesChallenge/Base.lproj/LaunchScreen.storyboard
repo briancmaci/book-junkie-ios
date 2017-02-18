@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +21,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DIS-Bo-Lxc">
+                                <rect key="frame" x="0.0" y="194" width="375" height="239"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DIS-Bo-Lxc" secondAttribute="height" multiplier="375:239" id="4Xo-P0-exh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashBookmark" translatesAutoresizingMaskIntoConstraints="NO" id="ih9-ox-b2C">
+                                <rect key="frame" x="230" y="0.0" width="78" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="O3a-ef-U67"/>
+                                    <constraint firstAttribute="height" constant="122" id="pLN-WD-ZVL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DIS-Bo-Lxc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="5fV-RX-s5g"/>
+                            <constraint firstItem="DIS-Bo-Lxc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="GMd-ck-aZE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ih9-ox-b2C" secondAttribute="trailing" constant="51" id="Wtu-92-51j"/>
+                            <constraint firstItem="ih9-ox-b2C" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="c6f-I6-fbQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DIS-Bo-Lxc" secondAttribute="trailing" id="ryg-YQ-DNu"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="84" y="370"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SplashBookmark" width="78" height="121"/>
+        <image name="SplashLogo" width="375" height="239"/>
+    </resources>
 </document>

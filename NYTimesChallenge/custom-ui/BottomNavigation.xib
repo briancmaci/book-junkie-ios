@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BottomNavigation" customModule="NYTimesChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2Y-TP-B40">
+                    <rect key="frame" x="0.0" y="0.0" width="125" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="Ftf-o6-lTz"/>
+                    </constraints>
+                    <state key="normal" image="IconLists"/>
+                    <connections>
+                        <action selector="onListsTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gv0-8U-Ned"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgF-aC-b9g">
+                    <rect key="frame" x="125" y="0.0" width="125" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="2Cs-3I-rhX"/>
+                    </constraints>
+                    <state key="normal" image="IconBooks"/>
+                    <connections>
+                        <action selector="onBooksTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xrx-wc-QkJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spJ-Sb-FzM">
+                    <rect key="frame" x="250" y="0.0" width="125" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="DcK-By-ofZ"/>
+                    </constraints>
+                    <state key="normal" image="IconAwards"/>
+                    <connections>
+                        <action selector="onAwardsTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="v9C-4B-U0m"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxE-o4-uT1">
+                    <rect key="frame" x="125" y="0.0" width="1" height="65"/>
+                    <color key="backgroundColor" red="0.86775420984455964" green="0.10304604886618085" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="6f3-mG-oaW"/>
+                        <constraint firstAttribute="height" constant="65" id="U1H-kz-rS8"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1H-RB-NJR">
+                    <rect key="frame" x="250" y="0.0" width="1" height="65"/>
+                    <color key="backgroundColor" red="0.86775420979999995" green="0.10304604890000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="Kcn-Gw-D4c"/>
+                        <constraint firstAttribute="width" constant="1" id="cLA-Z1-Wx7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="A1H-RB-NJR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AFu-QD-Zy9"/>
+                <constraint firstItem="EgF-aC-b9g" firstAttribute="leading" secondItem="b2Y-TP-B40" secondAttribute="trailing" id="B6d-Rd-vdi"/>
+                <constraint firstItem="EgF-aC-b9g" firstAttribute="width" secondItem="b2Y-TP-B40" secondAttribute="width" id="CM4-sa-sdm"/>
+                <constraint firstItem="spJ-Sb-FzM" firstAttribute="width" secondItem="b2Y-TP-B40" secondAttribute="width" id="J5F-jM-ts2"/>
+                <constraint firstItem="spJ-Sb-FzM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vue-q8-kgu"/>
+                <constraint firstItem="spJ-Sb-FzM" firstAttribute="leading" secondItem="EgF-aC-b9g" secondAttribute="trailing" id="W0z-mx-ya6"/>
+                <constraint firstItem="b2Y-TP-B40" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bJD-xe-Aoh"/>
+                <constraint firstAttribute="trailing" secondItem="spJ-Sb-FzM" secondAttribute="trailing" id="cG1-DA-LK5"/>
+                <constraint firstItem="b2Y-TP-B40" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cjC-fk-7ap"/>
+                <constraint firstItem="A1H-RB-NJR" firstAttribute="leading" secondItem="EgF-aC-b9g" secondAttribute="trailing" id="fKU-BB-n1o"/>
+                <constraint firstItem="LxE-o4-uT1" firstAttribute="leading" secondItem="b2Y-TP-B40" secondAttribute="trailing" id="nIG-cT-5zX"/>
+                <constraint firstItem="LxE-o4-uT1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zam-qz-nmf"/>
+                <constraint firstItem="EgF-aC-b9g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zs1-6s-48r"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="awardsButton" destination="spJ-Sb-FzM" id="0N0-at-jca"/>
+                <outlet property="booksButton" destination="EgF-aC-b9g" id="noU-Qn-jH8"/>
+                <outlet property="listsButton" destination="b2Y-TP-B40" id="h8B-QY-UPZ"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IconAwards" width="79" height="30"/>
+        <image name="IconBooks" width="66" height="27"/>
+        <image name="IconLists" width="60" height="27"/>
+    </resources>
+</document>

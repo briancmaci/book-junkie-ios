@@ -2,7 +2,7 @@
 //  NYTimesChallengeUITests.swift
 //  NYTimesChallengeUITests
 //
-//  Created by Chelsea Power on 2/16/17.
+//  Created by Brian Maci on 2/16/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 

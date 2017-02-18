@@ -1,26 +1,206 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vkk-wL-PSM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="WhitneyCondensed-Bold.otf">
+            <string>WhitneyCondensed-Bold</string>
+        </array>
+        <array key="WhitneyCondensed-Medium.otf">
+            <string>WhitneyCondensed-Medium</string>
+        </array>
+        <array key="WhitneyCondensed-Semibold.otf">
+            <string>WhitneyCondensed-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" id="BYZ-38-t0r" customClass="HomeViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BESTSELLER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaj-K7-qQs">
+                                <rect key="frame" x="20" y="20" width="335" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="8I4-kF-B6A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW EDITIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp2-9x-psd">
+                                <rect key="frame" x="20" y="50" width="335" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="8Gs-Mi-wXh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Bold" family="WhitneyCondensed" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO VIEW. SWIPE TO DISMISS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-7f-Hu1">
+                                <rect key="frame" x="60" y="485" width="255" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="G20-K8-bvV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yp2-9x-psd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="14a-p1-OMh"/>
+                            <constraint firstItem="uaj-K7-qQs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Aaf-vI-cfU"/>
+                            <constraint firstAttribute="trailing" secondItem="yp2-9x-psd" secondAttribute="trailing" constant="20" id="CKG-Ij-9Mt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U8k-7f-Hu1" secondAttribute="bottom" constant="98" id="Cs6-8K-B7P"/>
+                            <constraint firstItem="yp2-9x-psd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="KXB-Fz-MC1"/>
+                            <constraint firstItem="uaj-K7-qQs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="eLp-0x-SVt"/>
+                            <constraint firstItem="U8k-7f-Hu1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="exL-sg-qsj"/>
+                            <constraint firstAttribute="trailing" secondItem="U8k-7f-Hu1" secondAttribute="trailing" constant="60" id="fgb-r7-RaY"/>
+                            <constraint firstAttribute="trailing" secondItem="uaj-K7-qQs" secondAttribute="trailing" constant="20" id="nZ9-Yl-frp"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0qX-Dd-cSR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="324" y="-65.217391304347828"/>
+        </scene>
+        <!--Lists View Controller-->
+        <scene sceneID="BBx-ff-lMV">
+            <objects>
+                <viewController storyboardIdentifier="listsVC" id="9rH-EV-V2r" customClass="ListsViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sc1-vi-WaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ho6-Oe-xdN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KrJ-n9-k4g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LISTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-P1-r05">
+                                <rect key="frame" x="140" y="117" width="95" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="OvE-xe-kfY"/>
+                                    <constraint firstAttribute="width" constant="95" id="bTe-7P-D0p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QtZ-P1-r05" firstAttribute="top" secondItem="Sc1-vi-WaZ" secondAttribute="bottom" constant="97" id="784-QI-bZb"/>
+                            <constraint firstItem="QtZ-P1-r05" firstAttribute="centerX" secondItem="KrJ-n9-k4g" secondAttribute="centerX" id="QCc-gd-Q09"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70x-gr-SlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="-65"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3hx-0y-80S">
+            <objects>
+                <navigationController storyboardIdentifier="mainNavVC" id="Vkk-wL-PSM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="b8Y-UE-dBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="28"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1j5-BY-ZRf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4r-E7-lcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-455" y="-65"/>
+        </scene>
+        <!--Awards View Controller-->
+        <scene sceneID="Rdr-0O-p2d">
+            <objects>
+                <viewController storyboardIdentifier="awardsVC" id="lIz-YX-joa" customClass="AwardsViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EY0-Il-Hrb"/>
+                        <viewControllerLayoutGuide type="bottom" id="By7-BE-F40"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fou-Qd-xal">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWARDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE1-kE-tL7">
+                                <rect key="frame" x="113" y="117" width="151" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="FJY-fE-rNv"/>
+                                    <constraint firstAttribute="width" constant="151" id="k1b-Yq-vuz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uE1-kE-tL7" firstAttribute="top" secondItem="EY0-Il-Hrb" secondAttribute="bottom" constant="97" id="Obf-zz-HfO"/>
+                            <constraint firstItem="uE1-kE-tL7" firstAttribute="centerX" secondItem="fou-Qd-xal" secondAttribute="centerX" constant="1" id="mbE-me-mEQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wa-W4-S9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712.8" y="-65.217391304347828"/>
+        </scene>
+        <!--Books View Controller-->
+        <scene sceneID="dR0-t6-FgZ">
+            <objects>
+                <viewController storyboardIdentifier="booksVC" id="aYm-Tb-7Th" customClass="BooksViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mb0-Fe-KYR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nu6-94-kw2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gVo-AX-2Qe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOKS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-e2-pFs">
+                                <rect key="frame" x="113" y="117" width="151" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="Lgv-pt-PxA"/>
+                                    <constraint firstAttribute="height" constant="68" id="nmH-Y5-XKu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lb3-e2-pFs" firstAttribute="centerX" secondItem="gVo-AX-2Qe" secondAttribute="centerX" constant="1" id="OeI-Xv-hnz"/>
+                            <constraint firstItem="lb3-e2-pFs" firstAttribute="top" secondItem="mb0-Fe-KYR" secondAttribute="bottom" constant="97" id="Zog-Di-pIT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cak-33-bY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2406" y="-65"/>
         </scene>
     </scenes>
 </document>

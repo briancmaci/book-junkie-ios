@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/16/17.
+//  Created by Brian Maci on 2/16/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Stack setup
+        buildWindowHierarchy()
+        buildBottomNavigation()
+        
         return true
     }
 
@@ -41,6 +46,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    //Window Hierarchy Setup
+    func buildWindowHierarchy() {
+    
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: K.Storyboard.Name.Main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: K.Storyboard.ID.MainNavigation)
+        window!.rootViewController = controller
+        window!.makeKeyAndVisible()
+        
+    }
+    
+    func buildBottomNavigation() {
+        
+        let bottomNav = BottomNavigation.instanceFromNib()
+        let newFrame = CGRect(x:0,
+                              y:UIScreen.main.bounds.size.height - bottomNav.frame.size.height,
+                              width:UIScreen.main.bounds.size.width,
+                              height:bottomNav.frame.size.height)
+        
+        bottomNav.frame = newFrame
+        window?.addSubview(bottomNav)
+    }
 
 }
 

@@ -35,6 +35,7 @@
 		72D619CF1E57F6B900A2BFCF /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */; };
 		72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */; };
 		72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D21E5803AB00A2BFCF /* BooksViewController.swift */; };
+		72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D41E5815C800A2BFCF /* BooksReadModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListsViewController.swift; path = viewcontroller/ListsViewController.swift; sourceTree = "<group>"; };
 		72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwardsViewController.swift; path = viewcontroller/AwardsViewController.swift; sourceTree = "<group>"; };
 		72D619D21E5803AB00A2BFCF /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksViewController.swift; path = viewcontroller/BooksViewController.swift; sourceTree = "<group>"; };
+		72D619D41E5815C800A2BFCF /* BooksReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksReadModel.swift; path = model/BooksReadModel.swift; sourceTree = "<group>"; };
 		F26D3B2616D35F1BDED903D4 /* Pods-NYTimesChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NYTimesChallenge/Pods-NYTimesChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 				72268CE91E576E1000F96DB9 /* BestSellerListModel.swift */,
 				72268CEF1E57BECD00F96DB9 /* OverviewBookModel.swift */,
 				72268CED1E57997400F96DB9 /* UserModel.swift */,
+				72D619D41E5815C800A2BFCF /* BooksReadModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				72268CAB1E5658F200F96DB9 /* AppUtilities.swift in Sources */,
 				72268C761E5641B200F96DB9 /* AppDelegate.swift in Sources */,
 				72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */,
+				72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

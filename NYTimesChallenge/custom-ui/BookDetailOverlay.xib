@@ -5,15 +5,11 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="WhitneyCondensed-Black.otf">
             <string>WhitneyCondensed-Black</string>
-        </array>
-        <array key="WhitneyCondensed-Book.otf">
-            <string>WhitneyCondensed-Book</string>
         </array>
         <array key="WhitneyCondensed-Medium.otf">
             <string>WhitneyCondensed-Medium</string>
@@ -29,9 +25,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDg-oG-c4G" userLabel="BackgroundView">
-                    <rect key="frame" x="8" y="8" width="359" height="521"/>
-                    <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                <view alpha="0.93000000000000005" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDg-oG-c4G" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
+                    <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4f-7H-TCE" userLabel="DetailView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
@@ -43,6 +39,9 @@
                                 <constraint firstAttribute="width" constant="44" id="N5s-ia-vnp"/>
                             </constraints>
                             <state key="normal" image="IconOverlayClose"/>
+                            <connections>
+                                <action selector="closeButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="mht-PX-bKu"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2W-Mx-T2W">
                             <rect key="frame" x="138" y="10" width="100" height="70"/>
@@ -103,7 +102,7 @@
                                 <constraint firstAttribute="height" constant="80" id="n5i-Dw-MSZ"/>
                             </constraints>
                             <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="WhitneyCondensed-Book" family="WhitneyCondensed" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-kV-pz2" userLabel="ButtonView">
@@ -167,12 +166,12 @@
             <constraints>
                 <constraint firstItem="C4f-7H-TCE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5zc-ej-UWS"/>
                 <constraint firstAttribute="trailing" secondItem="C4f-7H-TCE" secondAttribute="trailing" id="7ag-8e-Dcl"/>
-                <constraint firstAttribute="bottomMargin" secondItem="PDg-oG-c4G" secondAttribute="bottom" id="Gpb-qv-8rV"/>
+                <constraint firstItem="PDg-oG-c4G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CrH-i5-DGK"/>
+                <constraint firstAttribute="bottom" secondItem="PDg-oG-c4G" secondAttribute="bottom" id="IOn-p4-5Kf"/>
                 <constraint firstAttribute="bottom" secondItem="C4f-7H-TCE" secondAttribute="bottom" id="Soa-fi-CN7"/>
                 <constraint firstItem="C4f-7H-TCE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="W1j-rB-nQQ"/>
-                <constraint firstAttribute="trailingMargin" secondItem="PDg-oG-c4G" secondAttribute="trailing" id="Zxv-Ls-aKd"/>
-                <constraint firstItem="PDg-oG-c4G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="auZ-TV-HbU"/>
-                <constraint firstItem="PDg-oG-c4G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="jzz-NU-cQx"/>
+                <constraint firstAttribute="trailing" secondItem="PDg-oG-c4G" secondAttribute="trailing" id="eng-0S-E26"/>
+                <constraint firstItem="PDg-oG-c4G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hIP-hC-SpM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

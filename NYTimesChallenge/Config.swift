@@ -58,10 +58,26 @@ struct K {
     //NIB Names
     struct NIBName {
         static let BottomNavigation = "BottomNavigation"
+        static let BookDetailOverlay = "BookDetailOverlay"
     }
     
     //Strings
     struct StringFormat {
         static let CopyrightVersion = "©%d BookJunkie  v%@.%@"
+        
+        //Book Detail Strings
+        static let DetailByline = "BY %@"
+        static let DetailRank = "#%d"
+        static let DetailWeek0 = "NEW THIS WEEK"    //Not a format. Placed here for organization.
+        static let DetailWeek1 = "%d WEEK ON THE LIST"
+        static let DetailWeekDefault = "%d WEEKS ON THE LIST"
+    }
+    
+    //Constant numerical values
+    struct NumberConstant {
+        
+        static let BottomNavHeight : CGFloat = 65
+        static let HeaderAndStatusBarsHeight : CGFloat = 64
+        
     }
 }

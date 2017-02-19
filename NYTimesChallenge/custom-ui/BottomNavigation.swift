@@ -10,9 +10,9 @@ import UIKit
 
 class BottomNavigation: UIView {
 
-    @IBOutlet weak var listsButton : UIButton?
-    @IBOutlet weak var booksButton : UIButton?
-    @IBOutlet weak var awardsButton : UIButton?
+    @IBOutlet weak var listsButton : UIButton!
+    @IBOutlet weak var booksButton : UIButton!
+    @IBOutlet weak var awardsButton : UIButton!
     
     //This is tracked to remove redundant viewcontroller pushes
     var currentVC:BookJunkieBaseViewController = HomeViewController()
@@ -58,8 +58,4 @@ class BottomNavigation: UIView {
     }
     */
     
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: K.NIBName.BottomNavigation, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
-    }
-
 }

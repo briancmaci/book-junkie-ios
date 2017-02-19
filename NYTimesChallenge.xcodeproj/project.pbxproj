@@ -32,6 +32,7 @@
 		722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8641E58D0080038B1D3 /* OverviewBookView.swift */; };
 		722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */; };
 		722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */; };
+		722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -106,6 +107,7 @@
 		722BC8641E58D0080038B1D3 /* OverviewBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewBookView.swift; path = koloda_extend/OverviewBookView.swift; sourceTree = "<group>"; };
 		722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookDetailOverlay.swift; path = "custom-ui/BookDetailOverlay.swift"; sourceTree = "<group>"; };
 		722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailOverlay.xib; path = "custom-ui/BookDetailOverlay.xib"; sourceTree = "<group>"; };
+		722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = extension/UIViewExtension.swift; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -182,8 +184,8 @@
 				72268C7E1E5641B200F96DB9 /* LaunchScreen.storyboard */,
 				72268C7C1E5641B200F96DB9 /* Assets.xcassets */,
 				72268CA31E56481200F96DB9 /* NYTimesChallenge-Bridging-Header.h */,
-				72D619C91E57EAB900A2BFCF /* custom-ui */,
 				72268CAC1E565BB700F96DB9 /* config */,
+				72D619C91E57EAB900A2BFCF /* custom-ui */,
 				72D619D61E58952100A2BFCF /* extension */,
 				72268CF11E57D29200F96DB9 /* fonts */,
 				722BC8631E58CFC60038B1D3 /* koloda_extend */,
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				72D619D71E58955D00A2BFCF /* BundleExtension.swift */,
+				722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				72268CEA1E576E1000F96DB9 /* BestSellerListModel.swift in Sources */,
 				72268CAE1E565BD000F96DB9 /* Config.swift in Sources */,
 				72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */,
+				722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */,
 				72268CAB1E5658F200F96DB9 /* AppUtilities.swift in Sources */,
 				72268C761E5641B200F96DB9 /* AppDelegate.swift in Sources */,
 				72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */,

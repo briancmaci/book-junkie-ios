@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol OverviewBookDelegate {
+    func overviewTapped( model: OverviewBookModel )
+}
+
 class OverviewBookView: UIImageView {
     
     var thisModel:OverviewBookModel?
 
+    //Delegate
+    var delegate:OverviewBookDelegate?
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -20,7 +27,7 @@ class OverviewBookView: UIImageView {
     }
     */
     
-    init( model:OverviewBookModel) {
+    init( model:OverviewBookModel ) {
         
         super.init(frame: CGRect(x:0, y:0, width:0, height:0))
         
@@ -36,6 +43,8 @@ class OverviewBookView: UIImageView {
         //let tappedImageView = gestureRecognizer.view!
         
         print("IMAGE TAPPED! \(thisModel?.bookTitle)")
+        
+        delegate?.overviewTapped(model: thisModel!)
     }
     
     required init?(coder aDecoder: NSCoder) {

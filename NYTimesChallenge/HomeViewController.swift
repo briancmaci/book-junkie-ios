@@ -10,10 +10,12 @@ import UIKit
 import Koloda
 import SDWebImage
 
-class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate {
+class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, OverviewDetailOverlayDelegate {
     
-    @IBOutlet weak var copyrightLine:UILabel?
+    @IBOutlet weak var copyrightLine:UILabel!
     @IBOutlet weak var kolodaView: KolodaView!
+    
+    var bookDetailOverlay : BookDetailOverlay!
     
     //The level of "newness" for Overview books.
     let kMaxWeeks : Int = 3
@@ -27,7 +29,7 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         
         //Init subviews
         initCopyrightLine()
-        
+        //initBookDetailOverlay()
         
         APICallManager.getBestSellerLists { (responseObject, error) in
             
@@ -85,6 +87,25 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         copyrightLine?.text = copyStr
     }
     
+    func initBookDetailOverlay(thisModel:OverviewBookModel) {
+        
+        bookDetailOverlay = BookDetailOverlay.instanceFromNib(name: K.NIBName.BookDetailOverlay) as? BookDetailOverlay
+        
+        bookDetailOverlay.delegate = self
+        
+        bookDetailOverlay?.populate(model: thisModel)
+        
+        
+        bookDetailOverlay?.frame = bookDetailOverlay.beginFrame
+        
+        view.addSubview(bookDetailOverlay!)
+        
+        //animate In
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.bookDetailOverlay.frame = self.bookDetailOverlay.endFrame
+        }, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -107,11 +128,36 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         
         imgView.sd_setImage(with: URL(string:thisURL))
         
+        imgView.delegate = self
+        
         return imgView
     }
     
     public func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return UserModel.sharedInstance.overview.count
+    }
+    
+    ////OverlayBookDelegate Methods
+    func overviewTapped(model: OverviewBookModel) {
+        initBookDetailOverlay(thisModel: model)
+    }
+    
+    ////OverviewDetailOverlayDelegate Methods
+    func overlayClosed() {
+        
+        
+        //animate Out
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.bookDetailOverlay.frame = self.bookDetailOverlay.beginFrame
+        }) { (true) in
+            //swipe Right
+            self.kolodaView.swipe(.right)
+            
+            //Remove Detail and Blur
+            self.bookDetailOverlay.removeFromSuperview()
+            self.bookDetailOverlay = nil
+        }
+        
     }
 
 

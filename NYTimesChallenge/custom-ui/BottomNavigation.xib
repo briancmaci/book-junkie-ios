@@ -46,7 +46,7 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxE-o4-uT1">
                     <rect key="frame" x="125" y="0.0" width="1" height="65"/>
-                    <color key="backgroundColor" red="0.86775420984455964" green="0.10304604886618085" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="6f3-mG-oaW"/>
                         <constraint firstAttribute="height" constant="65" id="U1H-kz-rS8"/>
@@ -54,7 +54,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1H-RB-NJR">
                     <rect key="frame" x="250" y="0.0" width="1" height="65"/>
-                    <color key="backgroundColor" red="0.86775420979999995" green="0.10304604890000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="Kcn-Gw-D4c"/>
                         <constraint firstAttribute="width" constant="1" id="cLA-Z1-Wx7"/>

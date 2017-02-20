@@ -31,6 +31,16 @@ struct K {
         static let List = "list"
     }
     
+    //Colors
+    struct Color {
+        static let mainGray = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1)
+        static let redDetail = UIColor(red: 127/255, green: 1/255, blue: 1/255, alpha: 1)
+        
+        //UITableViewCells
+        static let grayBG0 = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
+        static let grayBG1 = UIColor(red: 229/255, green: 229/255, blue: 229/255, alpha: 1)
+    }
+    
     //Icons
     struct Icon {
         static let HeaderBarLogo = "HeaderBarLogo"
@@ -59,6 +69,16 @@ struct K {
     struct NIBName {
         static let BottomNavigation = "BottomNavigation"
         static let BookDetailOverlay = "BookDetailOverlay"
+        
+        //UITableViewCells
+        static let MyListsCell = "MyListsCell"
+        static let MyListsFooterCell = "MyListsFooterCell"
+    }
+    
+    //UITableViewCell reuseIdentifiers
+    struct ReuseID {
+        static let MyListsCellID = "myListsCellID"
+        static let MyListsFooterCellID = "myListsFooterCellID"
     }
     
     //Strings
@@ -78,6 +98,10 @@ struct K {
         
         static let BottomNavHeight : CGFloat = 65
         static let HeaderAndStatusBarsHeight : CGFloat = 64
+        
+        //My Lists TableView
+        static let MyListsRowHeight : CGFloat = 44
+        static let MyListsFooterHeight : CGFloat = 64
         
     }
 }

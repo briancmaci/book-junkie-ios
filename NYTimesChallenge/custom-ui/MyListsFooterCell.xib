@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="WhitneyCondensed-Medium.otf">
+            <string>WhitneyCondensed-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myListsFooterCellID" id="KGk-i7-Jjw" customClass="MyListsFooterCell" customModule="NYTimesChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD MORE LISTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-06-XQ7">
+                        <rect key="frame" x="12" y="20.5" width="248" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="lIu-CY-6bx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAddMoreLists" translatesAutoresizingMaskIntoConstraints="NO" id="7UM-Cv-mlT">
+                        <rect key="frame" x="277" y="18" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="27" id="KPU-gl-kXd"/>
+                            <constraint firstAttribute="height" constant="27" id="Rf2-CY-bUG"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7UM-Cv-mlT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CKq-eM-MjQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Tkw-06-XQ7" secondAttribute="trailing" constant="60" id="FoY-4I-czc"/>
+                    <constraint firstAttribute="trailing" secondItem="7UM-Cv-mlT" secondAttribute="trailing" constant="16" id="LDH-96-45i"/>
+                    <constraint firstItem="Tkw-06-XQ7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZHF-mH-gox"/>
+                    <constraint firstItem="Tkw-06-XQ7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="aXH-7s-8pD"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconAddMoreLists" width="27" height="27"/>
+    </resources>
+</document>

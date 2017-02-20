@@ -23,6 +23,9 @@ class AppUtilities: NSObject {
         }
     }
     
+    class func generateUUID() -> String {
+        return UUID().uuidString
+    }
     
 
 }

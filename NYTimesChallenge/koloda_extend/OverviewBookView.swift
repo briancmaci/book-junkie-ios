@@ -40,10 +40,6 @@ class OverviewBookView: UIImageView {
     }
     
     func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
-        //let tappedImageView = gestureRecognizer.view!
-        
-        print("IMAGE TAPPED! \(thisModel?.bookTitle)")
-        
         delegate?.overviewTapped(model: thisModel!)
     }
     

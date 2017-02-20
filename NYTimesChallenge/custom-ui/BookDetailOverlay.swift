@@ -10,6 +10,8 @@ import UIKit
 
 protocol OverviewDetailOverlayDelegate {
     func overlayClosed()
+    func buyBookTapped( url:String )
+    func addToNextUpTapped( model:OverviewBookModel )
 }
 
 class BookDetailOverlay: UIView {
@@ -42,12 +44,12 @@ class BookDetailOverlay: UIView {
     
     var thisModel : OverviewBookModel?
     
-    let beginFrame : CGRect = CGRect(x:UIScreen.main.bounds.size.width,
+    let offFrame : CGRect = CGRect(x:UIScreen.main.bounds.size.width,
                                      y:0,
                                      width:UIScreen.main.bounds.size.width,
                                      height:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
     
-    let endFrame : CGRect = CGRect(x:0,
+    let onFrame : CGRect = CGRect(x:0,
                                    y:0,
                                    width:UIScreen.main.bounds.size.width,
                                    height:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
@@ -74,13 +76,24 @@ class BookDetailOverlay: UIView {
         
         //Load book detail
         bookImageView.sd_setImage(with: URL(string:(thisModel?.imageURL)!))
+        
+        //Set Buy Button enable based on buyLink
+        buyButton.isEnabled = thisModel?.buyURL == "" ? false : true
     }
     
+    ////MARK - Delegate Methods
     @IBAction func closeButtonTapped( sender: UIButton ) {
         
         delegate?.overlayClosed()
     }
     
+    @IBAction func buyButtonTapped( sender: UIButton ) {
+        delegate?.buyBookTapped(url: (thisModel?.buyURL)! )
+    }
+    
+    @IBAction func addNextButtonTapped( sender: UIButton ) {
+        delegate?.addToNextUpTapped(model:thisModel!)
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

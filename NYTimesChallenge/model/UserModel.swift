@@ -12,6 +12,6 @@ class UserModel: NSObject {
 
     static let sharedInstance = UserModel()
     
-    var lists : Set<BestSellerListModel> = Set<BestSellerListModel>()
-    var overview : Set<OverviewBookModel> = Set<OverviewBookModel>()
+    var lists : [BestSellerListModel] = [BestSellerListModel]()
+    var overview : [OverviewBookModel] = [OverviewBookModel]()
 }

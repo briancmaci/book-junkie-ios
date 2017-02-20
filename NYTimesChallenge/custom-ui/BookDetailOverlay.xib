@@ -115,6 +115,11 @@
                                         <constraint firstAttribute="height" constant="34" id="acE-79-wtJ"/>
                                     </constraints>
                                     <state key="normal" image="ButtonAddNextUp"/>
+                                    <state key="selected" image="ButtonAddNextUpOn"/>
+                                    <state key="highlighted" image="ButtonAddNextUpOn"/>
+                                    <connections>
+                                        <action selector="addNextButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Tb-Ik-uOQ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-df-e6v">
                                     <rect key="frame" x="210" y="0.0" width="72" height="34"/>
@@ -123,6 +128,11 @@
                                         <constraint firstAttribute="height" constant="34" id="WWf-RV-O3F"/>
                                     </constraints>
                                     <state key="normal" image="ButtonBuy"/>
+                                    <state key="selected" image="ButtonBuyOn"/>
+                                    <state key="highlighted" image="ButtonBuyOn"/>
+                                    <connections>
+                                        <action selector="buyButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="xQ5-0j-qkY"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -193,7 +203,9 @@
     </objects>
     <resources>
         <image name="ButtonAddNextUp" width="196" height="34"/>
+        <image name="ButtonAddNextUpOn" width="196" height="34"/>
         <image name="ButtonBuy" width="72" height="34"/>
+        <image name="ButtonBuyOn" width="72" height="34"/>
         <image name="IconOverlayClose" width="27" height="27"/>
     </resources>
 </document>

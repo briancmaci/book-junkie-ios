@@ -66,6 +66,14 @@ class BookJunkieBaseViewController: UIViewController {
         //pop to first view in stack
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    // Bottom Navigation access
+    func getBottomNavigation() -> BottomNavigation {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.bottomNav!
+        
+    }
     /*
     // MARK: - Navigation
 

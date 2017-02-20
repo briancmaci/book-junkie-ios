@@ -9,8 +9,9 @@
 import UIKit
 import Koloda
 import SDWebImage
+import SafariServices
 
-class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, OverviewDetailOverlayDelegate {
+class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, OverviewDetailOverlayDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var copyrightLine:UILabel!
     @IBOutlet weak var kolodaView: KolodaView!
@@ -31,11 +32,33 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         initCopyrightLine()
         //initBookDetailOverlay()
         
-        APICallManager.getBestSellerLists { (responseObject, error) in
-            
-            if responseObject != nil {
-                UserModel.sharedInstance.lists = DataParseManager.parseDataIntoLists(data: responseObject)
-                print("UserModel.lists: \(UserModel.sharedInstance.lists)")
+        UserModel.sharedInstance.lists = CoreDataManager.retrieveBestSellersList()
+        for list in UserModel.sharedInstance.lists {
+            print("SELECTED??? \(list.listIsSelected)")
+        }
+        //// ENCAPSULATE IN METHOD!!!!!!!! CLEAN UP CLEAN UP CLEAN UP
+        //// CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP
+        //// CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP
+        if UserModel.sharedInstance.lists.isEmpty == true {
+            APICallManager.getBestSellerLists { (responseObject, error) in
+                
+                if responseObject != nil {
+                    UserModel.sharedInstance.lists = DataParseManager.parseDataIntoLists(data: responseObject)
+                    //print("UserModel.lists: \(UserModel.sharedInstance.lists)")
+                    
+                    for list in UserModel.sharedInstance.lists {
+                        
+                        ////TEST DUPLICATE SITCH
+                        ////TEST DUPLICATE SITCH
+                        ////TEST DUPLICATE SITCH
+                        ////TEST DUPLICATE SITCH
+                        if list.displayName == "hardcover-fiction" {
+                            list.listIsSelected = true
+                        }
+                        
+                        CoreDataManager.saveBestSellersList(thisList: list)
+                    }
+                }
             }
         }
         
@@ -96,13 +119,13 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         bookDetailOverlay?.populate(model: thisModel)
         
         
-        bookDetailOverlay?.frame = bookDetailOverlay.beginFrame
+        bookDetailOverlay?.frame = bookDetailOverlay.offFrame
         
         view.addSubview(bookDetailOverlay!)
         
         //animate In
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.bookDetailOverlay.frame = self.bookDetailOverlay.endFrame
+            self.bookDetailOverlay.frame = self.bookDetailOverlay.onFrame
         }, completion: nil)
     }
     
@@ -119,14 +142,20 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
     ////Koloda Methods
     public func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         
-        let arr = Array(UserModel.sharedInstance.overview)
-       
-        let thisModel:OverviewBookModel = arr[index] as OverviewBookModel
-        let thisURL = thisModel.imageURL
-        
+        let thisModel:OverviewBookModel = UserModel.sharedInstance.overview[index] as OverviewBookModel
         let imgView = OverviewBookView(model:thisModel)
         
-        imgView.sd_setImage(with: URL(string:thisURL))
+        imgView.sd_setImage(with: URL(string:thisModel.imageURL)) { (img, error, type, url) in
+            
+            if error == nil {
+                imgView.alpha = 0
+                
+                UIView.animate(withDuration: 0.3, animations: {
+                    imgView.alpha = 1
+                })
+            }
+        }
+        //imgView.sd_setImage(with: URL(string:thisModel.imageURL))
         
         imgView.delegate = self
         
@@ -138,17 +167,34 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
     }
     
     ////OverlayBookDelegate Methods
-    func overviewTapped(model: OverviewBookModel) {
+    internal func overviewTapped(model: OverviewBookModel) {
         initBookDetailOverlay(thisModel: model)
     }
     
     ////OverviewDetailOverlayDelegate Methods
-    func overlayClosed() {
+    internal func addToNextUpTapped(model:OverviewBookModel) {
+        print("Add this book next: \(model.bookTitle)")
+    }
+    
+    internal func buyBookTapped(url: String) {
         
+        //Load Buy Link in SafariViewController
+        let svc = SFSafariViewController(url: NSURL(string: url)! as URL, entersReaderIfAvailable: true)
+        svc.view.tintColor = UIColor.black
+        //svc.navigationController?.navigationBar.tintColor = UIColor.black
         
+        self.present(svc, animated: true, completion: nil)
+        
+        svc.delegate = self
+        
+        //Hide Bottom Nav
+        getBottomNavigation().show(visible: false)
+    }
+    
+    internal func overlayClosed() {
         //animate Out
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.bookDetailOverlay.frame = self.bookDetailOverlay.beginFrame
+            self.bookDetailOverlay.frame = self.bookDetailOverlay.offFrame
         }) { (true) in
             //swipe Right
             self.kolodaView.swipe(.right)
@@ -159,7 +205,15 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         }
         
     }
-
+    
+    ////SFSafariViewControllerDelegate Methods
+    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController)
+    {
+        controller.dismiss(animated: true, completion: nil)
+        
+        //Show Bottom Nav
+        getBottomNavigation().show(visible: true)
+    }
 
 }
 

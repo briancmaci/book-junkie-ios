@@ -10,24 +10,23 @@ import UIKit
 
 class DataParseManager: NSObject {
 
-    class func parseDataIntoLists(data:Any?) -> Set<BestSellerListModel> {
+    class func parseDataIntoLists(data:Any?) -> [BestSellerListModel] {
     
-        var lists : Set<BestSellerListModel> = Set<BestSellerListModel>()
+        var lists : [BestSellerListModel] = [BestSellerListModel]()
         let dataDictionary = data as! Dictionary<String, AnyObject>
         let results = dataDictionary["results"] as! [AnyObject]
         
         for result in results {
-            lists.insert(BestSellerListModel(name: result.object(forKey:"list_name") as! String,
-                                             display: result.object(forKey:"display_name") as! String,
-                                             frequency: result.object(forKey:"updated") as! String))
+            lists.append(BestSellerListModel(name: result.object(forKey:"list_name") as! String,
+                                             display: result.object(forKey:"display_name") as! String))
         }
         
         return lists
     }
     
-    class func parseDataIntoOverviewBooks(data:Any?, maxWeeks:Int) -> Set<OverviewBookModel> {
+    class func parseDataIntoOverviewBooks(data:Any?, maxWeeks:Int) -> [OverviewBookModel] {
         
-        var overviewBooks : Set<OverviewBookModel> = Set<OverviewBookModel>()
+        var overviewBooks : [OverviewBookModel] = [OverviewBookModel]()
         let dataDictionary = data as! Dictionary<String, AnyObject>
         let lists = dataDictionary["results"]?["lists"] as! [AnyObject]
         
@@ -35,8 +34,7 @@ class DataParseManager: NSObject {
         for list in lists {
             
             let currentList = BestSellerListModel(name: list.object(forKey:"list_name") as! String,
-                                                  display: list.object(forKey:"display_name") as! String,
-                                                  frequency: list.object(forKey:"updated") as! String)
+                                                  display: list.object(forKey:"display_name") as! String)
             
             
             let books = list["books"] as! [AnyObject]
@@ -46,7 +44,7 @@ class DataParseManager: NSObject {
                 let wks = book.object(forKey:"weeks_on_list") as! Int
                 
                 if wks <= maxWeeks {
-                overviewBooks.insert(OverviewBookModel(title: book.object(forKey:"title") as! String,
+                overviewBooks.append(OverviewBookModel(title: book.object(forKey:"title") as! String,
                                                        auth: book.object(forKey:"author") as! String,
                                                        sum: book.object(forKey:"description") as! String,
                                                        iurl: book.object(forKey:"book_image") as! String,

@@ -17,6 +17,16 @@ class BottomNavigation: UIView {
     //This is tracked to remove redundant viewcontroller pushes
     var currentVC:BookJunkieBaseViewController = HomeViewController()
     
+    let onFrame:CGRect = CGRect(x:0,
+                                y:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight,
+                                width:UIScreen.main.bounds.size.width,
+                                height:K.NumberConstant.BottomNavHeight)
+    
+    let offFrame:CGRect = CGRect(x:0,
+                                 y:UIScreen.main.bounds.size.height,
+                                 width:UIScreen.main.bounds.size.width,
+                                 height:K.NumberConstant.BottomNavHeight)
+    
     @IBAction func onListsTapped(sender:UIButton){
         let newVC = getViewControllerFromStoryboard(id: K.Storyboard.ID.Lists) as! ListsViewController
         pushNewViewController(vc: newVC)
@@ -48,6 +58,25 @@ class BottomNavigation: UIView {
         }
         navController.pushViewController(vc, animated:true)
         currentVC = vc
+    }
+    
+    func show(visible:Bool) {
+        
+        //Show bottom navigation
+        if visible == true {
+            UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
+                self.frame = self.onFrame
+            }, completion: nil)
+        }
+        
+        //Hide bottom navigation
+        else {
+            
+            UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: {
+                self.frame = self.offFrame
+            }, completion: nil)
+        
+        }
     }
     
     /*

@@ -33,6 +33,12 @@
 		722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */; };
 		722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */; };
 		722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */; };
+		722BC8701E59F84A0038B1D3 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC86E1E59F84A0038B1D3 /* MyListsCell.swift */; };
+		722BC8711E59F84A0038B1D3 /* MyListsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC86F1E59F84A0038B1D3 /* MyListsCell.xib */; };
+		722BC8751E5A020D0038B1D3 /* MyListsFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8731E5A020D0038B1D3 /* MyListsFooterCell.swift */; };
+		722BC8761E5A020D0038B1D3 /* MyListsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8741E5A020D0038B1D3 /* MyListsFooterCell.xib */; };
+		722BC8FA1E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8F81E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld */; };
+		722BC8FC1E5A5F9E0038B1D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -108,6 +114,13 @@
 		722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookDetailOverlay.swift; path = "custom-ui/BookDetailOverlay.swift"; sourceTree = "<group>"; };
 		722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailOverlay.xib; path = "custom-ui/BookDetailOverlay.xib"; sourceTree = "<group>"; };
 		722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = extension/UIViewExtension.swift; sourceTree = "<group>"; };
+		722BC86E1E59F84A0038B1D3 /* MyListsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyListsCell.swift; path = "custom-ui/MyListsCell.swift"; sourceTree = "<group>"; };
+		722BC86F1E59F84A0038B1D3 /* MyListsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyListsCell.xib; path = "custom-ui/MyListsCell.xib"; sourceTree = "<group>"; };
+		722BC8731E5A020D0038B1D3 /* MyListsFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyListsFooterCell.swift; path = "custom-ui/MyListsFooterCell.swift"; sourceTree = "<group>"; };
+		722BC8741E5A020D0038B1D3 /* MyListsFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyListsFooterCell.xib; path = "custom-ui/MyListsFooterCell.xib"; sourceTree = "<group>"; };
+		722BC87B1E5A39FA0038B1D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		722BC8F91E5A40BF0038B1D3 /* BookJunkie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookJunkie.xcdatamodel; sourceTree = "<group>"; };
+		722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = manager/CoreDataManager.swift; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -185,6 +198,7 @@
 				72268C7C1E5641B200F96DB9 /* Assets.xcassets */,
 				72268CA31E56481200F96DB9 /* NYTimesChallenge-Bridging-Header.h */,
 				72268CAC1E565BB700F96DB9 /* config */,
+				722BC8F71E5A40520038B1D3 /* core-data */,
 				72D619C91E57EAB900A2BFCF /* custom-ui */,
 				72D619D61E58952100A2BFCF /* extension */,
 				72268CF11E57D29200F96DB9 /* fonts */,
@@ -221,6 +235,7 @@
 			children = (
 				72268CA51E564BAB00F96DB9 /* APICallManager.swift */,
 				72268CEB1E578C3500F96DB9 /* DataParseManager.swift */,
+				722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -245,9 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				72268CE91E576E1000F96DB9 /* BestSellerListModel.swift */,
+				72D619D41E5815C800A2BFCF /* BooksReadModel.swift */,
 				72268CEF1E57BECD00F96DB9 /* OverviewBookModel.swift */,
 				72268CED1E57997400F96DB9 /* UserModel.swift */,
-				72D619D41E5815C800A2BFCF /* BooksReadModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -294,6 +309,43 @@
 			name = koloda_extend;
 			sourceTree = "<group>";
 		};
+		722BC86C1E59F8090038B1D3 /* bottom-nav */ = {
+			isa = PBXGroup;
+			children = (
+				72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */,
+				72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */,
+			);
+			name = "bottom-nav";
+			sourceTree = "<group>";
+		};
+		722BC86D1E59F8190038B1D3 /* detail-overlay */ = {
+			isa = PBXGroup;
+			children = (
+				722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */,
+				722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */,
+			);
+			name = "detail-overlay";
+			sourceTree = "<group>";
+		};
+		722BC8721E59F8510038B1D3 /* my-lists-cells */ = {
+			isa = PBXGroup;
+			children = (
+				722BC86E1E59F84A0038B1D3 /* MyListsCell.swift */,
+				722BC86F1E59F84A0038B1D3 /* MyListsCell.xib */,
+				722BC8731E5A020D0038B1D3 /* MyListsFooterCell.swift */,
+				722BC8741E5A020D0038B1D3 /* MyListsFooterCell.xib */,
+			);
+			name = "my-lists-cells";
+			sourceTree = "<group>";
+		};
+		722BC8F71E5A40520038B1D3 /* core-data */ = {
+			isa = PBXGroup;
+			children = (
+				722BC8F81E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld */,
+			);
+			name = "core-data";
+			sourceTree = "<group>";
+		};
 		72D619C61E57E32100A2BFCF /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,10 +357,9 @@
 		72D619C91E57EAB900A2BFCF /* custom-ui */ = {
 			isa = PBXGroup;
 			children = (
-				72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */,
-				72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */,
-				722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */,
-				722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */,
+				722BC86C1E59F8090038B1D3 /* bottom-nav */,
+				722BC86D1E59F8190038B1D3 /* detail-overlay */,
+				722BC8721E59F8510038B1D3 /* my-lists-cells */,
 			);
 			name = "custom-ui";
 			sourceTree = "<group>";
@@ -325,6 +376,7 @@
 		E6514F814D6A04A2CC44E9C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				722BC87B1E5A39FA0038B1D3 /* CoreData.framework */,
 				40D7F9C7657466E5E46C7DA2 /* Pods_NYTimesChallenge.framework */,
 			);
 			name = Frameworks;
@@ -448,6 +500,7 @@
 				72268CFC1E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf in Resources */,
 				72268CFD1E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf in Resources */,
 				72268C801E5641B200F96DB9 /* LaunchScreen.storyboard in Resources */,
+				722BC8761E5A020D0038B1D3 /* MyListsFooterCell.xib in Resources */,
 				72268C7D1E5641B200F96DB9 /* Assets.xcassets in Resources */,
 				72268CFB1E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf in Resources */,
 				722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */,
@@ -455,6 +508,7 @@
 				72268CF81E57D2AF00F96DB9 /* WhitneyCondensed-Semibold.otf in Resources */,
 				72268CFA1E57D2AF00F96DB9 /* WhitneyCondensed-Light.otf in Resources */,
 				72268CF91E57D2AF00F96DB9 /* WhitneyCondensed-Medium.otf in Resources */,
+				722BC8711E59F84A0038B1D3 /* MyListsCell.xib in Resources */,
 				72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +590,7 @@
 				72268CEE1E57997400F96DB9 /* UserModel.swift in Sources */,
 				72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */,
 				72268CA61E564BAB00F96DB9 /* APICallManager.swift in Sources */,
+				722BC8FC1E5A5F9E0038B1D3 /* CoreDataManager.swift in Sources */,
 				72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */,
 				72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */,
 				72268CEA1E576E1000F96DB9 /* BestSellerListModel.swift in Sources */,
@@ -545,8 +600,11 @@
 				72268CAB1E5658F200F96DB9 /* AppUtilities.swift in Sources */,
 				72268C761E5641B200F96DB9 /* AppDelegate.swift in Sources */,
 				72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */,
+				722BC8701E59F84A0038B1D3 /* MyListsCell.swift in Sources */,
+				722BC8FA1E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld in Sources */,
 				722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */,
 				72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */,
+				722BC8751E5A020D0038B1D3 /* MyListsFooterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +882,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		722BC8F81E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				722BC8F91E5A40BF0038B1D3 /* BookJunkie.xcdatamodel */,
+			);
+			currentVersion = 722BC8F91E5A40BF0038B1D3 /* BookJunkie.xcdatamodel */;
+			name = BookJunkie.xcdatamodeld;
+			path = "core-data/BookJunkie.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 72268C6A1E5641B200F96DB9 /* Project object */;
 }

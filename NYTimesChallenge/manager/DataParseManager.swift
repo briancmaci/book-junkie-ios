@@ -21,7 +21,9 @@ class DataParseManager: NSObject {
                                              display: result.object(forKey:"display_name") as! String))
         }
         
-        return lists
+        let alphabetizedLists = lists.sorted(by: { $0.displayName < $1.displayName })
+        
+        return alphabetizedLists
     }
     
     class func parseDataIntoOverviewBooks(data:Any?, maxWeeks:Int) -> [OverviewBookModel] {

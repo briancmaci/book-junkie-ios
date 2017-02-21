@@ -12,6 +12,8 @@ class MyListsCell: UITableViewCell {
     
     @IBOutlet weak var listLabel : UILabel!
     @IBOutlet weak var background : UIView!
+    @IBOutlet weak var iconNext : UIImageView!
+    @IBOutlet weak var iconAdded : UIImageView!
     
     var thisModel : BestSellerListModel!
     var thisIndex : Int!
@@ -41,10 +43,33 @@ class MyListsCell: UITableViewCell {
         else {
             background.backgroundColor = K.Color.grayBG1
         }
-        
+    }
+    
+    func setFor(myLists:Bool) {
+        iconAdded.isHidden = true           //always hide this to start. 
+        iconNext.isHidden = !myLists
+    }
+    
+    func updateRowWith(model:BestSellerListModel) {
+        thisModel = model
+        setThisListState()
+        updateTextColorForState()
+    }
+    
+    func setThisListState() {
+        iconAdded.isHidden = !thisModel.listIsSelected
+    }
+    
+    func updateTextColorForState() {
+    
         if thisModel.listIsSelected == true {
-            listLabel.textColor = K.Color.redDetail
+            listLabel.textColor = K.Color.selectedGreen
+        }
+        
+        else {
+            listLabel.textColor = K.Color.mainGray
         }
     }
+
     
 }

@@ -11,8 +11,10 @@ import UIKit
 class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myListsTable:UITableView!
+    @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
-    let listsArray = Array(UserModel.sharedInstance.lists)
+    //pulling just selected lists from all lists 
+    var myListsArray:[BestSellerListModel] = [BestSellerListModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         title = "MY LISTS"
         
         initTableView()
+        
+        //load data
+        loadBestsellerLists()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,39 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     }
     */
     
+    func loadBestsellerLists() {
+        
+        UserModel.sharedInstance.lists = CoreDataManager.retrieveBestSellerLists()
+        
+        if UserModel.sharedInstance.lists.isEmpty == true {
+            APICallManager.getBestSellerLists { (responseObject, error) in
+                
+                if responseObject != nil {
+                    UserModel.sharedInstance.lists = DataParseManager.parseDataIntoLists(data: responseObject)
+                    self.buildMyListsArray()
+                    
+                    for list in UserModel.sharedInstance.lists {
+                        CoreDataManager.saveBestSellerList(thisList: list)
+                    }
+                }
+            }
+        }
+        
+        else {
+            buildMyListsArray()
+        }
+    }
+    
+    func buildMyListsArray () {
+        
+        myListsArray = UserModel.sharedInstance.lists.filter {
+            $0.listIsSelected == true
+        }
+        
+        myListsTable.reloadData()
+        myListsTable.sizeToContent(bottom: tableBottomConstraint)
+    }
+    
     ////MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,20 +96,31 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListsCellID, for: indexPath) as! MyListsCell
         
-            cell.populate(model: listsArray[indexPath.row], index:indexPath.row)
-
+            cell.populate(model: myListsArray[indexPath.row], index:indexPath.row)
+            cell.setFor(myLists: true)
             return cell
             
         }
         
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListsFooterCellID, for: indexPath) as! MyListsFooterCell
+            
+            cell.updateAddMore(num: myListsArray.count) 
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //select - load list
+        
+        if indexPath.section == 0 {
+            //select - load list
+        }
+        
+        else {
+            //go to all lists
+            let newVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.AllLists) as! AllListsViewController
+            navigationController?.pushViewController(newVC, animated:true)
+        }
         
         //deselect
         tableView.deselectRow(at: indexPath, animated: false)
@@ -92,7 +141,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         //This will be based on ListModel count where selected = true
         
         if section == 0 {
-            return listsArray.count
+            return myListsArray.count
         }
         
         else {

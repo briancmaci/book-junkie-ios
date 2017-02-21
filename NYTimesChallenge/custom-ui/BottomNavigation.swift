@@ -28,25 +28,20 @@ class BottomNavigation: UIView {
                                  height:K.NumberConstant.BottomNavHeight)
     
     @IBAction func onListsTapped(sender:UIButton){
-        let newVC = getViewControllerFromStoryboard(id: K.Storyboard.ID.Lists) as! ListsViewController
+        let newVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.Lists) as! ListsViewController
         pushNewViewController(vc: newVC)
     }
     
     @IBAction func onBooksTapped(sender:UIButton){
-        let newVC = getViewControllerFromStoryboard(id: K.Storyboard.ID.Books) as! BooksViewController
+        let newVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.Books) as! BooksViewController
         pushNewViewController(vc: newVC)
         
     }
     
     @IBAction func onAwardsTapped(sender:UIButton){
-        let newVC = getViewControllerFromStoryboard(id: K.Storyboard.ID.Awards) as! AwardsViewController
+        let newVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.Awards) as! AwardsViewController
         pushNewViewController(vc: newVC)
         
-    }
-    
-    func getViewControllerFromStoryboard( id:String ) -> BookJunkieBaseViewController {
-        let storyboard = UIStoryboard(name: K.Storyboard.Name.Main, bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: id) as! BookJunkieBaseViewController
     }
     
     func pushNewViewController( vc : BookJunkieBaseViewController) {

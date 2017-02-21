@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-wW-8A6" userLabel="Background">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="ListName">
@@ -42,8 +42,17 @@
                             <constraint firstAttribute="height" constant="13" id="t2G-xB-qmd"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconListSelected" translatesAutoresizingMaskIntoConstraints="NO" id="9dv-0n-Y3u" userLabel="Icon Added">
+                        <rect key="frame" x="283" y="13" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="Jny-IE-7d9"/>
+                            <constraint firstAttribute="width" constant="17" id="KiS-WJ-QrG"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="9dv-0n-Y3u" firstAttribute="centerY" secondItem="3Eg-wW-8A6" secondAttribute="centerY" id="2X8-Ab-g8s"/>
+                    <constraint firstAttribute="trailing" secondItem="9dv-0n-Y3u" secondAttribute="trailing" constant="20" id="6aF-fe-QNI"/>
                     <constraint firstAttribute="trailing" secondItem="6JD-T0-YeF" secondAttribute="trailing" constant="40" id="6ha-Ty-y1l"/>
                     <constraint firstAttribute="trailing" secondItem="3Eg-wW-8A6" secondAttribute="trailing" id="A0V-6v-hFD"/>
                     <constraint firstItem="GvL-X1-qhR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AgC-ex-Xht"/>
@@ -57,11 +66,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="background" destination="3Eg-wW-8A6" id="Xd8-BN-8sd"/>
+                <outlet property="iconAdded" destination="9dv-0n-Y3u" id="ABP-g4-xLE"/>
+                <outlet property="iconNext" destination="GvL-X1-qhR" id="Hyb-6I-K8h"/>
                 <outlet property="listLabel" destination="6JD-T0-YeF" id="9hW-pw-acx"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="IconListSelected" width="17" height="17"/>
         <image name="IconRowNext" width="6" height="13"/>
     </resources>
 </document>

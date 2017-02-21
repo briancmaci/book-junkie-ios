@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BestSellersList" representedClassName="BestSellersList" syncable="YES" codeGenerationType="class">
+    <entity name="BestSellerList" representedClassName="BestSellerList" syncable="YES" codeGenerationType="class">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="listIsSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +14,6 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="BestSellersList" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="BestSellerList" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>
 </model>

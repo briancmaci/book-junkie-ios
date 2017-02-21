@@ -142,11 +142,48 @@
                     </view>
                     <connections>
                         <outlet property="myListsTable" destination="L6d-XI-0Kl" id="V4Q-U7-oza"/>
+                        <outlet property="tableBottomConstraint" destination="qBY-ww-YM2" id="yMi-LT-yMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70x-gr-SlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1020" y="-65"/>
+        </scene>
+        <!--All Lists View Controller-->
+        <scene sceneID="zWe-4L-JMA">
+            <objects>
+                <viewController storyboardIdentifier="allListsVC" id="aTo-Ga-jHc" customClass="AllListsViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GiV-lW-7In"/>
+                        <viewControllerLayoutGuide type="bottom" id="b7X-FS-39C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="asD-Do-b5K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QIT-aY-CkQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.50196078430000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b7X-FS-39C" firstAttribute="top" secondItem="QIT-aY-CkQ" secondAttribute="bottom" constant="65" id="DC7-Kv-Hag"/>
+                            <constraint firstItem="QIT-aY-CkQ" firstAttribute="leading" secondItem="asD-Do-b5K" secondAttribute="leading" id="FC8-gX-MRT"/>
+                            <constraint firstItem="QIT-aY-CkQ" firstAttribute="top" secondItem="asD-Do-b5K" secondAttribute="top" id="PzN-IV-a4V"/>
+                            <constraint firstAttribute="trailing" secondItem="QIT-aY-CkQ" secondAttribute="trailing" id="enC-VZ-FOc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allListsTable" destination="QIT-aY-CkQ" id="PpS-bC-UTt"/>
+                        <outlet property="tableBottomConstraint" destination="DC7-Kv-Hag" id="jiu-rz-J0V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riz-ag-gWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3hx-0y-80S">

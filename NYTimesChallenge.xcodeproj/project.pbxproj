@@ -39,6 +39,8 @@
 		722BC8761E5A020D0038B1D3 /* MyListsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8741E5A020D0038B1D3 /* MyListsFooterCell.xib */; };
 		722BC8FA1E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8F81E5A40BF0038B1D3 /* BookJunkie.xcdatamodeld */; };
 		722BC8FC1E5A5F9E0038B1D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */; };
+		722BC8FE1E5B8F3C0038B1D3 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8FD1E5B8F3C0038B1D3 /* UITableViewExtension.swift */; };
+		722BC9001E5B9A480038B1D3 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8FF1E5B9A480038B1D3 /* AllListsViewController.swift */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -121,6 +123,8 @@
 		722BC87B1E5A39FA0038B1D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		722BC8F91E5A40BF0038B1D3 /* BookJunkie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookJunkie.xcdatamodel; sourceTree = "<group>"; };
 		722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = manager/CoreDataManager.swift; sourceTree = "<group>"; };
+		722BC8FD1E5B8F3C0038B1D3 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = extension/UITableViewExtension.swift; sourceTree = "<group>"; };
+		722BC8FF1E5B9A480038B1D3 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllListsViewController.swift; path = viewcontroller/AllListsViewController.swift; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				72D619C61E57E32100A2BFCF /* base */,
 				72268C771E5641B200F96DB9 /* HomeViewController.swift */,
 				72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */,
+				722BC8FF1E5B9A480038B1D3 /* AllListsViewController.swift */,
 				72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */,
 				72D619D21E5803AB00A2BFCF /* BooksViewController.swift */,
 			);
@@ -369,6 +374,7 @@
 			children = (
 				72D619D71E58955D00A2BFCF /* BundleExtension.swift */,
 				722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */,
+				722BC8FD1E5B8F3C0038B1D3 /* UITableViewExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -585,6 +591,8 @@
 				722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */,
 				72268CF01E57BECD00F96DB9 /* OverviewBookModel.swift in Sources */,
 				72268C781E5641B200F96DB9 /* HomeViewController.swift in Sources */,
+				722BC9001E5B9A480038B1D3 /* AllListsViewController.swift in Sources */,
+				722BC8FE1E5B8F3C0038B1D3 /* UITableViewExtension.swift in Sources */,
 				72D619CF1E57F6B900A2BFCF /* ListsViewController.swift in Sources */,
 				72268CEC1E578C3500F96DB9 /* DataParseManager.swift in Sources */,
 				72268CEE1E57997400F96DB9 /* UserModel.swift in Sources */,

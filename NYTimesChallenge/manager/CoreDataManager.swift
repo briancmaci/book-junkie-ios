@@ -17,7 +17,7 @@ class CoreDataManager: NSObject {
             static let managedContext = K.CoreData.appDelegate.managedObjectContext
             
             struct Entity {
-                static let BestSellersList = "BestSellersList"
+                static let BestSellerList = "BestSellerList"
                 static let OverviewBook = "OverviewBook"        //May not need
                 static let MyBook = "MyBook"
             }
@@ -26,9 +26,9 @@ class CoreDataManager: NSObject {
     
     
     
-    class func saveBestSellersList(thisList: BestSellerListModel) {
+    class func saveBestSellerList(thisList: BestSellerListModel) {
         
-        let entity =  NSEntityDescription.entity(forEntityName: K.CoreData.Entity.BestSellersList,
+        let entity =  NSEntityDescription.entity(forEntityName: K.CoreData.Entity.BestSellerList,
                                                  in:K.CoreData.managedContext)
         
         let list = NSManagedObject(entity: entity!,
@@ -46,9 +46,35 @@ class CoreDataManager: NSObject {
         }
     }
     
-    class func retrieveBestSellersList() -> [BestSellerListModel] {
+    class func updateBestSellerListSelection(displayName: String, isSelected: Bool) {
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellersList)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerList)
+        fetchRequest.predicate = NSPredicate(format: "displayName = %@", displayName)
+        
+        do {
+            let fetchResults = try K.CoreData.managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            
+                if fetchResults?.count != 0{
+                
+                    let managedObject = fetchResults?[0]
+                    managedObject?.setValue(isSelected, forKey: "listIsSelected")
+                
+                    do {
+                        try K.CoreData.managedContext.save()
+                        
+                    } catch let error as NSError  {
+                        print("Could not save \(error), \(error.userInfo)")
+                    }
+                }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            //return [BestSellerListModel]()
+        }
+    }
+    
+    class func retrieveBestSellerLists() -> [BestSellerListModel] {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerList)
         var listsInModels:[BestSellerListModel] = [BestSellerListModel]()
         
         do {

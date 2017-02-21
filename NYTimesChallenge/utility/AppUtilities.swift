@@ -27,5 +27,10 @@ class AppUtilities: NSObject {
         return UUID().uuidString
     }
     
+    class func getViewControllerFromStoryboard( id:String ) -> BookJunkieBaseViewController {
+        let storyboard = UIStoryboard(name: K.Storyboard.Name.Main, bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: id) as! BookJunkieBaseViewController
+    }
+    
 
 }

@@ -39,6 +39,7 @@ struct K {
         //UITableViewCells
         static let grayBG0 = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
         static let grayBG1 = UIColor(red: 229/255, green: 229/255, blue: 229/255, alpha: 1)
+        static let selectedGreen = UIColor(red:0, green: 109/255, blue:5/255, alpha: 1)
     }
     
     //Icons
@@ -60,6 +61,7 @@ struct K {
             static let MainNavigation = "mainNavVC"
             static let Home = "homeVC"
             static let Lists = "listsVC"
+            static let AllLists = "allListsVC"
             static let Books = "booksVC"
             static let Awards = "awardsVC"
         }
@@ -91,6 +93,10 @@ struct K {
         static let DetailWeek0 = "NEW THIS WEEK"    //Not a format. Placed here for organization.
         static let DetailWeek1 = "%d WEEK ON THE LIST"
         static let DetailWeekDefault = "%d WEEKS ON THE LIST"
+        
+        //Lists Strings
+        static let AddMore0 = "ADD LISTS"
+        static let AddMoreDefault = "ADD MORE LISTS"
     }
     
     //Constant numerical values

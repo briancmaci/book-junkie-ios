@@ -9,6 +9,8 @@
 import UIKit
 
 class MyListsFooterCell: UITableViewCell {
+    
+    @IBOutlet weak var addLabel:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +23,14 @@ class MyListsFooterCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateAddMore(num:Int) {
+        
+        if num > 0 {
+            addLabel.text = K.StringFormat.AddMoreDefault
+        }
+        
+        else {
+            addLabel.text = K.StringFormat.AddMore0
+        }
+    }
 }

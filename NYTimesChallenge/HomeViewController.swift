@@ -32,36 +32,6 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         initCopyrightLine()
         //initBookDetailOverlay()
         
-        UserModel.sharedInstance.lists = CoreDataManager.retrieveBestSellersList()
-        for list in UserModel.sharedInstance.lists {
-            print("SELECTED??? \(list.listIsSelected)")
-        }
-        //// ENCAPSULATE IN METHOD!!!!!!!! CLEAN UP CLEAN UP CLEAN UP
-        //// CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP
-        //// CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP CLEAN UP
-        if UserModel.sharedInstance.lists.isEmpty == true {
-            APICallManager.getBestSellerLists { (responseObject, error) in
-                
-                if responseObject != nil {
-                    UserModel.sharedInstance.lists = DataParseManager.parseDataIntoLists(data: responseObject)
-                    //print("UserModel.lists: \(UserModel.sharedInstance.lists)")
-                    
-                    for list in UserModel.sharedInstance.lists {
-                        
-                        ////TEST DUPLICATE SITCH
-                        ////TEST DUPLICATE SITCH
-                        ////TEST DUPLICATE SITCH
-                        ////TEST DUPLICATE SITCH
-                        if list.displayName == "hardcover-fiction" {
-                            list.listIsSelected = true
-                        }
-                        
-                        CoreDataManager.saveBestSellersList(thisList: list)
-                    }
-                }
-            }
-        }
-        
         APICallManager.getListDetailByName(which: "hardcover-fiction") { (responseObject, error) in
             if responseObject != nil {
                 print("List Detail? \(responseObject)")

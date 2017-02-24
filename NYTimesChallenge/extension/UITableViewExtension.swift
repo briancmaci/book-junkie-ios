@@ -11,6 +11,8 @@ extension UITableView {
     func sizeToContent(bottom:NSLayoutConstraint) {
         
         if contentSize.height >= frame.size.height {
+            bottom.constant = K.NumberConstant.BottomNavHeight
+            layoutIfNeeded()
             return
         }
         

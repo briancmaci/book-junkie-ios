@@ -47,10 +47,10 @@ class BottomNavigation: UIView {
     func pushNewViewController( vc : BookJunkieBaseViewController) {
         let navController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
         
-        //check to make sure we are not navigating to the same view controller
-        if type(of: currentVC) == type(of: vc) {
-            return
-        }
+        //// MARK - Not Necessary. Check to make sure we are not navigating to the same view controller
+        //if type(of: currentVC) == type(of: vc) {
+        //    return
+        //}
         navController.pushViewController(vc, animated:true)
         currentVC = vc
     }

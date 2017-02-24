@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXT-Lp-r5h" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="69" y="101" width="237" height="361"/>
+                                <rect key="frame" x="69" y="104" width="237" height="361"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pXT-Lp-r5h" secondAttribute="height" multiplier="237:361" id="gvC-4x-bHa"/>
@@ -86,7 +86,7 @@
                             <constraint firstItem="uaj-K7-qQs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Aaf-vI-cfU"/>
                             <constraint firstAttribute="trailing" secondItem="yp2-9x-psd" secondAttribute="trailing" constant="20" id="CKG-Ij-9Mt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U8k-7f-Hu1" secondAttribute="bottom" constant="98" id="Cs6-8K-B7P"/>
-                            <constraint firstItem="pXT-Lp-r5h" firstAttribute="top" secondItem="yp2-9x-psd" secondAttribute="bottom" constant="15" id="Da7-Jy-8fX"/>
+                            <constraint firstItem="pXT-Lp-r5h" firstAttribute="top" secondItem="yp2-9x-psd" secondAttribute="bottom" constant="18" id="Da7-Jy-8fX"/>
                             <constraint firstAttribute="trailing" secondItem="lGq-1l-iSY" secondAttribute="trailing" constant="40" id="FB9-Kk-rDu"/>
                             <constraint firstItem="yp2-9x-psd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="KXB-Fz-MC1"/>
                             <constraint firstItem="lGq-1l-iSY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="VB9-aS-bV2"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="U8k-7f-Hu1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="60" id="exL-sg-qsj"/>
                             <constraint firstAttribute="trailing" secondItem="U8k-7f-Hu1" secondAttribute="trailing" constant="60" id="fgb-r7-RaY"/>
                             <constraint firstAttribute="trailing" secondItem="uaj-K7-qQs" secondAttribute="trailing" constant="20" id="nZ9-Yl-frp"/>
-                            <constraint firstItem="U8k-7f-Hu1" firstAttribute="top" secondItem="pXT-Lp-r5h" secondAttribute="bottom" constant="23" id="ntO-hI-XcY"/>
+                            <constraint firstItem="U8k-7f-Hu1" firstAttribute="top" secondItem="pXT-Lp-r5h" secondAttribute="bottom" constant="20" id="ntO-hI-XcY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0qX-Dd-cSR"/>
@@ -197,7 +197,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="28"/>
+                            <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>

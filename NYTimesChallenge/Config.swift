@@ -48,6 +48,7 @@ struct K {
         static let Home = "IconHome"
         static let Back = "IconBack"
         static let IconOverlayClose = "IconOverlayClose"
+        static let IconDeleteRow = "IconDeleteRow"
     }
     
     //Storyboard IDs
@@ -96,7 +97,7 @@ struct K {
         
         //Lists Strings
         static let AddMore0 = "ADD LISTS"
-        static let AddMoreDefault = "ADD MORE LISTS"
+        static let AddMoreDefault = "EDIT MY LISTS"
     }
     
     //Constant numerical values

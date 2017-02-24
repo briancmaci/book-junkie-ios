@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SWTableViewCell
 
-class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
     
     @IBOutlet weak var myListsTable:UITableView!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
@@ -27,6 +28,15 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         //load data
         loadBestsellerLists()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //reload table with new data
+        buildMyListsArray()
+        myListsTable.reloadData()
+        myListsTable.sizeToContent(bottom: tableBottomConstraint)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +91,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     
     func buildMyListsArray () {
         
+        myListsArray.removeAll()
         myListsArray = UserModel.sharedInstance.lists.filter {
             $0.listIsSelected == true
         }
@@ -98,6 +109,10 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
             cell.populate(model: myListsArray[indexPath.row], index:indexPath.row)
             cell.setFor(myLists: true)
+            
+            cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: 57.0)
+            cell.delegate = self
+            
             return cell
             
         }
@@ -119,6 +134,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         else {
             //go to all lists
             let newVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.AllLists) as! AllListsViewController
+            
             navigationController?.pushViewController(newVC, animated:true)
         }
         
@@ -153,5 +169,55 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
+    //SWTableViewCell - Swipe to delete
+    func rightButtons() -> [Any] {
+        let rightUtilityButtons = NSMutableArray()
+        
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.redDetail, icon:UIImage(named:K.Icon.IconDeleteRow))
+        
+        return rightUtilityButtons.copy() as! [Any]
+    }
+    
+    func swipeableTableViewCell(_ cell: SWTableViewCell!, didTriggerRightUtilityButtonWith index: Int) {
+        
+        switch index {
+        
+        default:
+            //delete
+            let thisCell = cell as! MyListsCell
+            UserModel.sharedInstance.lists[listIndexFromMyArray(dName: thisCell.thisModel.displayName)].listIsSelected = false
+            thisCell.updateRowWith(model: UserModel.sharedInstance.lists[listIndexFromMyArray(dName: thisCell.thisModel.displayName)])
+            
+            //Push to CoreData
+            CoreDataManager.updateBestSellerListSelection(displayName: thisCell.thisModel.displayName, isSelected: false)
+            
+            let cellIndexPath:IndexPath = myListsTable.indexPath(for: thisCell)!
+            
+            //Rebuild myListsArray
+            myListsArray.remove(at: cellIndexPath.row)
 
+            myListsTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
+            
+            myListsTable.sizeToContent(bottom: tableBottomConstraint)
+            
+            
+        }
+    }
+    
+    //Utility Methods
+    func listIndexFromMyArray(dName:String) -> Int {
+        
+        var listIndex = 0
+        
+        for (index, list) in UserModel.sharedInstance.lists.enumerated() {
+            
+            if list.displayName == dName {
+                listIndex = index
+            }
+        }
+        
+        return listIndex
+        
+    }
 }

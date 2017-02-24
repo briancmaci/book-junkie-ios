@@ -1,5 +1,5 @@
 //
-//  AllListsViewController.swift
+//  ListDetailViewController.swift
 //  NYTimesChallenge
 //
 //  Created by Chelsea Power on 2/20/17.
@@ -8,19 +8,23 @@
 
 import UIKit
 
-class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var allListsTable:UITableView!
+    @IBOutlet weak var listDetailTable:UITableView!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
+    
+    var viewTitle : String = ""
+    var bookArray : [ListBookModel] = [ListBookModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         navigationItem.titleView = nil
-        title = "ALL LISTS"
+        title = viewTitle
         
         initTableView()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,11 +33,11 @@ class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate,
     }
     
     func initTableView() {
-        allListsTable.delegate = self
-        allListsTable.dataSource = self
+        listDetailTable.delegate = self
+        listDetailTable.dataSource = self
         
         //register UITableViewCells
-        allListsTable.register(UINib(nibName: K.NIBName.MyListsCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyListsCellID)
+        listDetailTable.register(UINib(nibName: K.NIBName.MyListsCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyListsCellID)
         
     }
     
@@ -52,7 +56,7 @@ class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListsCellID, for: indexPath) as! MyListsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListsCellID, for: indexPath) as! MyListsCell
         
         cell.setFor(myLists: false)
         cell.populate(model: UserModel.sharedInstance.lists[indexPath.row], index:indexPath.row)

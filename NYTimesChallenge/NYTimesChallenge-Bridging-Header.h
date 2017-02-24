@@ -11,6 +11,6 @@
 
 #import "AFNetworking/AFNetworking.h"
 #import "SDWebImage/UIImageView+WebCache.h"
-
+#import "SWTableViewCell/SWTableViewCell.h"
 
 #endif /* NYTimesChallenge_Bridging_Header_h */

@@ -30,20 +30,6 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         
         //Init subviews
         initCopyrightLine()
-        //initBookDetailOverlay()
-        
-        APICallManager.getListDetailByName(which: "hardcover-fiction") { (responseObject, error) in
-            if responseObject != nil {
-                print("List Detail? \(responseObject)")
-            }
-        }
-        
-        APICallManager.getMostViewedArticles { (responseObject, error) in
-            if responseObject != nil {
-                //print("Most Read? \(responseObject)")
-            }
-        }
-
     }
     
     func loadOverviewBooks() {

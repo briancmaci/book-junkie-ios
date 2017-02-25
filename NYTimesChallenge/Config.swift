@@ -31,6 +31,11 @@ struct K {
         static let List = "list"
     }
     
+    struct Screen {
+        static let Width = UIScreen.main.bounds.size.width
+        static let Height = UIScreen.main.bounds.size.height
+    }
+    
     //Colors
     struct Color {
         static let mainGray = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1)
@@ -40,6 +45,7 @@ struct K {
         static let grayBG0 = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
         static let grayBG1 = UIColor(red: 229/255, green: 229/255, blue: 229/255, alpha: 1)
         static let selectedGreen = UIColor(red:0, green: 109/255, blue:5/255, alpha: 1)
+        static let selectedYellow = UIColor(red:219/255, green: 183/255, blue:14/255, alpha: 1)
     }
     
     //Icons
@@ -49,6 +55,8 @@ struct K {
         static let Back = "IconBack"
         static let IconOverlayClose = "IconOverlayClose"
         static let IconDeleteRow = "IconDeleteRow"
+        static let IconAddNextUpOff = "IconAddNextUpOff"
+        static let IconAddFinishedOff = "IconAddFinishedOff"
     }
     
     //Storyboard IDs
@@ -62,6 +70,7 @@ struct K {
             static let MainNavigation = "mainNavVC"
             static let Home = "homeVC"
             static let Lists = "listsVC"
+            static let ListDetails = "listDetailsVC"
             static let AllLists = "allListsVC"
             static let Books = "booksVC"
             static let Awards = "awardsVC"
@@ -76,12 +85,14 @@ struct K {
         //UITableViewCells
         static let MyListsCell = "MyListsCell"
         static let MyListsFooterCell = "MyListsFooterCell"
+        static let MyListDetailsCell = "MyListDetailsCell"
     }
     
     //UITableViewCell reuseIdentifiers
     struct ReuseID {
         static let MyListsCellID = "myListsCellID"
         static let MyListsFooterCellID = "myListsFooterCellID"
+        static let MyListDetailsCellID = "myListDetailsCellID"
     }
     
     //Strings

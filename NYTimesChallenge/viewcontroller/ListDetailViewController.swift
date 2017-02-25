@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import SWTableViewCell
 
-class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
 
     @IBOutlet weak var listDetailTable:UITableView!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
     var viewTitle : String = ""
-    var bookArray : [ListBookModel] = [ListBookModel]()
+    var listToSearch : String = ""
+    
+    var bookArray : [BookModel] = [BookModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,10 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         // Do any additional setup after loading the view.
         navigationItem.titleView = nil
         title = viewTitle
-        
+        adjustTitleTextResize()
         initTableView()
+        
+        loadListBooks()
         
     }
     
@@ -37,45 +42,52 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         listDetailTable.dataSource = self
         
         //register UITableViewCells
-        listDetailTable.register(UINib(nibName: K.NIBName.MyListsCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyListsCellID)
+        listDetailTable.register(UINib(nibName: K.NIBName.MyListDetailsCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyListDetailsCellID)
         
     }
     
+    func adjustTitleTextResize() {
+        let tLabel = UILabel(frame: CGRect(x:0, y:0, width:K.Screen.Width, height:22))
+        tLabel.text = self.title
+        tLabel.textAlignment = .center
+        tLabel.textColor = UIColor.white
+        tLabel.font = UIFont(name: "WhitneyCondensed-Medium", size: 22.0)
+        tLabel.backgroundColor = UIColor.clear
+        tLabel.adjustsFontSizeToFitWidth = true
+        self.navigationItem.titleView = tLabel
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func loadListBooks() {
+        
+        APICallManager.getListDetailByName(which: listToSearch) { (responseObject, error) in
+            if responseObject != nil {
+                self.bookArray = DataParseManager.parseDataIntoListBooks(data: responseObject)
+                
+                self.listDetailTable.reloadData()
+                self.listDetailTable.sizeToContent(bottom: self.tableBottomConstraint)
+            }
+        }
+    }
     
     ////MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListsCellID, for: indexPath) as! MyListsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListDetailsCellID, for: indexPath) as! MyListDetailsCell
         
-        cell.setFor(myLists: false)
-        cell.populate(model: UserModel.sharedInstance.lists[indexPath.row], index:indexPath.row)
-        cell.updateRowWith(model: cell.thisModel)
+        cell.populate(model: bookArray[indexPath.row], index:indexPath.row)
+        cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: 57.0)
+        cell.delegate = self
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //select - toggle listIsSelected
+        //select - load book detail page
         
-        let cell = tableView.cellForRow(at: indexPath) as! MyListsCell
+        let cell = tableView.cellForRow(at: indexPath) as! MyListDetailsCell
         
-        UserModel.sharedInstance.lists[cell.thisIndex].listIsSelected = !UserModel.sharedInstance.lists[cell.thisIndex].listIsSelected
-        
-        cell.updateRowWith(model: UserModel.sharedInstance.lists[cell.thisIndex])
-        
-        //Push to CoreData
-        CoreDataManager.updateBestSellerListSelection(displayName: cell.thisModel.displayName, isSelected: cell.thisModel.listIsSelected)
+        print("Load book detail for \(cell.thisModel.uid)")
         
         //deselect
         tableView.deselectRow(at: indexPath, animated: false)
@@ -86,11 +98,45 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserModel.sharedInstance.lists.count
+        return bookArray.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func rightButtons() -> [Any] {
+        let rightUtilityButtons = NSMutableArray()
+        
+        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddNextUpOff))
+        
+        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddFinishedOff))
+        
+        return rightUtilityButtons.copy() as! [Any]
+    }
+    
+    func swipeableTableViewCell(_ cell: SWTableViewCell!, didTriggerRightUtilityButtonWith index: Int) {
+        
+        print("RIGHT UTILITY BUTTON?? \(index)")
+        let thisCell = cell as! MyListDetailsCell
+        switch index {
+            
+        case 0:
+            //nextUp
+            thisCell.thisModel.saveState = .nextUp
+            
+        case 1:
+            //finished
+            thisCell.thisModel.saveState = .finished
+            
+        default:
+            thisCell.thisModel.saveState = .none
+        }
+        
+        thisCell.updateSaveState()
+        thisCell.hideUtilityButtons(animated: true)
+        //Push to CoreData
+        //            CoreDataManager.updateBestSellerListSelection(displayName: thisCell.thisModel.displayName, isSelected: false)
     }
     
 }

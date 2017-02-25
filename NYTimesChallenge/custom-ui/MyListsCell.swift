@@ -71,26 +71,4 @@ class MyListsCell: SWTableViewCell {
             listLabel.textColor = K.Color.mainGray
         }
     }
-    
-    //Delete Button Override
-//    override func willTransition(to state: UITableViewCellStateMask) {
-//        super.willTransition(to: state)
-//        
-//        if state == UITableViewCellStateMask.showingDeleteConfirmationMask {
-//            
-//            for v in subviews {
-//                
-//                print("typeof? \(String(describing: type(of: v)))")
-//                if String(describing: type(of: v)) == "UITableViewCellDeleteConfirmationControl" {
-//                    print("NSStringFromClass \(NSStringFromClass(type(of: v)))")
-//                    let deleteBtn : UIImageView = UIImageView(frame: CGRect(x:0, y:0, width:57, height:44))
-//                    deleteBtn.image = UIImage(named: K.Icon.IconOverlayClose)
-//                    v.subviews[0].addSubview(deleteBtn)
-//                    
-//                }
-//            }
-//        }
-//    }
-
-    
 }

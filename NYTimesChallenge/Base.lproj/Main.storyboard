@@ -199,6 +199,7 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -276,6 +277,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cak-33-bY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2406" y="-65"/>
+        </scene>
+        <!--List Detail View Controller-->
+        <scene sceneID="NB8-Xe-m8Z">
+            <objects>
+                <viewController storyboardIdentifier="listDetailsVC" id="KBK-1T-7ou" customClass="ListDetailViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SOa-gz-DNr"/>
+                        <viewControllerLayoutGuide type="bottom" id="WLC-vJ-8Do"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Raf-UF-nPR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-Z7-cTX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.50196078430000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Yw-Z7-cTX" firstAttribute="top" secondItem="Raf-UF-nPR" secondAttribute="top" id="Kw7-VL-YvN"/>
+                            <constraint firstItem="1Yw-Z7-cTX" firstAttribute="leading" secondItem="Raf-UF-nPR" secondAttribute="leading" id="L0Q-Dn-9o5"/>
+                            <constraint firstAttribute="trailing" secondItem="1Yw-Z7-cTX" secondAttribute="trailing" id="Lq6-3a-IBl"/>
+                            <constraint firstItem="WLC-vJ-8Do" firstAttribute="top" secondItem="1Yw-Z7-cTX" secondAttribute="bottom" constant="65" id="mxL-op-v35"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listDetailTable" destination="1Yw-Z7-cTX" id="fId-Wv-Toe"/>
+                        <outlet property="tableBottomConstraint" destination="mxL-op-v35" id="qfL-OG-uKd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5js-oH-OIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="1280"/>
         </scene>
     </scenes>
 </document>

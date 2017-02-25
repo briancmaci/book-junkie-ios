@@ -18,8 +18,7 @@ class CoreDataManager: NSObject {
             
             struct Entity {
                 static let BestSellerList = "BestSellerList"
-                static let OverviewBook = "OverviewBook"        //May not need
-                static let MyBook = "MyBook"
+                static let BestSellerBook = "BestSellerBook"
             }
         }
     }
@@ -35,7 +34,7 @@ class CoreDataManager: NSObject {
                                      insertInto: K.CoreData.managedContext)
         
         list.setValue(thisList.displayName, forKey: "displayName")
-        list.setValue(thisList.listName, forKey: "listName")
+        list.setValue(thisList.listNameEncoded, forKey: "listNameEncoded")
         list.setValue(thisList.listIsSelected, forKey: "listIsSelected")
         
         do {
@@ -46,10 +45,10 @@ class CoreDataManager: NSObject {
         }
     }
     
-    class func updateBestSellerListSelection(displayName: String, isSelected: Bool) {
+    class func updateBestSellerListSelection(listNameEncoded: String, isSelected: Bool) {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerList)
-        fetchRequest.predicate = NSPredicate(format: "displayName = %@", displayName)
+        fetchRequest.predicate = NSPredicate(format: "listNameEncoded = %@", listNameEncoded)
         
         do {
             let fetchResults = try K.CoreData.managedContext.fetch(fetchRequest) as? [NSManagedObject]
@@ -85,7 +84,7 @@ class CoreDataManager: NSObject {
             //var listsInModels:[BestSellerListModel] = [BestSellerListModel]()
             
             for result in coreDataLists {
-                let thisModel = BestSellerListModel(name: result.value(forKey: "listName") as! String, display: result.value(forKey: "displayName") as! String)
+                let thisModel = BestSellerListModel(name: result.value(forKey: "listNameEncoded") as! String, display: result.value(forKey: "displayName") as! String)
                 thisModel.listIsSelected = result.value(forKey: "listIsSelected") as! Bool
                 listsInModels.append(thisModel)
                 

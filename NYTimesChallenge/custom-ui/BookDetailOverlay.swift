@@ -44,15 +44,15 @@ class BookDetailOverlay: UIView {
     
     var thisModel : OverviewBookModel?
     
-    let offFrame : CGRect = CGRect(x:UIScreen.main.bounds.size.width,
+    let offFrame : CGRect = CGRect(x:K.Screen.Width,
                                      y:0,
-                                     width:UIScreen.main.bounds.size.width,
-                                     height:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
+                                     width:K.Screen.Width,
+                                     height:K.Screen.Height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
     
     let onFrame : CGRect = CGRect(x:0,
                                    y:0,
-                                   width:UIScreen.main.bounds.size.width,
-                                   height:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
+                                   width:K.Screen.Width,
+                                   height:K.Screen.Height - K.NumberConstant.BottomNavHeight - K.NumberConstant.HeaderAndStatusBarsHeight)
     
     func populate(model:OverviewBookModel) {
         thisModel = model

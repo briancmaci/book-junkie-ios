@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="WhitneyCondensed-Black.otf">
+            <string>WhitneyCondensed-Black</string>
+        </array>
+        <array key="WhitneyCondensed-Medium.otf">
+            <string>WhitneyCondensed-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myListDetailsCellID" id="KGk-i7-Jjw" customClass="MyListDetailsCell" customModule="NYTimesChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-wW-8A6" userLabel="Background">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdE-1b-J8c" userLabel="Save Indicator">
+                                <rect key="frame" x="0.0" y="0.0" width="6" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="hNQ-Ic-Cn1"/>
+                                    <constraint firstAttribute="width" constant="6" id="iU0-Tw-b5h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qdE-1b-J8c" firstAttribute="leading" secondItem="3Eg-wW-8A6" secondAttribute="leading" id="G2X-jZ-tTs"/>
+                            <constraint firstItem="qdE-1b-J8c" firstAttribute="top" secondItem="3Eg-wW-8A6" secondAttribute="top" id="uru-e0-mgX"/>
+                            <constraint firstAttribute="height" constant="44" id="xEr-JX-7M7"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APl-xz-IDw">
+                        <rect key="frame" x="7" y="13" width="24" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="Mdl-RX-vJn"/>
+                            <constraint firstAttribute="width" constant="24" id="Q8B-fm-vYg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="WhitneyCondensed-Black" family="WhitneyCondensed" pointSize="18"/>
+                        <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOK NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="Book Name">
+                        <rect key="frame" x="41" y="12" width="235" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="rwm-Gk-xW5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="18"/>
+                        <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowNext" translatesAutoresizingMaskIntoConstraints="NO" id="GvL-X1-qhR">
+                        <rect key="frame" x="290" y="15" width="6" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="6" id="6VP-W5-SQp"/>
+                            <constraint firstAttribute="height" constant="13" id="t2G-xB-qmd"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6JD-T0-YeF" firstAttribute="leading" secondItem="APl-xz-IDw" secondAttribute="trailing" constant="10" id="4yK-kJ-kd9"/>
+                    <constraint firstAttribute="trailing" secondItem="6JD-T0-YeF" secondAttribute="trailing" constant="44" id="6ha-Ty-y1l"/>
+                    <constraint firstAttribute="trailing" secondItem="3Eg-wW-8A6" secondAttribute="trailing" id="A0V-6v-hFD"/>
+                    <constraint firstItem="GvL-X1-qhR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AgC-ex-Xht"/>
+                    <constraint firstItem="APl-xz-IDw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="Rud-E2-1Nh"/>
+                    <constraint firstAttribute="trailing" secondItem="GvL-X1-qhR" secondAttribute="trailing" constant="24" id="S9z-Rl-47D"/>
+                    <constraint firstItem="6JD-T0-YeF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Whj-Vx-ruQ"/>
+                    <constraint firstItem="APl-xz-IDw" firstAttribute="centerY" secondItem="6JD-T0-YeF" secondAttribute="centerY" id="mte-AH-UJC"/>
+                    <constraint firstItem="3Eg-wW-8A6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qhd-O0-RDK"/>
+                    <constraint firstItem="3Eg-wW-8A6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uum-Ps-mc5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="background" destination="3Eg-wW-8A6" id="Nid-eJ-LRg"/>
+                <outlet property="rankLabel" destination="APl-xz-IDw" id="Hz9-mz-XNq"/>
+                <outlet property="saveIndicator" destination="qdE-1b-J8c" id="7Xv-M0-5aO"/>
+                <outlet property="titleLabel" destination="6JD-T0-YeF" id="0TM-Wi-0VK"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconRowNext" width="6" height="13"/>
+    </resources>
+</document>

@@ -129,6 +129,12 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         if indexPath.section == 0 {
             //select - load list
+            let detailVC = AppUtilities.getViewControllerFromStoryboard(id: K.Storyboard.ID.ListDetails) as! ListDetailViewController
+            
+            detailVC.viewTitle = myListsArray[indexPath.row].displayName.uppercased()
+            detailVC.listToSearch = myListsArray[indexPath.row].listNameEncoded
+            
+            navigationController?.pushViewController(detailVC, animated: true)
         }
         
         else {
@@ -190,7 +196,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             thisCell.updateRowWith(model: UserModel.sharedInstance.lists[listIndexFromMyArray(dName: thisCell.thisModel.displayName)])
             
             //Push to CoreData
-            CoreDataManager.updateBestSellerListSelection(displayName: thisCell.thisModel.displayName, isSelected: false)
+            CoreDataManager.updateBestSellerListSelection(listNameEncoded: thisCell.thisModel.displayName, isSelected: false)
             
             let cellIndexPath:IndexPath = myListsTable.indexPath(for: thisCell)!
             

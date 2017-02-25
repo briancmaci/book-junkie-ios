@@ -18,7 +18,7 @@ extension UITableView {
         
         //The minimum constraint value
         let constraintMinimum = K.NumberConstant.BottomNavHeight
-        let maxHeight = UIScreen.main.bounds.height - constraintMinimum
+        let maxHeight = K.Screen.Height - constraintMinimum
         
         if contentSize.height < maxHeight {
              let newConstraintValue = maxHeight - contentSize.height

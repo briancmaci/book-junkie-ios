@@ -71,7 +71,7 @@ class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate,
         cell.updateRowWith(model: UserModel.sharedInstance.lists[cell.thisIndex])
         
         //Push to CoreData
-        CoreDataManager.updateBestSellerListSelection(displayName: cell.thisModel.displayName, isSelected: cell.thisModel.listIsSelected)
+        CoreDataManager.updateBestSellerListSelection(listNameEncoded: cell.thisModel.listNameEncoded, isSelected: cell.thisModel.listIsSelected)
         
         //deselect
         tableView.deselectRow(at: indexPath, animated: false)

@@ -10,7 +10,7 @@ import UIKit
 
 class BestSellerListModel : NSObject {
     
-    var listName : String = ""
+    var listNameEncoded : String = ""
     var displayName : String = ""  //UNIQUE
     var listIsSelected : Bool = false
 
@@ -18,7 +18,7 @@ class BestSellerListModel : NSObject {
        
         super.init()
         
-        listName = name
+        listNameEncoded = name
         displayName = display
     }
 }

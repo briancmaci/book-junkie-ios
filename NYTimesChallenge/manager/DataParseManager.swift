@@ -17,13 +17,31 @@ class DataParseManager: NSObject {
         let results = dataDictionary["results"] as! [AnyObject]
         
         for result in results {
-            lists.append(BestSellerListModel(name: result.object(forKey:"list_name") as! String,
+            lists.append(BestSellerListModel(name: result.object(forKey:"list_name_encoded") as! String,
                                              display: result.object(forKey:"display_name") as! String))
         }
         
         let alphabetizedLists = lists.sorted(by: { $0.displayName < $1.displayName })
         
         return alphabetizedLists
+    }
+    
+    class func parseDataIntoListBooks(data:Any?) -> [BookModel] {
+        
+        var books : [BookModel] = [BookModel]()
+        let dataDictionary = data as! Dictionary<String, AnyObject>
+        let results = dataDictionary["results"] as! [AnyObject]
+        
+        for result in results {
+            let detail = result.object(forKey:"book_details") as! [AnyObject]
+            
+            books.append(BookModel(title: detail[0].object(forKey:"title") as! String,
+                                   auth: detail[0].object(forKey:"author") as! String,
+                                   desc: detail[0].object(forKey:"description") as! String,
+                                   buy: result.object(forKey:"amazon_product_url") as! String))
+        }
+        
+        return books
     }
     
     class func parseDataIntoOverviewBooks(data:Any?, maxWeeks:Int) -> [OverviewBookModel] {
@@ -35,7 +53,7 @@ class DataParseManager: NSObject {
         // We have a double for-loop to keep track of the current list and all books added to it.
         for list in lists {
             
-            let currentList = BestSellerListModel(name: list.object(forKey:"list_name") as! String,
+            let currentList = BestSellerListModel(name: list.object(forKey:"list_name_encoded") as! String,
                                                   display: list.object(forKey:"display_name") as! String)
             
             

@@ -18,13 +18,13 @@ class BottomNavigation: UIView {
     var currentVC:BookJunkieBaseViewController = HomeViewController()
     
     let onFrame:CGRect = CGRect(x:0,
-                                y:UIScreen.main.bounds.size.height - K.NumberConstant.BottomNavHeight,
-                                width:UIScreen.main.bounds.size.width,
+                                y:K.Screen.Height - K.NumberConstant.BottomNavHeight,
+                                width:K.Screen.Width,
                                 height:K.NumberConstant.BottomNavHeight)
     
     let offFrame:CGRect = CGRect(x:0,
-                                 y:UIScreen.main.bounds.size.height,
-                                 width:UIScreen.main.bounds.size.width,
+                                 y:K.Screen.Height,
+                                 width:K.Screen.Width,
                                  height:K.NumberConstant.BottomNavHeight)
     
     @IBAction func onListsTapped(sender:UIButton){

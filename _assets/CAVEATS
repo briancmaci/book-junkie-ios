@@ -1,13 +1,15 @@
 CAVEATS
+1) This app needs internet connection to work currently. My Lists, My Books and My Awards are saved in Core Data for data persistence, however, I did not support offline mode to keep most-recent Overview Books or My List Detail contents in Core Data if the device is offline. This would be the first of steps in future enhancements.
 
-This app needs internet connection to work currently. My Lists, My Books and My Awards are saved in Core Data for data persistence, however, I did not support offline mode to keep most-recent Overview Books or My List Detail contents in Core Data if the device is offline. This would be the first of steps in future enhancements.
+2) I did not use localizable strings, as I didn't feel this app would be too applicable outside of English speakers. Otherwise, I'd have all copy content pulled as dynamic strings and formats from Localizable.Strings.
 
 FUTURE ENHANCEMENTS
-1) Offline support (see above)
+1) Offline support (see 1 above)
 
 2) Authenticated sessions can offer users access to each other, supporting a "Borrow" flow. One can offer a recently read book for borrowing, as well as submit a request to borrow.
 
 3) More image support for the books within the app's views, beyond the homepage. Currently, the NYTimes BestSellers API provides imagery only for the Overview call.
+
 
 
 

@@ -86,6 +86,11 @@ struct K {
         static let MyListsCell = "MyListsCell"
         static let MyListsFooterCell = "MyListsFooterCell"
         static let MyListDetailsCell = "MyListDetailsCell"
+        static let MyBookCell = "MyBookCell"
+        
+        //Book List Buttons
+        static let BooksSubnavOffView = "BooksSubnavOffView"
+        static let BooksSubnavOnView = "BooksSubnavOnView"
     }
     
     //UITableViewCell reuseIdentifiers
@@ -93,6 +98,7 @@ struct K {
         static let MyListsCellID = "myListsCellID"
         static let MyListsFooterCellID = "myListsFooterCellID"
         static let MyListDetailsCellID = "myListDetailsCellID"
+        static let MyBookCellID = "myBookCellID"
     }
     
     //Strings
@@ -109,6 +115,10 @@ struct K {
         //Lists Strings
         static let AddMore0 = "ADD LISTS"
         static let AddMoreDefault = "EDIT MY LISTS"
+        
+        //Books Strings
+        static let BookTitleNextUp = "BOOKS NEXT UP"
+        static let BookTitleFinished = "BOOKS FINISHED"
     }
     
     //Constant numerical values
@@ -116,10 +126,10 @@ struct K {
         
         static let BottomNavHeight : CGFloat = 65
         static let HeaderAndStatusBarsHeight : CGFloat = 64
+        static let MyBooksSubNavigationHeight : CGFloat = 51
         
         //My Lists TableView
         static let MyListsRowHeight : CGFloat = 44
         static let MyListsFooterHeight : CGFloat = 64
-        
     }
 }

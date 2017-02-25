@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="WhitneyCondensed-Medium.otf">
+            <string>WhitneyCondensed-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BooksSubnavOnView" customModule="NYTimesChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shk-zj-xKl" userLabel="BG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOKS TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbf-ap-ZOW">
+                            <rect key="frame" x="20" y="11" width="335" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="v5i-Eo-dJh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="WhitneyCondensed-Medium" family="WhitneyCondensed" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Jbf-ap-ZOW" secondAttribute="trailing" constant="20" id="7Gw-Na-Ie3"/>
+                        <constraint firstAttribute="height" constant="43" id="mKE-nx-AGD"/>
+                        <constraint firstItem="Jbf-ap-ZOW" firstAttribute="centerY" secondItem="shk-zj-xKl" secondAttribute="centerY" id="meO-yM-PKv"/>
+                        <constraint firstItem="Jbf-ap-ZOW" firstAttribute="leading" secondItem="shk-zj-xKl" secondAttribute="leading" constant="20" id="mue-wM-WeR"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookSubnavArrow" translatesAutoresizingMaskIntoConstraints="NO" id="A95-a1-0Jg">
+                    <rect key="frame" x="180" y="43" width="14" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="Pje-ml-LTI"/>
+                        <constraint firstAttribute="height" constant="8" id="ocM-QT-sGA"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="shk-zj-xKl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X6y-WM-PON"/>
+                <constraint firstItem="A95-a1-0Jg" firstAttribute="centerX" secondItem="shk-zj-xKl" secondAttribute="centerX" id="afL-8P-uLO"/>
+                <constraint firstItem="shk-zj-xKl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ccR-XP-dbQ"/>
+                <constraint firstItem="A95-a1-0Jg" firstAttribute="top" secondItem="shk-zj-xKl" secondAttribute="bottom" id="mv3-Ag-Ij4"/>
+                <constraint firstAttribute="trailing" secondItem="shk-zj-xKl" secondAttribute="trailing" id="ybx-eN-ewu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="Jbf-ap-ZOW" id="UL4-3Q-PKa"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="BookSubnavArrow" width="14" height="7"/>
+    </resources>
+</document>

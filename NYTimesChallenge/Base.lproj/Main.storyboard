@@ -242,41 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wa-W4-S9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712.8" y="-65.217391304347828"/>
-        </scene>
-        <!--Books View Controller-->
-        <scene sceneID="dR0-t6-FgZ">
-            <objects>
-                <viewController storyboardIdentifier="booksVC" id="aYm-Tb-7Th" customClass="BooksViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mb0-Fe-KYR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nu6-94-kw2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gVo-AX-2Qe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOKS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-e2-pFs">
-                                <rect key="frame" x="113" y="117" width="151" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="Lgv-pt-PxA"/>
-                                    <constraint firstAttribute="height" constant="68" id="nmH-Y5-XKu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="lb3-e2-pFs" firstAttribute="centerX" secondItem="gVo-AX-2Qe" secondAttribute="centerX" constant="1" id="OeI-Xv-hnz"/>
-                            <constraint firstItem="lb3-e2-pFs" firstAttribute="top" secondItem="mb0-Fe-KYR" secondAttribute="bottom" constant="97" id="Zog-Di-pIT"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cak-33-bY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2406" y="-65"/>
+            <point key="canvasLocation" x="2394" y="-65"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="NB8-Xe-m8Z">
@@ -313,6 +279,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5js-oH-OIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1020" y="1280"/>
+        </scene>
+        <!--Books View Controller-->
+        <scene sceneID="rTA-8P-nPk">
+            <objects>
+                <viewController storyboardIdentifier="booksVC" id="8dE-cd-Tn9" customClass="BooksViewController" customModule="NYTimesChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8b8-pD-cdw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gty-Qq-WeE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cs5-M6-PIj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iXr-i9-zqh" userLabel="My Books Table">
+                                <rect key="frame" x="0.0" y="43" width="375" height="559"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.50196078430000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gty-Qq-WeE" firstAttribute="top" secondItem="iXr-i9-zqh" secondAttribute="bottom" constant="65" id="LHH-AW-Prw"/>
+                            <constraint firstItem="iXr-i9-zqh" firstAttribute="top" secondItem="Cs5-M6-PIj" secondAttribute="top" constant="43" id="SHE-GJ-VdI"/>
+                            <constraint firstAttribute="trailing" secondItem="iXr-i9-zqh" secondAttribute="trailing" id="dKm-JX-MKL"/>
+                            <constraint firstItem="iXr-i9-zqh" firstAttribute="leading" secondItem="Cs5-M6-PIj" secondAttribute="leading" id="wbL-Fg-1C2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myBooksTable" destination="iXr-i9-zqh" id="Poe-9T-yYN"/>
+                        <outlet property="tableBottomConstraint" destination="LHH-AW-Prw" id="2PM-fw-NDk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leX-u8-Rfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-65"/>
         </scene>
     </scenes>
 </document>

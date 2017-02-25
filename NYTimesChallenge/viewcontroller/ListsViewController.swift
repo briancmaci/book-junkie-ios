@@ -180,7 +180,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     func rightButtons() -> [Any] {
         let rightUtilityButtons = NSMutableArray()
         
-        rightUtilityButtons.sw_addUtilityButton(with: K.Color.redDetail, icon:UIImage(named:K.Icon.IconDeleteRow))
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.mainGray, icon:UIImage(named:K.Icon.IconDeleteRow))
         
         return rightUtilityButtons.copy() as! [Any]
     }

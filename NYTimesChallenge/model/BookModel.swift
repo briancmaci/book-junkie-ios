@@ -31,7 +31,6 @@ class BookModel: NSObject {
         buyURL = buy
         
         uid = toUID()
-        print("UID? \(uid)")
     }
     
     func toUID() -> String {

@@ -97,4 +97,55 @@ class CoreDataManager: NSObject {
         
         return listsInModels
     }
+    
+    class func retrieveBooks() -> [String : BookModel] {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
+        var booksInModels:[String : BookModel] = [String : BookModel]()
+        
+        do {
+            let results =
+                try K.CoreData.managedContext.fetch(fetchRequest)
+            
+            let coreDataLists = results as! [NSManagedObject]
+            //var listsInModels:[BestSellerListModel] = [BestSellerListModel]()
+            
+            for result in coreDataLists {
+                let thisModel = BookModel(title: result.value(forKey:"title") as! String,
+                                          auth: result.value(forKey:"author") as! String,
+                                          desc: result.value(forKey:"summary") as! String,
+                                          buy: result.value(forKey:"buyUrl") as! String)
+                thisModel.saveState = SaveState(rawValue: result.value(forKey: "saveList") as! Int)!
+                booksInModels[thisModel.uid] = thisModel
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            //return [BestSellerListModel]()
+        }
+        
+        return booksInModels
+    }
+    
+    class func saveBook(thisBook: BookModel) {
+        
+        let entity =  NSEntityDescription.entity(forEntityName: K.CoreData.Entity.BestSellerBook,
+                                                 in:K.CoreData.managedContext)
+        
+        let book = NSManagedObject(entity: entity!,
+                                   insertInto: K.CoreData.managedContext)
+        
+        book.setValue(thisBook.bookTitle, forKey: "title")
+        book.setValue(thisBook.author, forKey: "author")
+        book.setValue(thisBook.summary, forKey: "summary")
+        book.setValue(thisBook.buyURL, forKey: "buyUrl")
+        book.setValue(thisBook.uid, forKey: "uid")
+        book.setValue(thisBook.saveState.rawValue, forKey: "saveList")
+        
+        do {
+            try K.CoreData.managedContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
 }

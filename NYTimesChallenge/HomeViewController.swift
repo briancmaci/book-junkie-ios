@@ -28,6 +28,9 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         //Load Overview
         loadOverviewBooks()
         
+        //Load Books -- Completed here so we have them populated in UserModel for Books and Lists views
+        loadSavedBooks()
+        
         //Init subviews
         initCopyrightLine()
     }
@@ -47,6 +50,10 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
             }
         }
         
+    }
+    
+    func loadSavedBooks() {
+        UserModel.sharedInstance.books = CoreDataManager.retrieveBooks()
     }
     
     func initKoloda() {

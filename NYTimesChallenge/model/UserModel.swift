@@ -14,4 +14,5 @@ class UserModel: NSObject {
     
     var lists : [BestSellerListModel] = [BestSellerListModel]()
     var overview : [OverviewBookModel] = [OverviewBookModel]()
+    var books : [String : BookModel] = [String : BookModel]()
 }

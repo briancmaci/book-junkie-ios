@@ -45,6 +45,8 @@
 		722BC9041E5BE3730038B1D3 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC9031E5BE3730038B1D3 /* BookModel.swift */; };
 		722F939D1E608527009C817D /* MyListDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722F939C1E608527009C817D /* MyListDetailsCell.xib */; };
 		722F939F1E60DF89009C817D /* MyListDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F939E1E60DF89009C817D /* MyListDetailsCell.swift */; };
+		722F93A21E613192009C817D /* BooksSubnavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F93A11E613192009C817D /* BooksSubnavigation.swift */; };
+		722F93A41E6131AF009C817D /* BooksSubnavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722F93A31E6131AF009C817D /* BooksSubnavigation.xib */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -133,6 +135,8 @@
 		722BC9031E5BE3730038B1D3 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = model/BookModel.swift; sourceTree = "<group>"; };
 		722F939C1E608527009C817D /* MyListDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyListDetailsCell.xib; path = "custom-ui/MyListDetailsCell.xib"; sourceTree = "<group>"; };
 		722F939E1E60DF89009C817D /* MyListDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyListDetailsCell.swift; path = "custom-ui/MyListDetailsCell.swift"; sourceTree = "<group>"; };
+		722F93A11E613192009C817D /* BooksSubnavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksSubnavigation.swift; path = "custom-ui/BooksSubnavigation.swift"; sourceTree = "<group>"; };
+		722F93A31E6131AF009C817D /* BooksSubnavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BooksSubnavigation.xib; path = "custom-ui/BooksSubnavigation.xib"; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -363,6 +367,15 @@
 			name = "core-data";
 			sourceTree = "<group>";
 		};
+		722F93A01E61316D009C817D /* books-subnav */ = {
+			isa = PBXGroup;
+			children = (
+				722F93A11E613192009C817D /* BooksSubnavigation.swift */,
+				722F93A31E6131AF009C817D /* BooksSubnavigation.xib */,
+			);
+			name = "books-subnav";
+			sourceTree = "<group>";
+		};
 		72D619C61E57E32100A2BFCF /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +387,7 @@
 		72D619C91E57EAB900A2BFCF /* custom-ui */ = {
 			isa = PBXGroup;
 			children = (
+				722F93A01E61316D009C817D /* books-subnav */,
 				722BC86C1E59F8090038B1D3 /* bottom-nav */,
 				722BC86D1E59F8190038B1D3 /* detail-overlay */,
 				722BC8721E59F8510038B1D3 /* my-lists-cells */,
@@ -529,6 +543,7 @@
 				722BC8711E59F84A0038B1D3 /* MyListsCell.xib in Resources */,
 				72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */,
 				722F939D1E608527009C817D /* MyListDetailsCell.xib in Resources */,
+				722F93A41E6131AF009C817D /* BooksSubnavigation.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +630,7 @@
 				72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */,
 				72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */,
 				72268CEA1E576E1000F96DB9 /* BestSellerListModel.swift in Sources */,
+				722F93A21E613192009C817D /* BooksSubnavigation.swift in Sources */,
 				72268CAE1E565BD000F96DB9 /* Config.swift in Sources */,
 				72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */,
 				722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */,

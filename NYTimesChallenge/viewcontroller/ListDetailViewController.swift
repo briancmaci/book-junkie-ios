@@ -63,8 +63,21 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
             if responseObject != nil {
                 self.bookArray = DataParseManager.parseDataIntoListBooks(data: responseObject)
                 
+                //Now we have to update all markers and SaveStates
+                self.loadSaveStatesFromUserModel()
+                
                 self.listDetailTable.reloadData()
                 self.listDetailTable.sizeToContent(bottom: self.tableBottomConstraint)
+            }
+        }
+    }
+    
+    func loadSaveStatesFromUserModel() {
+        
+        for (index, _) in bookArray.enumerated() {
+            let thisUID = bookArray[index].uid
+            if UserModel.sharedInstance.books[thisUID] != nil {
+                bookArray[index].saveState = (UserModel.sharedInstance.books[thisUID]?.saveState)!
             }
         }
     }
@@ -77,6 +90,7 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         
         cell.populate(model: bookArray[indexPath.row], index:indexPath.row)
         cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: 57.0)
+        cell.updateSaveState()
         cell.delegate = self
         
         return cell
@@ -117,7 +131,6 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     
     func swipeableTableViewCell(_ cell: SWTableViewCell!, didTriggerRightUtilityButtonWith index: Int) {
         
-        print("RIGHT UTILITY BUTTON?? \(index)")
         let thisCell = cell as! MyListDetailsCell
         switch index {
             
@@ -135,8 +148,10 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         
         thisCell.updateSaveState()
         thisCell.hideUtilityButtons(animated: true)
+        
         //Push to CoreData
-        //            CoreDataManager.updateBestSellerListSelection(displayName: thisCell.thisModel.displayName, isSelected: false)
+        UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
+        CoreDataManager.saveBook(thisBook: thisCell.thisModel)
     }
     
 }

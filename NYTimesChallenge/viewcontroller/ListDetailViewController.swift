@@ -151,7 +151,16 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         
         //Push to CoreData
         UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
-        CoreDataManager.saveBook(thisBook: thisCell.thisModel)
+        
+        //Check if book exists in lists first
+        
+        if UserModel.sharedInstance.books[thisCell.thisModel.uid] == nil {
+            CoreDataManager.saveBook(thisBook: thisCell.thisModel)
+        }
+        
+        else {
+            CoreDataManager.updateBook(uid: thisCell.thisModel.uid, saveState: thisCell.thisModel.saveState)
+        }
     }
     
 }

@@ -16,7 +16,7 @@ class AwardsViewController: BookJunkieBaseViewController {
         // Do any additional setup after loading the view.
         
         navigationItem.titleView = nil
-        title = "MY AWARDS"
+        title = K.VCTitle.MyAwards
     }
 
     override func didReceiveMemoryWarning() {

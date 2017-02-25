@@ -101,6 +101,14 @@ struct K {
         static let MyBookCellID = "myBookCellID"
     }
     
+    //VC Titles
+    struct VCTitle {
+        static let MyLists = "MY LISTS"
+        static let AllLists = "ALL LISTS"
+        static let MyBooks = "MY BOOKS"
+        static let MyAwards = "MY AWARDS"
+    }
+    
     //Strings
     struct StringFormat {
         static let CopyrightVersion = "©%d BookJunkie  v%@.%@"

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SWTableViewCell
 
-class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, BooksSubnavigationDelegate {
+class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, BooksSubnavigationDelegate, SWTableViewCellDelegate {
 
     @IBOutlet weak var myBooksTable:UITableView!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
@@ -24,8 +25,9 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         // Do any additional setup after loading the view.
         navigationItem.titleView = nil
-        title = "MY BOOKS"
+        title = K.VCTitle.MyBooks
         
+        buildBookArrays()
         initBooksSubnav()
         initTableView()
     }
@@ -55,27 +57,40 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
     }
     
+    func buildBookArrays() {
+        for (_ , book) in UserModel.sharedInstance.books {
+            
+            switch book.saveState {
+                case .nextUp:
+                    nextUpBooksArray.append(book)
+                    nextUpBooksArray = nextUpBooksArray.sorted(by: { $0.bookTitle < $1.bookTitle })
+                    
+                case .finished:
+                    finishedBooksArray.append(book)
+                    finishedBooksArray = finishedBooksArray.sorted(by: { $0.bookTitle < $1.bookTitle })
+                    
+                default:
+                    print("Error: We should not get here. Book has no SaveState")
+            }
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func updateTableListAndData(isNextUp:Bool) {
+        isNextUpList = isNextUp
+        booksSubnav.setCurrentList(toNextUp: isNextUpList)
+        
+        myBooksTable.reloadData()
+        myBooksTable.sizeToContent(bottom: tableBottomConstraint)
+    }
     
     ////MARK: - BooksSubnavDelegate Methods
     
     func nextUpTapped() {
-        isNextUpList = true
-        booksSubnav.setCurrentList(toNextUp: isNextUpList)
+        updateTableListAndData(isNextUp: true)
     }
     
     func finishedTapped() {
-        isNextUpList = false
-        booksSubnav.setCurrentList(toNextUp: isNextUpList)
+        updateTableListAndData(isNextUp: false)
     }
     ////MARK: - UITableViewDelegate Methods
     
@@ -85,10 +100,14 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         if isNextUpList == true {
             cell.populate(model: nextUpBooksArray[indexPath.row], index:indexPath.row)
+            cell.setRightUtilityButtons(rightButtonsNextUp() as [Any]!, withButtonWidth: 57.0)
+            cell.delegate = self
         }
         
         else {
             cell.populate(model: finishedBooksArray[indexPath.row], index:indexPath.row)
+            cell.setRightUtilityButtons(rightButtonsFinished() as [Any]!, withButtonWidth: 57.0)
+            cell.delegate = self
         }
         
         
@@ -129,6 +148,69 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    // SWTableViewCellDelegate Methods
+    func rightButtonsNextUp() -> [Any] {
+        let rightUtilityButtons = NSMutableArray()
+        
+        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddFinishedOff))
+        
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.mainGray, icon:UIImage(named:K.Icon.IconDeleteRow))
+        
+        return rightUtilityButtons.copy() as! [Any]
+    }
+    
+    func rightButtonsFinished() -> [Any] {
+        let rightUtilityButtons = NSMutableArray()
+        
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.mainGray, icon:UIImage(named:K.Icon.IconDeleteRow))
+        
+        return rightUtilityButtons.copy() as! [Any]
+    }
+    
+    func swipeableTableViewCell(_ cell: SWTableViewCell!, didTriggerRightUtilityButtonWith index: Int) {
+        
+        let thisCell = cell as! MyBookCell
+        switch index {
+            
+        case 0:
+            //finished
+            if isNextUpList == true {
+                thisCell.thisModel.saveState = .finished
+            }
+            
+            else {
+                deleteBookFromList()
+            }
+            
+        case 1:
+            //delete
+            deleteBookFromList()
+            
+        default: break
+            
+        }
+        
+        //thisCell.updateSaveState()
+        thisCell.hideUtilityButtons(animated: true)
+        
+        //Push to CoreData
+//        UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
+//        
+//        //Check if book exists in lists first
+//        
+//        if UserModel.sharedInstance.books[thisCell.thisModel.uid] == nil {
+//            CoreDataManager.saveBook(thisBook: thisCell.thisModel)
+//        }
+//            
+//        else {
+//            CoreDataManager.updateBook(uid: thisCell.thisModel.uid, saveState: thisCell.thisModel.saveState)
+//        }
+    }
+    
+    func deleteBookFromList() {
+        print("Delete book")
     }
     
 }

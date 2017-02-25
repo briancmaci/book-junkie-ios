@@ -148,4 +148,30 @@ class CoreDataManager: NSObject {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
+    
+    class func updateBook(uid: String, saveState: SaveState) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
+        fetchRequest.predicate = NSPredicate(format: "uid = %@", uid)
+        
+        do {
+            let fetchResults = try K.CoreData.managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            
+            if fetchResults?.count != 0{
+                
+                let managedObject = fetchResults?[0]
+                managedObject?.setValue(saveState.rawValue, forKey: "saveList")
+                
+                do {
+                    try K.CoreData.managedContext.save()
+                    
+                } catch let error as NSError  {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            //return [BestSellerListModel]()
+        }
+    }
 }

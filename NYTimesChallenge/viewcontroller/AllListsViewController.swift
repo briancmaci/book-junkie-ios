@@ -18,7 +18,7 @@ class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate,
         
         // Do any additional setup after loading the view.
         navigationItem.titleView = nil
-        title = "ALL LISTS"
+        title = K.VCTitle.AllLists
         
         initTableView()
     }

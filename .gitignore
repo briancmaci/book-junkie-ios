@@ -1,4 +1,4 @@
 Podfile.lock
 Pods
 .DS_Store
-_assets/
+_assets/**

@@ -153,7 +153,6 @@ class CoreDataManager: NSObject {
     }
     
     class func updateBookWith(saveState: SaveState, uid: String) {
-        print("GOT TO UPDATE BOOK: \(saveState), \(uid)")
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
         fetchRequest.predicate = NSPredicate(format: "uid = %@", uid)
         

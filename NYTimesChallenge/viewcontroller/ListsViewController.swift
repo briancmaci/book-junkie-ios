@@ -203,13 +203,15 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             
             //Rebuild myListsArray
             myListsArray.remove(at: cellIndexPath.row)
-
             myListsTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
-            
             myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
             
             
         }
+    }
+    
+    func swipeableTableViewCellShouldHideUtilityButtons(onSwipe cell: SWTableViewCell!) -> Bool {
+        return true
     }
     
     //Utility Methods

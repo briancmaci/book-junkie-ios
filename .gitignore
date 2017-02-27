@@ -1,4 +1,7 @@
 Podfile.lock
 Pods
 .DS_Store
-_assets/*
+_assets/_designs
+_assets/API_KEYS
+_assets/CAVEATS
+_assets/nyt-t-logo.png

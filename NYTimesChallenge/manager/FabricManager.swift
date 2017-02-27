@@ -9,12 +9,11 @@
 import UIKit
 import Fabric
 import TwitterKit
-import Crashlytics
 
 class FabricManager: NSObject {
 
     class func initFabric() {
-        Fabric.with([Twitter.self, Crashlytics.self])
+        Fabric.with([Twitter.self])
     }
     
     class func tweetFinished(forBook:BookModel, vc:BookJunkieBaseViewController) {

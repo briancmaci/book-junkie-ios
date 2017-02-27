@@ -10,7 +10,6 @@ pod 'SWTableViewCell', '~> 0.3'
 pod 'Fabric'
 pod 'TwitterKit'
 pod 'TwitterCore'
-pod 'Crashlytics'
 
 target 'NYTimesChallenge' do
 end

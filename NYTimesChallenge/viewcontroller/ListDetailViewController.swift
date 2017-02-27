@@ -153,18 +153,11 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         thisCell.updateSaveState()
         thisCell.hideUtilityButtons(animated: true)
         
-        //Push to CoreData
-        
-        
-        //Check if book exists in lists first
-        if UserModel.sharedInstance.books[thisCell.thisModel.uid] == nil {
-            UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
-            CoreDataManager.saveBook(thisBook: thisCell.thisModel)
-        }
-        
-        else {
-            CoreDataManager.updateBookWith(saveState: thisCell.thisModel.saveState, uid: thisCell.thisModel.uid)
-        }
+       updateBookSaveStateWith(model: thisCell.thisModel)
+    }
+    
+    func swipeableTableViewCellShouldHideUtilityButtons(onSwipe cell: SWTableViewCell!) -> Bool {
+        return true
     }
     
 }

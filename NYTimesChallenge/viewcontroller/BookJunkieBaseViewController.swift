@@ -115,8 +115,17 @@ class BookJunkieBaseViewController: UIViewController, BookRateOverlayDelegate {
         getBottomNavigation().show(visible: true)
     }
     
-    func saveUpdatedBookWith(rating:Int) {
+    func updateBookSaveStateWith(model:BookModel) {
         
+        //Check if book exists in lists first
+        if UserModel.sharedInstance.books[model.uid] == nil {
+            UserModel.sharedInstance.books[model.uid] = model
+            CoreDataManager.saveBook(thisBook: model)
+        }
+            
+        else {
+            CoreDataManager.updateBookWith(saveState: model.saveState, uid: model.uid)
+        }
     }
     /*
     // MARK: - Navigation

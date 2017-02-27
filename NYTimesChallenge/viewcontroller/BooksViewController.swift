@@ -186,6 +186,21 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             //finished
             if isNextUpList == true {
                 thisCell.thisModel.saveState = .finished
+                
+                //load overlay
+                loadRateOverlay(model: thisCell.thisModel)
+                
+                //push changes to CoreData + UserModel singleton
+                updateBookSaveStateWith(model: thisCell.thisModel)
+                
+                //Update Book Arrays
+                let cellIndexPath:IndexPath = myBooksTable.indexPath(for: thisCell)!
+                
+                nextUpBooksArray.remove(at: cellIndexPath.row)
+                myBooksTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
+                myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+                
+                buildBookArrays()
             }
             
             else {
@@ -200,21 +215,11 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             
         }
         
-        //thisCell.updateSaveState()
         thisCell.hideUtilityButtons(animated: true)
-        
-        //Push to CoreData
-//        UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
-//        
-//        //Check if book exists in lists first
-//        
-//        if UserModel.sharedInstance.books[thisCell.thisModel.uid] == nil {
-//            CoreDataManager.saveBook(thisBook: thisCell.thisModel)
-//        }
-//            
-//        else {
-//            CoreDataManager.updateBook(uid: thisCell.thisModel.uid, saveState: thisCell.thisModel.saveState)
-//        }
+    }
+    
+    func swipeableTableViewCellShouldHideUtilityButtons(onSwipe cell: SWTableViewCell!) -> Bool {
+        return true
     }
     
     func deleteBookFromList(thisUid:String, indexPath:IndexPath) {

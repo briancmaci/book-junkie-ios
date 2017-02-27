@@ -12,6 +12,7 @@ import SWTableViewCell
 class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
 
     @IBOutlet weak var listDetailTable:UITableView!
+    @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
     var viewTitle : String = ""
@@ -67,7 +68,7 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
                 self.loadSaveStatesFromUserModel()
                 
                 self.listDetailTable.reloadData()
-                self.listDetailTable.sizeToContent(bottom: self.tableBottomConstraint)
+                self.listDetailTable.sizeToContent(top: self.tableTopConstraint, bottom: self.tableBottomConstraint)
             }
         }
     }
@@ -89,7 +90,7 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ReuseID.MyListDetailsCellID, for: indexPath) as! MyListDetailsCell
         
         cell.populate(model: bookArray[indexPath.row], index:indexPath.row)
-        cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: 57.0)
+        cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: K.NumberConstant.SwipeableButtonWidth)
         cell.updateSaveState()
         cell.delegate = self
         
@@ -122,9 +123,9 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     func rightButtons() -> [Any] {
         let rightUtilityButtons = NSMutableArray()
         
-        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddNextUpOff))
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.selectedYellow, icon:UIImage(named:K.Icon.IconAddNextUpOff))
         
-        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddFinishedOff))
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.selectedGreen, icon:UIImage(named:K.Icon.IconAddFinishedOff))
         
         return rightUtilityButtons.copy() as! [Any]
     }
@@ -142,6 +143,9 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
             //finished
             thisCell.thisModel.saveState = .finished
             
+            //load overlay
+            loadRateOverlay(model: thisCell.thisModel)
+            
         default:
             thisCell.thisModel.saveState = .none
         }
@@ -150,16 +154,16 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         thisCell.hideUtilityButtons(animated: true)
         
         //Push to CoreData
-        UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
+        
         
         //Check if book exists in lists first
-        
         if UserModel.sharedInstance.books[thisCell.thisModel.uid] == nil {
+            UserModel.sharedInstance.books[thisCell.thisModel.uid] = thisCell.thisModel
             CoreDataManager.saveBook(thisBook: thisCell.thisModel)
         }
         
         else {
-            CoreDataManager.updateBook(uid: thisCell.thisModel.uid, saveState: thisCell.thisModel.saveState)
+            CoreDataManager.updateBookWith(saveState: thisCell.thisModel.saveState, uid: thisCell.thisModel.uid)
         }
     }
     

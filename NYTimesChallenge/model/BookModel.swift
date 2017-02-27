@@ -19,6 +19,7 @@ class BookModel: NSObject {
     var author : String = ""
     var summary : String = ""
     var buyURL : String = ""
+    var userRating : Int = 0
     var saveState : SaveState = .none
     
     init(title:String, auth:String, desc:String, buy:String) {

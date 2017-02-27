@@ -7,6 +7,7 @@
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userRating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="uid"/>
@@ -27,7 +28,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
+        <element name="BestSellerBook" positionX="-63" positionY="0" width="128" height="150"/>
         <element name="BestSellerList" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="BestSellerBook" positionX="-63" positionY="0" width="128" height="135"/>
     </elements>
 </model>

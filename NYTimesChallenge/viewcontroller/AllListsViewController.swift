@@ -11,6 +11,7 @@ import UIKit
 class AllListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var allListsTable:UITableView!
+    @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
     override func viewDidLoad() {

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class BookJunkieBaseViewController: UIViewController {
+class BookJunkieBaseViewController: UIViewController, BookRateOverlayDelegate {
 
+    var rateOverlay:BookRateOverlay!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,9 +25,6 @@ class BookJunkieBaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-
     }
     
 
@@ -67,11 +66,56 @@ class BookJunkieBaseViewController: UIViewController {
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
+    // Rate Overlay Load
+    func loadRateOverlay(model:BookModel) {
+        
+        rateOverlay = BookRateOverlay.instanceFromNib(name: K.NIBName.BookRateOverlay) as! BookRateOverlay
+        rateOverlay.frame = CGRect(x:0, y:0, width:K.Screen.Width, height:K.Screen.Height)
+        rateOverlay.populateOverlay(model: model)
+        rateOverlay.initRateStars()
+        
+        rateOverlay.delegate = self
+        
+        view.addSubview(rateOverlay)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        getBottomNavigation().show(visible: false)
+    }
+    
     // Bottom Navigation access
     func getBottomNavigation() -> BottomNavigation {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.bottomNav!
+        
+    }
+    
+    // Book Rate Overlay Delegate
+    func overlayCloseTapped(model: BookModel) {
+        
+        removeRateOverlay()
+        CoreDataManager.updateBookWith(rating: model.userRating, uid: model.uid)
+    }
+    
+    func overlayShareTapped(model: BookModel) {
+        print("Share model with Twitter")
+        
+        //Twitter ON COMPLETE -- removeOverlay
+        //removeRateOverlay()
+        
+        FabricManager.tweetFinished(forBook: model, vc: self)
+        
+        CoreDataManager.updateBookWith(rating: model.userRating, uid: model.uid)
+    }
+    
+    func removeRateOverlay() {
+        rateOverlay.removeFromSuperview()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        getBottomNavigation().show(visible: true)
+    }
+    
+    func saveUpdatedBookWith(rating:Int) {
         
     }
     /*

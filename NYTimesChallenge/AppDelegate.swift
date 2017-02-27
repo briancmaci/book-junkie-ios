@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         buildWindowHierarchy()
         buildBottomNavigation()
         
+        // Twitter Support
+        FabricManager.initFabric()
         return true
     }
 

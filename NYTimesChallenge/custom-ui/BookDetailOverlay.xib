@@ -96,7 +96,7 @@
                             <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lt. Eve Dallas of the N.Y.P.D. investigates a fatal home invasion. By Nora Roberts, writing pseudonymously." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkj-NJ-mfS">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkj-NJ-mfS">
                             <rect key="frame" x="20" y="385" width="335" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="n5i-Dw-MSZ"/>
@@ -106,30 +106,28 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-kV-pz2" userLabel="ButtonView">
-                            <rect key="frame" x="46.5" y="483" width="282" height="34"/>
+                            <rect key="frame" x="91" y="483" width="194" height="34"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Na-By-AWG" userLabel="AddNextButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="196" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="196" id="4B5-f1-ZZx"/>
+                                        <constraint firstAttribute="width" constant="90" id="4B5-f1-ZZx"/>
                                         <constraint firstAttribute="height" constant="34" id="acE-79-wtJ"/>
                                     </constraints>
                                     <state key="normal" image="ButtonAddNextUp"/>
                                     <state key="selected" image="ButtonAddNextUpOn"/>
-                                    <state key="highlighted" image="ButtonAddNextUpOn"/>
                                     <connections>
                                         <action selector="addNextButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Tb-Ik-uOQ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-df-e6v">
-                                    <rect key="frame" x="210" y="0.0" width="72" height="34"/>
+                                    <rect key="frame" x="104" y="0.0" width="90" height="34"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="72" id="9PU-WX-T7P"/>
+                                        <constraint firstAttribute="width" constant="90" id="9PU-WX-T7P"/>
                                         <constraint firstAttribute="height" constant="34" id="WWf-RV-O3F"/>
                                     </constraints>
                                     <state key="normal" image="ButtonBuy"/>
                                     <state key="selected" image="ButtonBuyOn"/>
-                                    <state key="highlighted" image="ButtonBuyOn"/>
                                     <connections>
                                         <action selector="buyButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="xQ5-0j-qkY"/>
                                     </connections>
@@ -139,7 +137,7 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="CeQ-df-e6v" secondAttribute="trailing" id="6A7-cc-F38"/>
                                 <constraint firstItem="0Na-By-AWG" firstAttribute="leading" secondItem="6gv-kV-pz2" secondAttribute="leading" id="8Ph-QZ-Wdc"/>
-                                <constraint firstAttribute="width" constant="282" id="Sga-Wo-12C"/>
+                                <constraint firstAttribute="width" constant="194" id="Sga-Wo-12C"/>
                                 <constraint firstItem="0Na-By-AWG" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="WIx-Ln-rIJ"/>
                                 <constraint firstItem="CeQ-df-e6v" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="Y38-5B-fpE"/>
                                 <constraint firstAttribute="height" constant="34" id="fzq-kQ-dKE"/>
@@ -202,9 +200,9 @@
         </view>
     </objects>
     <resources>
-        <image name="ButtonAddNextUp" width="196" height="34"/>
+        <image name="ButtonAddNextUp" width="90" height="34"/>
         <image name="ButtonAddNextUpOn" width="196" height="34"/>
-        <image name="ButtonBuy" width="72" height="34"/>
+        <image name="ButtonBuy" width="90" height="34"/>
         <image name="ButtonBuyOn" width="72" height="34"/>
         <image name="IconOverlayClose" width="27" height="27"/>
     </resources>

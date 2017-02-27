@@ -37,13 +37,6 @@ class MyListsCell: SWTableViewCell {
         
         listLabel.text = thisModel.displayName.uppercased()
         
-        if thisIndex % 2 == 0 {
-            background.backgroundColor = K.Color.grayBG0
-        }
-        
-        else {
-            background.backgroundColor = K.Color.grayBG1
-        }
     }
     
     func setFor(myLists:Bool) {

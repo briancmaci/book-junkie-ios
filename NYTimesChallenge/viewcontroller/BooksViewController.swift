@@ -12,6 +12,7 @@ import SWTableViewCell
 class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, BooksSubnavigationDelegate, SWTableViewCellDelegate {
 
     @IBOutlet weak var myBooksTable:UITableView!
+    @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
     var booksSubnav:BooksSubnavigation!
@@ -58,6 +59,11 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     }
     
     func buildBookArrays() {
+        
+        //clear arrays
+        nextUpBooksArray.removeAll()
+        finishedBooksArray.removeAll()
+        
         for (_ , book) in UserModel.sharedInstance.books {
             
             switch book.saveState {
@@ -80,7 +86,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         booksSubnav.setCurrentList(toNextUp: isNextUpList)
         
         myBooksTable.reloadData()
-        myBooksTable.sizeToContent(bottom: tableBottomConstraint)
+        myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
     }
     
     ////MARK: - BooksSubnavDelegate Methods
@@ -100,13 +106,13 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         if isNextUpList == true {
             cell.populate(model: nextUpBooksArray[indexPath.row], index:indexPath.row)
-            cell.setRightUtilityButtons(rightButtonsNextUp() as [Any]!, withButtonWidth: 57.0)
+            cell.setRightUtilityButtons(rightButtonsNextUp() as [Any]!, withButtonWidth: K.NumberConstant.SwipeableButtonWidth)
             cell.delegate = self
         }
         
         else {
             cell.populate(model: finishedBooksArray[indexPath.row], index:indexPath.row)
-            cell.setRightUtilityButtons(rightButtonsFinished() as [Any]!, withButtonWidth: 57.0)
+            cell.setRightUtilityButtons(rightButtonsFinished() as [Any]!, withButtonWidth: K.NumberConstant.SwipeableButtonWidth)
             cell.delegate = self
         }
         
@@ -154,7 +160,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     func rightButtonsNextUp() -> [Any] {
         let rightUtilityButtons = NSMutableArray()
         
-        rightUtilityButtons.sw_addUtilityButton(with: UIColor.clear, icon:UIImage(named:K.Icon.IconAddFinishedOff))
+        rightUtilityButtons.sw_addUtilityButton(with: K.Color.selectedGreen, icon:UIImage(named:K.Icon.IconAddFinishedOff))
         
         rightUtilityButtons.sw_addUtilityButton(with: K.Color.mainGray, icon:UIImage(named:K.Icon.IconDeleteRow))
         
@@ -172,6 +178,8 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     func swipeableTableViewCell(_ cell: SWTableViewCell!, didTriggerRightUtilityButtonWith index: Int) {
         
         let thisCell = cell as! MyBookCell
+        let cellIndexPath:IndexPath = myBooksTable.indexPath(for: thisCell)!
+        
         switch index {
             
         case 0:
@@ -181,12 +189,12 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             }
             
             else {
-                deleteBookFromList()
+               deleteBookFromList(thisUid: thisCell.thisModel.uid, indexPath: cellIndexPath)
             }
             
         case 1:
             //delete
-            deleteBookFromList()
+            deleteBookFromList(thisUid: thisCell.thisModel.uid, indexPath: cellIndexPath)
             
         default: break
             
@@ -209,8 +217,17 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
 //        }
     }
     
-    func deleteBookFromList() {
-        print("Delete book")
+    func deleteBookFromList(thisUid:String, indexPath:IndexPath) {
+        
+        //Update arrays
+        UserModel.sharedInstance.books[thisUid] = nil
+        buildBookArrays()
+        
+        CoreDataManager.deleteBook(uid: thisUid)
+        
+        myBooksTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        
     }
     
 }

@@ -91,6 +91,9 @@ struct K {
         //Book List Buttons
         static let BooksSubnavOffView = "BooksSubnavOffView"
         static let BooksSubnavOnView = "BooksSubnavOnView"
+        
+        //Book Rate Overlay
+        static let BookRateOverlay = "BookRateOverlay"
     }
     
     //UITableViewCell reuseIdentifiers
@@ -127,6 +130,24 @@ struct K {
         //Books Strings
         static let BookTitleNextUp = "BOOKS NEXT UP"
         static let BookTitleFinished = "BOOKS FINISHED"
+        
+        //Awards Strings
+        static let RankHeader = "RANK"
+        static let FinishedFooter = "BESTSELLERS FINISHED"
+        static let RatingsFooter = "BESTSELLERS RATED"
+        static let RankNoob = "NOOB!"
+        static let RankPageTurner = "PAGE TURNER!"
+        static let RankBookworm = "BOOKWORM!"
+        static let RankBookJunkie = "BOOKJUNKIE!!"
+        
+        //Rating Overlay Strings
+        static let RateHeader = "BESTSELLER: ACCOMPLISHED"
+        static let RateSubheader = "How would you rate"
+        static let RateTitle = "%@?"
+        
+        //Twitter
+        static let TwitterFinishedCopy = "I just read\n\"%@\"\nand I give it %d stars!\n@BookJunkieApp #finishedIt"
+        static let TwitterRateImageBase = "TwitterRate%d"
     }
     
     //Constant numerical values
@@ -139,5 +160,8 @@ struct K {
         //My Lists TableView
         static let MyListsRowHeight : CGFloat = 44
         static let MyListsFooterHeight : CGFloat = 64
+        
+        //Swipeable Button Size
+        static let SwipeableButtonWidth : CGFloat = 57.0
     }
 }

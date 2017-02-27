@@ -115,6 +115,7 @@ class CoreDataManager: NSObject {
                                           auth: result.value(forKey:"author") as! String,
                                           desc: result.value(forKey:"summary") as! String,
                                           buy: result.value(forKey:"buyUrl") as! String)
+                thisModel.userRating = result.value(forKey:"userRating") as! Int
                 thisModel.saveState = SaveState(rawValue: result.value(forKey: "saveList") as! Int)!
                 booksInModels[thisModel.uid] = thisModel
             }
@@ -127,7 +128,7 @@ class CoreDataManager: NSObject {
     }
     
     class func saveBook(thisBook: BookModel) {
-        
+        print("SAVE BOOK!")
         let entity =  NSEntityDescription.entity(forEntityName: K.CoreData.Entity.BestSellerBook,
                                                  in:K.CoreData.managedContext)
         
@@ -139,8 +140,10 @@ class CoreDataManager: NSObject {
         book.setValue(thisBook.summary, forKey: "summary")
         book.setValue(thisBook.buyURL, forKey: "buyUrl")
         book.setValue(thisBook.uid, forKey: "uid")
+        book.setValue(thisBook.userRating, forKey: "userRating")
         book.setValue(thisBook.saveState.rawValue, forKey: "saveList")
         
+        print("This book to be saved \(book)")
         do {
             try K.CoreData.managedContext.save()
             
@@ -149,8 +152,8 @@ class CoreDataManager: NSObject {
         }
     }
     
-    class func updateBook(uid: String, saveState: SaveState) {
-        
+    class func updateBookWith(saveState: SaveState, uid: String) {
+        print("GOT TO UPDATE BOOK: \(saveState), \(uid)")
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
         fetchRequest.predicate = NSPredicate(format: "uid = %@", uid)
         
@@ -172,6 +175,51 @@ class CoreDataManager: NSObject {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
             //return [BestSellerListModel]()
+        }
+    }
+    
+    class func updateBookWith(rating: Int, uid: String) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
+        fetchRequest.predicate = NSPredicate(format: "uid = %@", uid)
+        
+        do {
+            let fetchResults = try K.CoreData.managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            
+            if fetchResults?.count != 0{
+                
+                let managedObject = fetchResults?[0]
+                managedObject?.setValue(rating, forKey: "userRating")
+                
+                do {
+                    try K.CoreData.managedContext.save()
+                    
+                } catch let error as NSError  {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            //return [BestSellerListModel]()
+        }
+    }
+    
+    class func deleteBook(uid: String) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity.BestSellerBook)
+        fetchRequest.predicate = NSPredicate(format: "uid = %@", uid)
+        
+        if let result = try? K.CoreData.managedContext.fetch(fetchRequest) {
+            for object in result {
+                K.CoreData.managedContext.delete(object as! NSManagedObject)
+            }
+        }
+        
+        do {
+            try K.CoreData.managedContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
         }
     }
 }

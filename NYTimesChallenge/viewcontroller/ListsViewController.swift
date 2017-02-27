@@ -12,6 +12,7 @@ import SWTableViewCell
 class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
     
     @IBOutlet weak var myListsTable:UITableView!
+    @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
     
     //pulling just selected lists from all lists 
@@ -36,7 +37,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         //reload table with new data
         buildMyListsArray()
         myListsTable.reloadData()
-        myListsTable.sizeToContent(bottom: tableBottomConstraint)
+        myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,7 +98,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         }
         
         myListsTable.reloadData()
-        myListsTable.sizeToContent(bottom: tableBottomConstraint)
+        myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
     }
     
     ////MARK: - UITableViewDelegate Methods
@@ -110,7 +111,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             cell.populate(model: myListsArray[indexPath.row], index:indexPath.row)
             cell.setFor(myLists: true)
             
-            cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: 57.0)
+            cell.setRightUtilityButtons(rightButtons() as [Any]!, withButtonWidth: K.NumberConstant.SwipeableButtonWidth)
             cell.delegate = self
             
             return cell
@@ -205,7 +206,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
 
             myListsTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
             
-            myListsTable.sizeToContent(bottom: tableBottomConstraint)
+            myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
             
             
         }

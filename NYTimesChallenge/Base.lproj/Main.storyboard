@@ -6,9 +6,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="WAKINGTHEWITCH.ttf">
+            <string>WakingtheWitch</string>
+        </array>
         <array key="WhitneyCondensed-Bold.otf">
             <string>WhitneyCondensed-Bold</string>
         </array>
@@ -143,6 +147,7 @@
                     <connections>
                         <outlet property="myListsTable" destination="L6d-XI-0Kl" id="V4Q-U7-oza"/>
                         <outlet property="tableBottomConstraint" destination="qBY-ww-YM2" id="yMi-LT-yMQ"/>
+                        <outlet property="tableTopConstraint" destination="1qw-MO-EtJ" id="5X7-OS-QmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70x-gr-SlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,6 +184,7 @@
                     <connections>
                         <outlet property="allListsTable" destination="QIT-aY-CkQ" id="PpS-bC-UTt"/>
                         <outlet property="tableBottomConstraint" destination="DC7-Kv-Hag" id="jiu-rz-J0V"/>
+                        <outlet property="tableTopConstraint" destination="PzN-IV-a4V" id="D2N-SV-YHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riz-ag-gWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,23 +228,129 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWARDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE1-kE-tL7">
-                                <rect key="frame" x="113" y="117" width="151" height="68"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rankHeaderLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RA-Zm-o6D">
+                                <rect key="frame" x="20" y="44" width="335" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="FJY-fE-rNv"/>
-                                    <constraint firstAttribute="width" constant="151" id="k1b-Yq-vuz"/>
+                                    <constraint firstAttribute="height" constant="21" id="2Xj-mG-MpR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Book" family="WhitneyCondensed" pointSize="18"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rankLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlJ-4n-Upc">
+                                <rect key="frame" x="20" y="69" width="335" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="bLy-nN-RnL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WakingtheWitch" family="Waking the Witch" pointSize="50"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kW-1u-xI8">
+                                <rect key="frame" x="90" y="141" width="196" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconTrophyFinished" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-aZ-qy8">
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="150"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-GO-VAk">
+                                        <rect key="frame" x="69" y="96" width="58" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="9eh-ba-Nmd"/>
+                                            <constraint firstAttribute="width" constant="58" id="mCw-M5-Aha"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="WakingtheWitch" family="Waking the Witch" pointSize="46"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Gu4-aZ-qy8" secondAttribute="trailing" id="8fe-ZP-UEF"/>
+                                    <constraint firstAttribute="height" constant="150" id="MvV-wc-H5c"/>
+                                    <constraint firstItem="Gu4-aZ-qy8" firstAttribute="top" secondItem="2kW-1u-xI8" secondAttribute="top" id="f7U-Vk-iAP"/>
+                                    <constraint firstItem="Q4J-GO-VAk" firstAttribute="top" secondItem="2kW-1u-xI8" secondAttribute="top" constant="96" id="niR-6A-wFC"/>
+                                    <constraint firstItem="Gu4-aZ-qy8" firstAttribute="leading" secondItem="2kW-1u-xI8" secondAttribute="leading" id="oIy-DP-kz6"/>
+                                    <constraint firstAttribute="width" constant="196" id="uRl-sg-eLx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gu4-aZ-qy8" secondAttribute="bottom" id="ud1-mF-PoB"/>
+                                    <constraint firstItem="Q4J-GO-VAk" firstAttribute="centerX" secondItem="Gu4-aZ-qy8" secondAttribute="centerX" id="w7O-kV-O8E"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="featLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phc-nx-SPN">
+                                <rect key="frame" x="20" y="297" width="335" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="WiO-iT-RXQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="15"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjw-nP-hTH">
+                                <rect key="frame" x="90" y="351" width="196" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconTrophyRatings" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-bn-cV7">
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="150"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7z-ka-mWG">
+                                        <rect key="frame" x="69" y="96" width="58" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="2Xa-kg-HwT"/>
+                                            <constraint firstAttribute="width" constant="58" id="ASH-6s-ene"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="WakingtheWitch" family="Waking the Witch" pointSize="46"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rg9-bn-cV7" secondAttribute="bottom" id="CUV-dt-dAg"/>
+                                    <constraint firstAttribute="height" constant="150" id="QJI-yN-Ud5"/>
+                                    <constraint firstAttribute="trailing" secondItem="rg9-bn-cV7" secondAttribute="trailing" id="UNw-Zx-nVx"/>
+                                    <constraint firstItem="rg9-bn-cV7" firstAttribute="top" secondItem="cjw-nP-hTH" secondAttribute="top" id="Z6U-w2-48S"/>
+                                    <constraint firstAttribute="width" constant="196" id="hEm-wK-ats"/>
+                                    <constraint firstItem="rg9-bn-cV7" firstAttribute="leading" secondItem="cjw-nP-hTH" secondAttribute="leading" id="pQE-Xd-Wcs"/>
+                                    <constraint firstItem="F7z-ka-mWG" firstAttribute="top" secondItem="cjw-nP-hTH" secondAttribute="top" constant="96" id="sEA-Is-G0A"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rateLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLc-Jf-28m">
+                                <rect key="frame" x="36" y="507" width="303" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="d7p-ic-KN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WhitneyCondensed-Semibold" family="WhitneyCondensed" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uE1-kE-tL7" firstAttribute="top" secondItem="EY0-Il-Hrb" secondAttribute="bottom" constant="97" id="Obf-zz-HfO"/>
-                            <constraint firstItem="uE1-kE-tL7" firstAttribute="centerX" secondItem="fou-Qd-xal" secondAttribute="centerX" constant="1" id="mbE-me-mEQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xLc-Jf-28m" secondAttribute="trailing" constant="20" id="075-SQ-7jy"/>
+                            <constraint firstItem="IlJ-4n-Upc" firstAttribute="leading" secondItem="fou-Qd-xal" secondAttribute="leading" constant="20" id="40M-WE-jUp"/>
+                            <constraint firstItem="IlJ-4n-Upc" firstAttribute="top" secondItem="7RA-Zm-o6D" secondAttribute="bottom" constant="4" id="4ra-Jc-ntq"/>
+                            <constraint firstItem="2kW-1u-xI8" firstAttribute="centerX" secondItem="fou-Qd-xal" secondAttribute="centerX" id="6UQ-vx-RqT"/>
+                            <constraint firstAttribute="trailing" secondItem="7RA-Zm-o6D" secondAttribute="trailing" constant="20" id="By8-h3-dZr"/>
+                            <constraint firstItem="7RA-Zm-o6D" firstAttribute="leading" secondItem="fou-Qd-xal" secondAttribute="leading" constant="20" id="CbO-br-v3y"/>
+                            <constraint firstItem="cjw-nP-hTH" firstAttribute="centerX" secondItem="fou-Qd-xal" secondAttribute="centerX" id="Joc-wp-KV3"/>
+                            <constraint firstItem="2kW-1u-xI8" firstAttribute="top" secondItem="IlJ-4n-Upc" secondAttribute="bottom" constant="20" id="KHK-gc-8bQ"/>
+                            <constraint firstItem="xLc-Jf-28m" firstAttribute="top" secondItem="cjw-nP-hTH" secondAttribute="bottom" constant="6" id="Lqk-Mv-51W"/>
+                            <constraint firstItem="F7z-ka-mWG" firstAttribute="centerX" secondItem="fou-Qd-xal" secondAttribute="centerX" id="O1j-xF-CX9"/>
+                            <constraint firstAttribute="trailing" secondItem="IlJ-4n-Upc" secondAttribute="trailing" constant="20" id="Oxi-bw-STr"/>
+                            <constraint firstItem="phc-nx-SPN" firstAttribute="top" secondItem="2kW-1u-xI8" secondAttribute="bottom" constant="6" id="S7P-mG-j6F"/>
+                            <constraint firstItem="xLc-Jf-28m" firstAttribute="leading" secondItem="fou-Qd-xal" secondAttribute="leadingMargin" constant="20" id="fQ4-4l-Cbe"/>
+                            <constraint firstItem="cjw-nP-hTH" firstAttribute="top" secondItem="phc-nx-SPN" secondAttribute="bottom" constant="36" id="guB-0Z-IP1"/>
+                            <constraint firstAttribute="trailing" secondItem="phc-nx-SPN" secondAttribute="trailing" constant="20" id="i6W-rl-ZC1"/>
+                            <constraint firstItem="phc-nx-SPN" firstAttribute="leading" secondItem="fou-Qd-xal" secondAttribute="leading" constant="20" id="j9a-bf-cCR"/>
+                            <constraint firstItem="7RA-Zm-o6D" firstAttribute="top" secondItem="EY0-Il-Hrb" secondAttribute="bottom" constant="24" id="smX-xJ-iCL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="finishedAwardLabel" destination="phc-nx-SPN" id="AhK-kl-nwl"/>
+                        <outlet property="finishedNumberLabel" destination="Q4J-GO-VAk" id="grY-6Y-ISC"/>
+                        <outlet property="rankHeader" destination="7RA-Zm-o6D" id="WGj-iH-jTM"/>
+                        <outlet property="rankLabel" destination="IlJ-4n-Upc" id="0dJ-18-QQv"/>
+                        <outlet property="ratingsAwardLabel" destination="xLc-Jf-28m" id="2NQ-wv-Xhb"/>
+                        <outlet property="ratingsNumberLabel" destination="F7z-ka-mWG" id="hIW-Uc-ajA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wa-W4-S9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,6 +386,7 @@
                     <connections>
                         <outlet property="listDetailTable" destination="1Yw-Z7-cTX" id="fId-Wv-Toe"/>
                         <outlet property="tableBottomConstraint" destination="mxL-op-v35" id="qfL-OG-uKd"/>
+                        <outlet property="tableTopConstraint" destination="Kw7-VL-YvN" id="hVR-Vu-Pr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5js-oH-OIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,6 +423,7 @@
                     <connections>
                         <outlet property="myBooksTable" destination="iXr-i9-zqh" id="Poe-9T-yYN"/>
                         <outlet property="tableBottomConstraint" destination="LHH-AW-Prw" id="2PM-fw-NDk"/>
+                        <outlet property="tableTopConstraint" destination="SHE-GJ-VdI" id="rxl-eg-EnF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leX-u8-Rfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,4 +431,8 @@
             <point key="canvasLocation" x="1713" y="-65"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IconTrophyFinished" width="196" height="150"/>
+        <image name="IconTrophyRatings" width="196" height="150"/>
+    </resources>
 </document>

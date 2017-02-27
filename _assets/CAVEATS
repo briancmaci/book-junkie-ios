@@ -3,6 +3,12 @@ CAVEATS
 
 2) I did not use localizable strings, as I didn't feel this app would be too applicable outside of English speakers. Otherwise, I'd have all copy content pulled as dynamic strings and formats from Localizable.Strings.
 
+3) QA REGRESSION TESTING -- ROBUST ERROR CHECKING
+
+4) NO DESIGNER -- SHORTCUTS ON SOME BUTTONS / HIGHLIGHTED STATES
+
+5) FOR NOW... A USER MUST RATE ONCE FINISHING A BOOK -- UX HELP NEEDED
+
 FUTURE ENHANCEMENTS
 1) Offline support (see 1 above)
 

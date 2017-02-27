@@ -29,13 +29,5 @@ class MyBookCell: SWTableViewCell {
         thisIndex = index
         
         listLabel.text = thisModel.bookTitle.uppercased()
-        
-        if thisIndex % 2 == 0 {
-            background.backgroundColor = K.Color.grayBG0
-        }
-        
-        else {
-            background.backgroundColor = K.Color.grayBG1
-        }
     }
 }

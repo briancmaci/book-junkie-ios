@@ -7,6 +7,10 @@ pod 'AFNetworking', '~> 3.1'
 pod 'SDWebImage', '~> 4.0'
 pod 'Koloda', '~> 4.0'
 pod 'SWTableViewCell', '~> 0.3'
+pod 'Fabric'
+pod 'TwitterKit'
+pod 'TwitterCore'
+pod 'Crashlytics'
 
 target 'NYTimesChallenge' do
 end

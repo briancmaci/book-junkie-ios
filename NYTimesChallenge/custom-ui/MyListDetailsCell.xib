@@ -37,7 +37,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qdE-1b-J8c" firstAttribute="leading" secondItem="3Eg-wW-8A6" secondAttribute="leading" id="G2X-jZ-tTs"/>
                             <constraint firstItem="qdE-1b-J8c" firstAttribute="top" secondItem="3Eg-wW-8A6" secondAttribute="top" id="uru-e0-mgX"/>
@@ -54,7 +54,7 @@
                         <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOK NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="Book Name">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOK NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="Book Name">
                         <rect key="frame" x="41" y="12" width="235" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="rwm-Gk-xW5"/>

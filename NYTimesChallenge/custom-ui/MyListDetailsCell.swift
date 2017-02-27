@@ -38,13 +38,6 @@ class MyListDetailsCell: SWTableViewCell {
         titleLabel.text = thisModel.bookTitle.uppercased()
         rankLabel.text = String(format:"%d", thisIndex + 1)
         
-        if thisIndex % 2 == 0 {
-            background.backgroundColor = K.Color.grayBG0
-        }
-            
-        else {
-            background.backgroundColor = K.Color.grayBG1
-        }
     }
     
 //    func updateRowWith(model:BookModel) {

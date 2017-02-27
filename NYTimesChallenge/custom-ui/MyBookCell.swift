@@ -14,6 +14,7 @@ class MyBookCell: SWTableViewCell {
     @IBOutlet weak var listLabel : UILabel!
     @IBOutlet weak var background : UIView!
     @IBOutlet weak var iconNext : UIImageView!
+    @IBOutlet weak var rowRatingView : MyBookRowRatingView!
     
     var thisModel : BookModel!
     var thisIndex : Int!
@@ -29,5 +30,23 @@ class MyBookCell: SWTableViewCell {
         thisIndex = index
         
         listLabel.text = thisModel.bookTitle.uppercased()
+        
+        //Set row accessory
+        toggleRowAccessories()
+        rowRatingView.initRowStars()
+        rowRatingView.setRowRate(rate: thisModel.userRating)
+    }
+    
+    func toggleRowAccessories() {
+        
+        switch thisModel.saveState {
+        case .finished:
+            iconNext.isHidden = true
+            rowRatingView.isHidden = false
+            
+        case .nextUp, .none:
+            iconNext.isHidden = false
+            rowRatingView.isHidden = true
+        }
     }
 }

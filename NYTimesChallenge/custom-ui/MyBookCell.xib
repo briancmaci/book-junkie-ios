@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,8 +27,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="ListName">
-                        <rect key="frame" x="12" y="12" width="268" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-T0-YeF" userLabel="ListName">
+                        <rect key="frame" x="12" y="12" width="231" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="rwm-Gk-xW5"/>
                         </constraints>
@@ -42,15 +43,79 @@
                             <constraint firstAttribute="height" constant="13" id="t2G-xB-qmd"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-48-ZTW" customClass="MyBookRowRatingView" customModule="NYTimesChallenge" customModuleProvider="target">
+                        <rect key="frame" x="249" y="18" width="49" height="9"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowStarOff" translatesAutoresizingMaskIntoConstraints="NO" id="4av-1m-FrE">
+                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="9" id="dg9-87-WKo"/>
+                                    <constraint firstAttribute="width" constant="9" id="x6F-ho-BtN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowStarOff" translatesAutoresizingMaskIntoConstraints="NO" id="VpN-rn-tdD">
+                                <rect key="frame" x="10" y="0.0" width="9" height="9"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="9" id="3A9-XK-9NG"/>
+                                    <constraint firstAttribute="height" constant="9" id="cqw-Jy-NrF"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowStarOff" translatesAutoresizingMaskIntoConstraints="NO" id="oQ8-S0-2Ih">
+                                <rect key="frame" x="20" y="0.0" width="9" height="9"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="9" id="Iac-3J-czT"/>
+                                    <constraint firstAttribute="width" constant="9" id="i81-z2-KSj"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowStarOff" translatesAutoresizingMaskIntoConstraints="NO" id="g1b-Tp-zm5">
+                                <rect key="frame" x="30" y="0.0" width="9" height="9"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="9" id="0qO-ev-iLd"/>
+                                    <constraint firstAttribute="width" constant="9" id="bvW-LZ-6CV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowStarOff" translatesAutoresizingMaskIntoConstraints="NO" id="xK4-3X-OIo">
+                                <rect key="frame" x="40" y="0.0" width="9" height="9"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="9" id="5Eq-1c-IFy"/>
+                                    <constraint firstAttribute="height" constant="9" id="PPl-Ch-8tC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="49" id="55X-aX-XsK"/>
+                            <constraint firstItem="4av-1m-FrE" firstAttribute="leading" secondItem="Nnh-48-ZTW" secondAttribute="leading" id="7DH-dK-tyU"/>
+                            <constraint firstItem="4av-1m-FrE" firstAttribute="top" secondItem="Nnh-48-ZTW" secondAttribute="top" id="7hP-Lo-Anm"/>
+                            <constraint firstItem="oQ8-S0-2Ih" firstAttribute="top" secondItem="Nnh-48-ZTW" secondAttribute="top" id="ACR-am-R6O"/>
+                            <constraint firstItem="oQ8-S0-2Ih" firstAttribute="leading" secondItem="VpN-rn-tdD" secondAttribute="trailing" constant="1" id="Nvv-v7-VpX"/>
+                            <constraint firstItem="VpN-rn-tdD" firstAttribute="leading" secondItem="4av-1m-FrE" secondAttribute="trailing" constant="1" id="PgX-DA-nFn"/>
+                            <constraint firstItem="xK4-3X-OIo" firstAttribute="top" secondItem="Nnh-48-ZTW" secondAttribute="top" id="UTu-em-QfU"/>
+                            <constraint firstItem="VpN-rn-tdD" firstAttribute="top" secondItem="Nnh-48-ZTW" secondAttribute="top" id="iGo-GY-qXu"/>
+                            <constraint firstAttribute="trailing" secondItem="xK4-3X-OIo" secondAttribute="trailing" id="ktt-Oq-oPJ"/>
+                            <constraint firstItem="g1b-Tp-zm5" firstAttribute="top" secondItem="Nnh-48-ZTW" secondAttribute="top" id="oZk-2K-Bzj"/>
+                            <constraint firstAttribute="height" constant="9" id="tDQ-az-rNX"/>
+                            <constraint firstItem="g1b-Tp-zm5" firstAttribute="leading" secondItem="oQ8-S0-2Ih" secondAttribute="trailing" constant="1" id="tx5-0h-V7O"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="rowRateStar" destination="4av-1m-FrE" collectionClass="NSMutableArray" id="1T4-MW-Aea"/>
+                            <outletCollection property="rowRateStar" destination="VpN-rn-tdD" collectionClass="NSMutableArray" id="04Z-0m-awe"/>
+                            <outletCollection property="rowRateStar" destination="oQ8-S0-2Ih" collectionClass="NSMutableArray" id="9zK-g6-Kcb"/>
+                            <outletCollection property="rowRateStar" destination="g1b-Tp-zm5" collectionClass="NSMutableArray" id="4FT-6I-5PC"/>
+                            <outletCollection property="rowRateStar" destination="xK4-3X-OIo" collectionClass="NSMutableArray" id="M0g-jT-4KY"/>
+                        </connections>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="6JD-T0-YeF" secondAttribute="trailing" constant="40" id="6ha-Ty-y1l"/>
+                    <constraint firstAttribute="trailing" secondItem="6JD-T0-YeF" secondAttribute="trailing" constant="77" id="6ha-Ty-y1l"/>
                     <constraint firstAttribute="trailing" secondItem="3Eg-wW-8A6" secondAttribute="trailing" id="A0V-6v-hFD"/>
                     <constraint firstItem="GvL-X1-qhR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AgC-ex-Xht"/>
                     <constraint firstAttribute="bottom" secondItem="3Eg-wW-8A6" secondAttribute="bottom" id="LDy-bf-QR2"/>
+                    <constraint firstItem="Nnh-48-ZTW" firstAttribute="centerY" secondItem="6JD-T0-YeF" secondAttribute="centerY" id="Mav-e6-lTr"/>
                     <constraint firstAttribute="trailing" secondItem="GvL-X1-qhR" secondAttribute="trailing" constant="24" id="S9z-Rl-47D"/>
                     <constraint firstItem="6JD-T0-YeF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="VOK-5U-aVp"/>
                     <constraint firstItem="6JD-T0-YeF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Whj-Vx-ruQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Nnh-48-ZTW" secondAttribute="trailing" constant="14" id="cN0-GC-itq"/>
                     <constraint firstItem="3Eg-wW-8A6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qhd-O0-RDK"/>
                     <constraint firstItem="3Eg-wW-8A6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tBA-wx-Qgh"/>
                 </constraints>
@@ -59,10 +124,13 @@
                 <outlet property="background" destination="3Eg-wW-8A6" id="jYq-6r-LQs"/>
                 <outlet property="iconNext" destination="GvL-X1-qhR" id="FgA-fU-XFe"/>
                 <outlet property="listLabel" destination="6JD-T0-YeF" id="ZBA-pI-XlF"/>
+                <outlet property="rowRatingView" destination="Nnh-48-ZTW" id="3p7-8n-yVN"/>
             </connections>
+            <point key="canvasLocation" x="105" y="56"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="IconRowNext" width="6" height="13"/>
+        <image name="IconRowStarOff" width="9" height="8"/>
     </resources>
 </document>

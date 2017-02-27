@@ -55,6 +55,7 @@
 		722F93B31E61B975009C817D /* BooksSubnavOnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F93B21E61B975009C817D /* BooksSubnavOnView.swift */; };
 		726A67571E633DBE00E7C2F9 /* FabricManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A67561E633DBE00E7C2F9 /* FabricManager.swift */; };
 		726A67591E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 726A67581E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf */; };
+		726A675C1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A675B1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift */; };
 		72B494651E628A4E00FE0444 /* BookRateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494641E628A4E00FE0444 /* BookRateOverlay.swift */; };
 		72B494671E628B1C00FE0444 /* RateStarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494661E628B1C00FE0444 /* RateStarButtons.swift */; };
 		72B494691E628F3800FE0444 /* BookRateOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B494681E628F3800FE0444 /* BookRateOverlay.xib */; };
@@ -156,6 +157,7 @@
 		722F93B21E61B975009C817D /* BooksSubnavOnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksSubnavOnView.swift; path = "custom-ui/BooksSubnavOnView.swift"; sourceTree = "<group>"; };
 		726A67561E633DBE00E7C2F9 /* FabricManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FabricManager.swift; path = manager/FabricManager.swift; sourceTree = "<group>"; };
 		726A67581E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = WAKINGTHEWITCH.ttf; path = _assets/_fonts/WAKINGTHEWITCH.ttf; sourceTree = SOURCE_ROOT; };
+		726A675B1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyBookRowRatingView.swift; path = "custom-ui/MyBookRowRatingView.swift"; sourceTree = "<group>"; };
 		72B494641E628A4E00FE0444 /* BookRateOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookRateOverlay.swift; path = "custom-ui/BookRateOverlay.swift"; sourceTree = "<group>"; };
 		72B494661E628B1C00FE0444 /* RateStarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateStarButtons.swift; path = "custom-ui/RateStarButtons.swift"; sourceTree = "<group>"; };
 		72B494681E628F3800FE0444 /* BookRateOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookRateOverlay.xib; path = "custom-ui/BookRateOverlay.xib"; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 		722F93AB1E61B1D7009C817D /* my-book-cells */ = {
 			isa = PBXGroup;
 			children = (
+				726A675A1E63DE7500E7C2F9 /* my-book-row-rating */,
 				722F93AC1E61B363009C817D /* MyBookCell.swift */,
 				722F93AD1E61B363009C817D /* MyBookCell.xib */,
 			);
@@ -419,6 +422,14 @@
 				722F93B01E61B89D009C817D /* BooksSubnavView.swift */,
 			);
 			name = base;
+			sourceTree = "<group>";
+		};
+		726A675A1E63DE7500E7C2F9 /* my-book-row-rating */ = {
+			isa = PBXGroup;
+			children = (
+				726A675B1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift */,
+			);
+			name = "my-book-row-rating";
 			sourceTree = "<group>";
 		};
 		72B494631E6289F600FE0444 /* rate-overlay */ = {
@@ -700,6 +711,7 @@
 				72268CEC1E578C3500F96DB9 /* DataParseManager.swift in Sources */,
 				72268CEE1E57997400F96DB9 /* UserModel.swift in Sources */,
 				72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */,
+				726A675C1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift in Sources */,
 				72268CA61E564BAB00F96DB9 /* APICallManager.swift in Sources */,
 				722BC8FC1E5A5F9E0038B1D3 /* CoreDataManager.swift in Sources */,
 				72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */,
@@ -880,6 +892,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MF94FJYR24;
 				INFOPLIST_FILE = NYTimesChallenge/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

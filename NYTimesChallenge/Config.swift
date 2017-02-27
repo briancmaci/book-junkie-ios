@@ -57,6 +57,8 @@ struct K {
         static let IconDeleteRow = "IconDeleteRow"
         static let IconAddNextUpOff = "IconAddNextUpOff"
         static let IconAddFinishedOff = "IconAddFinishedOff"
+        static let IconRowStarOff = "IconRowStarOff"
+        static let IconRowStarOn = "IconRowStarOn"
     }
     
     //Storyboard IDs

@@ -197,7 +197,7 @@
                 <navigationController storyboardIdentifier="mainNavVC" id="Vkk-wL-PSM" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="b8Y-UE-dBX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="b8Y-UE-dBX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,7 +247,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kW-1u-xI8">
-                                <rect key="frame" x="90" y="141" width="196" height="150"/>
+                                <rect key="frame" x="89.5" y="141" width="196" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconTrophyFinished" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-aZ-qy8">
                                         <rect key="frame" x="0.0" y="0.0" width="196" height="150"/>
@@ -285,7 +285,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjw-nP-hTH">
-                                <rect key="frame" x="90" y="351" width="196" height="150"/>
+                                <rect key="frame" x="89.5" y="351" width="196" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconTrophyRatings" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-bn-cV7">
                                         <rect key="frame" x="0.0" y="0.0" width="196" height="150"/>
@@ -411,16 +411,29 @@
                                 <color key="separatorColor" red="0.50196078430000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EmptyTableLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="qnv-1r-6wx">
+                                <rect key="frame" x="20" y="283" width="335" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="P9r-4v-9wG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gty-Qq-WeE" firstAttribute="top" secondItem="iXr-i9-zqh" secondAttribute="bottom" constant="65" id="LHH-AW-Prw"/>
+                            <constraint firstItem="qnv-1r-6wx" firstAttribute="leading" secondItem="Cs5-M6-PIj" secondAttribute="leading" constant="20" id="Oja-6H-Jfd"/>
+                            <constraint firstAttribute="trailing" secondItem="qnv-1r-6wx" secondAttribute="trailing" constant="20" id="Rs4-Q0-Pb4"/>
                             <constraint firstItem="iXr-i9-zqh" firstAttribute="top" secondItem="Cs5-M6-PIj" secondAttribute="top" constant="43" id="SHE-GJ-VdI"/>
                             <constraint firstAttribute="trailing" secondItem="iXr-i9-zqh" secondAttribute="trailing" id="dKm-JX-MKL"/>
+                            <constraint firstItem="qnv-1r-6wx" firstAttribute="centerY" secondItem="Cs5-M6-PIj" secondAttribute="centerY" constant="-40" id="pAZ-2l-97Z"/>
                             <constraint firstItem="iXr-i9-zqh" firstAttribute="leading" secondItem="Cs5-M6-PIj" secondAttribute="leading" id="wbL-Fg-1C2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyTableLabel" destination="qnv-1r-6wx" id="Xf4-d1-igk"/>
                         <outlet property="myBooksTable" destination="iXr-i9-zqh" id="Poe-9T-yYN"/>
                         <outlet property="tableBottomConstraint" destination="LHH-AW-Prw" id="2PM-fw-NDk"/>
                         <outlet property="tableTopConstraint" destination="SHE-GJ-VdI" id="rxl-eg-EnF"/>

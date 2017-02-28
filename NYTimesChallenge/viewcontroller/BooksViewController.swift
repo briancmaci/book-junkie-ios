@@ -14,6 +14,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     @IBOutlet weak var myBooksTable:UITableView!
     @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
     @IBOutlet weak var tableBottomConstraint:NSLayoutConstraint!
+    @IBOutlet weak var emptyTableLabel:UILabel!
     
     var booksSubnav:BooksSubnavigation!
     
@@ -100,6 +101,32 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         myBooksTable.reloadData()
         myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
         
+        updateEmptyTableLabel()
+    }
+    
+    func updateEmptyTableLabel() {
+        
+        if isNextUpList == true {
+            if nextUpBooksArray.count == 0 {
+                emptyTableLabel.text = K.StringFormat.EmptyNextUp
+                emptyTableLabel.isHidden = false
+            }
+            
+            else {
+                emptyTableLabel.isHidden = true
+            }
+        }
+        
+        else {
+            if finishedBooksArray.count == 0 {
+                emptyTableLabel.text = K.StringFormat.EmptyFinished
+                emptyTableLabel.isHidden = false
+            }
+                
+            else {
+                emptyTableLabel.isHidden = true
+            }
+        }
     }
     
     //We need to retrieve which cell we've updated from the overlay to update
@@ -239,7 +266,6 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         case 1:
             //delete
             deleteBookFromList(thisUid: thisCell.thisModel.uid, indexPath: cellIndexPath)
-            
         default: break
             
         }
@@ -260,8 +286,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         CoreDataManager.deleteBook(uid: thisUid)
         
         myBooksTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
-        
+        updateTableListAndData(isNextUp: isNextUpList)
     }
     
     func initListBookDetailOverlay(thisModel:BookModel) {
@@ -317,7 +342,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         CoreDataManager.deleteBook(uid: model.uid)
         
         myBooksTable.deleteRows(at: [indexPathForBookModel(model: model)], with: UITableViewRowAnimation.fade)
-        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
+        updateTableListAndData(isNextUp: isNextUpList)
         
         overlayClosed()
     }

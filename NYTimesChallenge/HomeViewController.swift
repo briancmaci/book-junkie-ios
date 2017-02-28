@@ -11,12 +11,12 @@ import Koloda
 import SDWebImage
 import SafariServices
 
-class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, OverviewDetailOverlayDelegate, SFSafariViewControllerDelegate {
+class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, BaseBookDetailOverlayDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var copyrightLine:UILabel!
     @IBOutlet weak var kolodaView: KolodaView!
     
-    var bookDetailOverlay : BookDetailOverlay!
+    var bookDetailOverlay : OverviewBookDetailOverlay!
     
     //The level of "newness" for Overview books.
     let kMaxWeeks : Int = 3
@@ -73,13 +73,13 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         copyrightLine?.text = copyStr
     }
     
-    func initBookDetailOverlay(thisModel:OverviewBookModel) {
+    func initOverviewBookDetailOverlay(thisModel:OverviewBookModel) {
         
-        bookDetailOverlay = BookDetailOverlay.instanceFromNib(name: K.NIBName.BookDetailOverlay) as? BookDetailOverlay
+        bookDetailOverlay = OverviewBookDetailOverlay.instanceFromNib(name: K.NIBName.OverviewBookDetailOverlay) as? OverviewBookDetailOverlay
         
         bookDetailOverlay.delegate = self
         
-        bookDetailOverlay?.populate(model: thisModel)
+        bookDetailOverlay?.populateOverview(model: thisModel)
         
         
         bookDetailOverlay?.frame = bookDetailOverlay.offFrame
@@ -129,13 +129,13 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         return UserModel.sharedInstance.overview.count
     }
     
-    ////OverlayBookDelegate Methods
+    ////MARK - OverlayBookDelegate Methods
     internal func overviewTapped(model: OverviewBookModel) {
-        initBookDetailOverlay(thisModel: model)
+        initOverviewBookDetailOverlay(thisModel: model)
     }
     
-    ////OverviewDetailOverlayDelegate Methods
-    internal func addToNextUpTapped(model:OverviewBookModel) {
+    ////MARK - BaseBookDetailOverlayDelegate Methods
+    internal func addToNextUpTapped(model:BookModel) {
         print("Add this book next: \(model.bookTitle)")
     }
     
@@ -167,15 +167,6 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
             self.bookDetailOverlay = nil
         }
         
-    }
-    
-    ////SFSafariViewControllerDelegate Methods
-    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController)
-    {
-        controller.dismiss(animated: true, completion: nil)
-        
-        //Show Bottom Nav
-        getBottomNavigation().show(visible: true)
     }
 
 }

@@ -30,8 +30,8 @@
 		72268CFC1E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */; };
 		72268CFD1E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */; };
 		722BC8651E58D0080038B1D3 /* OverviewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8641E58D0080038B1D3 /* OverviewBookView.swift */; };
-		722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */; };
-		722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */; };
+		722BC8671E58FD360038B1D3 /* OverviewBookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC8661E58FD360038B1D3 /* OverviewBookDetailOverlay.swift */; };
+		722BC8691E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC8681E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib */; };
 		722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */; };
 		722BC8701E59F84A0038B1D3 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BC86E1E59F84A0038B1D3 /* MyListsCell.swift */; };
 		722BC8711E59F84A0038B1D3 /* MyListsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BC86F1E59F84A0038B1D3 /* MyListsCell.xib */; };
@@ -56,6 +56,10 @@
 		726A67571E633DBE00E7C2F9 /* FabricManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A67561E633DBE00E7C2F9 /* FabricManager.swift */; };
 		726A67591E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 726A67581E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf */; };
 		726A675C1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A675B1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift */; };
+		726A67631E64C1E800E7C2F9 /* BaseBookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A67621E64C1E800E7C2F9 /* BaseBookDetailOverlay.swift */; };
+		726A67661E64D14700E7C2F9 /* ListBookDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A67641E64D14700E7C2F9 /* ListBookDetailOverlay.swift */; };
+		726A67671E64D14700E7C2F9 /* ListBookDetailOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A67651E64D14700E7C2F9 /* ListBookDetailOverlay.xib */; };
+		726A67691E64D68100E7C2F9 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726A67681E64D68100E7C2F9 /* UITextViewExtension.swift */; };
 		72B494651E628A4E00FE0444 /* BookRateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494641E628A4E00FE0444 /* BookRateOverlay.swift */; };
 		72B494671E628B1C00FE0444 /* RateStarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494661E628B1C00FE0444 /* RateStarButtons.swift */; };
 		72B494691E628F3800FE0444 /* BookRateOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B494681E628F3800FE0444 /* BookRateOverlay.xib */; };
@@ -65,7 +69,6 @@
 		72D619CF1E57F6B900A2BFCF /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */; };
 		72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */; };
 		72D619D31E5803AB00A2BFCF /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D21E5803AB00A2BFCF /* BooksViewController.swift */; };
-		72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D41E5815C800A2BFCF /* BooksReadModel.swift */; };
 		72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619D71E58955D00A2BFCF /* BundleExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,8 +134,8 @@
 		72268CF61E57D2AF00F96DB9 /* WhitneyCondensed-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Bold.otf"; path = "fonts/WhitneyCondensed-Bold.otf"; sourceTree = "<group>"; };
 		72268CF71E57D2AF00F96DB9 /* WhitneyCondensed-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WhitneyCondensed-Black.otf"; path = "fonts/WhitneyCondensed-Black.otf"; sourceTree = "<group>"; };
 		722BC8641E58D0080038B1D3 /* OverviewBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewBookView.swift; path = koloda_extend/OverviewBookView.swift; sourceTree = "<group>"; };
-		722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookDetailOverlay.swift; path = "custom-ui/BookDetailOverlay.swift"; sourceTree = "<group>"; };
-		722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailOverlay.xib; path = "custom-ui/BookDetailOverlay.xib"; sourceTree = "<group>"; };
+		722BC8661E58FD360038B1D3 /* OverviewBookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewBookDetailOverlay.swift; path = "custom-ui/OverviewBookDetailOverlay.swift"; sourceTree = "<group>"; };
+		722BC8681E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverviewBookDetailOverlay.xib; path = "custom-ui/OverviewBookDetailOverlay.xib"; sourceTree = "<group>"; };
 		722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = extension/UIViewExtension.swift; sourceTree = "<group>"; };
 		722BC86E1E59F84A0038B1D3 /* MyListsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyListsCell.swift; path = "custom-ui/MyListsCell.swift"; sourceTree = "<group>"; };
 		722BC86F1E59F84A0038B1D3 /* MyListsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyListsCell.xib; path = "custom-ui/MyListsCell.xib"; sourceTree = "<group>"; };
@@ -158,6 +161,10 @@
 		726A67561E633DBE00E7C2F9 /* FabricManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FabricManager.swift; path = manager/FabricManager.swift; sourceTree = "<group>"; };
 		726A67581E63A85C00E7C2F9 /* WAKINGTHEWITCH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = WAKINGTHEWITCH.ttf; path = _assets/_fonts/WAKINGTHEWITCH.ttf; sourceTree = SOURCE_ROOT; };
 		726A675B1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyBookRowRatingView.swift; path = "custom-ui/MyBookRowRatingView.swift"; sourceTree = "<group>"; };
+		726A67621E64C1E800E7C2F9 /* BaseBookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseBookDetailOverlay.swift; path = "custom-ui/BaseBookDetailOverlay.swift"; sourceTree = "<group>"; };
+		726A67641E64D14700E7C2F9 /* ListBookDetailOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListBookDetailOverlay.swift; path = "custom-ui/ListBookDetailOverlay.swift"; sourceTree = "<group>"; };
+		726A67651E64D14700E7C2F9 /* ListBookDetailOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListBookDetailOverlay.xib; path = "custom-ui/ListBookDetailOverlay.xib"; sourceTree = "<group>"; };
+		726A67681E64D68100E7C2F9 /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextViewExtension.swift; path = extension/UITextViewExtension.swift; sourceTree = "<group>"; };
 		72B494641E628A4E00FE0444 /* BookRateOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookRateOverlay.swift; path = "custom-ui/BookRateOverlay.swift"; sourceTree = "<group>"; };
 		72B494661E628B1C00FE0444 /* RateStarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateStarButtons.swift; path = "custom-ui/RateStarButtons.swift"; sourceTree = "<group>"; };
 		72B494681E628F3800FE0444 /* BookRateOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookRateOverlay.xib; path = "custom-ui/BookRateOverlay.xib"; sourceTree = "<group>"; };
@@ -167,7 +174,6 @@
 		72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListsViewController.swift; path = viewcontroller/ListsViewController.swift; sourceTree = "<group>"; };
 		72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwardsViewController.swift; path = viewcontroller/AwardsViewController.swift; sourceTree = "<group>"; };
 		72D619D21E5803AB00A2BFCF /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksViewController.swift; path = viewcontroller/BooksViewController.swift; sourceTree = "<group>"; };
-		72D619D41E5815C800A2BFCF /* BooksReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BooksReadModel.swift; path = model/BooksReadModel.swift; sourceTree = "<group>"; };
 		72D619D71E58955D00A2BFCF /* BundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BundleExtension.swift; path = extension/BundleExtension.swift; sourceTree = "<group>"; };
 		F26D3B2616D35F1BDED903D4 /* Pods-NYTimesChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NYTimesChallenge/Pods-NYTimesChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,8 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				72268CA51E564BAB00F96DB9 /* APICallManager.swift */,
-				72268CEB1E578C3500F96DB9 /* DataParseManager.swift */,
 				722BC8FB1E5A5F9E0038B1D3 /* CoreDataManager.swift */,
+				72268CEB1E578C3500F96DB9 /* DataParseManager.swift */,
 				726A67561E633DBE00E7C2F9 /* FabricManager.swift */,
 			);
 			name = manager;
@@ -302,7 +308,6 @@
 			children = (
 				72268CE91E576E1000F96DB9 /* BestSellerListModel.swift */,
 				722BC9031E5BE3730038B1D3 /* BookModel.swift */,
-				72D619D41E5815C800A2BFCF /* BooksReadModel.swift */,
 				72268CEF1E57BECD00F96DB9 /* OverviewBookModel.swift */,
 				72268CED1E57997400F96DB9 /* UserModel.swift */,
 			);
@@ -327,12 +332,10 @@
 			isa = PBXGroup;
 			children = (
 				72D619C61E57E32100A2BFCF /* base */,
-				72268C771E5641B200F96DB9 /* HomeViewController.swift */,
-				72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */,
-				722BC9011E5BE2500038B1D3 /* ListDetailViewController.swift */,
-				722BC8FF1E5B9A480038B1D3 /* AllListsViewController.swift */,
-				72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */,
-				72D619D21E5803AB00A2BFCF /* BooksViewController.swift */,
+				726A675E1E64BBCB00E7C2F9 /* home */,
+				726A67601E64BBE400E7C2F9 /* my-awards */,
+				726A67611E64BBEB00E7C2F9 /* my-books */,
+				726A675F1E64BBD800E7C2F9 /* my-lists */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -363,13 +366,16 @@
 			name = "bottom-nav";
 			sourceTree = "<group>";
 		};
-		722BC86D1E59F8190038B1D3 /* detail-overlay */ = {
+		722BC86D1E59F8190038B1D3 /* book-detail-overlays */ = {
 			isa = PBXGroup;
 			children = (
-				722BC8661E58FD360038B1D3 /* BookDetailOverlay.swift */,
-				722BC8681E58FD4F0038B1D3 /* BookDetailOverlay.xib */,
+				726A675D1E64BAB500E7C2F9 /* base */,
+				726A67641E64D14700E7C2F9 /* ListBookDetailOverlay.swift */,
+				726A67651E64D14700E7C2F9 /* ListBookDetailOverlay.xib */,
+				722BC8661E58FD360038B1D3 /* OverviewBookDetailOverlay.swift */,
+				722BC8681E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib */,
 			);
-			name = "detail-overlay";
+			name = "book-detail-overlays";
 			sourceTree = "<group>";
 		};
 		722BC8721E59F8510038B1D3 /* my-lists-cells */ = {
@@ -432,6 +438,48 @@
 			name = "my-book-row-rating";
 			sourceTree = "<group>";
 		};
+		726A675D1E64BAB500E7C2F9 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				726A67621E64C1E800E7C2F9 /* BaseBookDetailOverlay.swift */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		726A675E1E64BBCB00E7C2F9 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				72268C771E5641B200F96DB9 /* HomeViewController.swift */,
+			);
+			name = home;
+			sourceTree = "<group>";
+		};
+		726A675F1E64BBD800E7C2F9 /* my-lists */ = {
+			isa = PBXGroup;
+			children = (
+				722BC8FF1E5B9A480038B1D3 /* AllListsViewController.swift */,
+				722BC9011E5BE2500038B1D3 /* ListDetailViewController.swift */,
+				72D619CE1E57F6B900A2BFCF /* ListsViewController.swift */,
+			);
+			name = "my-lists";
+			sourceTree = "<group>";
+		};
+		726A67601E64BBE400E7C2F9 /* my-awards */ = {
+			isa = PBXGroup;
+			children = (
+				72D619D01E57F6D300A2BFCF /* AwardsViewController.swift */,
+			);
+			name = "my-awards";
+			sourceTree = "<group>";
+		};
+		726A67611E64BBEB00E7C2F9 /* my-books */ = {
+			isa = PBXGroup;
+			children = (
+				72D619D21E5803AB00A2BFCF /* BooksViewController.swift */,
+			);
+			name = "my-books";
+			sourceTree = "<group>";
+		};
 		72B494631E6289F600FE0444 /* rate-overlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,12 +501,12 @@
 		72D619C91E57EAB900A2BFCF /* custom-ui */ = {
 			isa = PBXGroup;
 			children = (
+				722BC86D1E59F8190038B1D3 /* book-detail-overlays */,
 				722F93A01E61316D009C817D /* books-subnav */,
-				72B494631E6289F600FE0444 /* rate-overlay */,
 				722BC86C1E59F8090038B1D3 /* bottom-nav */,
-				722BC86D1E59F8190038B1D3 /* detail-overlay */,
 				722F93AB1E61B1D7009C817D /* my-book-cells */,
 				722BC8721E59F8510038B1D3 /* my-lists-cells */,
+				72B494631E6289F600FE0444 /* rate-overlay */,
 			);
 			name = "custom-ui";
 			sourceTree = "<group>";
@@ -467,8 +515,9 @@
 			isa = PBXGroup;
 			children = (
 				72D619D71E58955D00A2BFCF /* BundleExtension.swift */,
-				722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */,
 				722BC8FD1E5B8F3C0038B1D3 /* UITableViewExtension.swift */,
+				726A67681E64D68100E7C2F9 /* UITextViewExtension.swift */,
+				722BC86A1E59171F0038B1D3 /* UIViewExtension.swift */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -608,11 +657,12 @@
 				72268C7D1E5641B200F96DB9 /* Assets.xcassets in Resources */,
 				72268CFB1E57D2AF00F96DB9 /* WhitneyCondensed-Book.otf in Resources */,
 				722F93A61E61A83C009C817D /* BooksSubnavOffView.xib in Resources */,
-				722BC8691E58FD4F0038B1D3 /* BookDetailOverlay.xib in Resources */,
+				722BC8691E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib in Resources */,
 				72268C7B1E5641B200F96DB9 /* Main.storyboard in Resources */,
 				72268CF81E57D2AF00F96DB9 /* WhitneyCondensed-Semibold.otf in Resources */,
 				72268CFA1E57D2AF00F96DB9 /* WhitneyCondensed-Light.otf in Resources */,
 				72268CF91E57D2AF00F96DB9 /* WhitneyCondensed-Medium.otf in Resources */,
+				726A67671E64D14700E7C2F9 /* ListBookDetailOverlay.xib in Resources */,
 				722BC8711E59F84A0038B1D3 /* MyListsCell.xib in Resources */,
 				72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */,
 				722F93A81E61ABBB009C817D /* BooksSubnavOnView.xib in Resources */,
@@ -717,10 +767,12 @@
 				72D619D81E58955D00A2BFCF /* BundleExtension.swift in Sources */,
 				72D619D11E57F6D300A2BFCF /* AwardsViewController.swift in Sources */,
 				72268CEA1E576E1000F96DB9 /* BestSellerListModel.swift in Sources */,
+				726A67631E64C1E800E7C2F9 /* BaseBookDetailOverlay.swift in Sources */,
 				722F93AA1E61AE7B009C817D /* BooksSubnavOffView.swift in Sources */,
 				722F93A21E613192009C817D /* BooksSubnavigation.swift in Sources */,
 				72268CAE1E565BD000F96DB9 /* Config.swift in Sources */,
 				72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */,
+				726A67661E64D14700E7C2F9 /* ListBookDetailOverlay.swift in Sources */,
 				722F93AE1E61B364009C817D /* MyBookCell.swift in Sources */,
 				722BC86B1E59171F0038B1D3 /* UIViewExtension.swift in Sources */,
 				726A67571E633DBE00E7C2F9 /* FabricManager.swift in Sources */,
@@ -735,9 +787,9 @@
 				722F93B31E61B975009C817D /* BooksSubnavOnView.swift in Sources */,
 				722F939F1E60DF89009C817D /* MyListDetailsCell.swift in Sources */,
 				722BC9041E5BE3730038B1D3 /* BookModel.swift in Sources */,
-				722BC8671E58FD360038B1D3 /* BookDetailOverlay.swift in Sources */,
+				722BC8671E58FD360038B1D3 /* OverviewBookDetailOverlay.swift in Sources */,
+				726A67691E64D68100E7C2F9 /* UITextViewExtension.swift in Sources */,
 				722BC9021E5BE2500038B1D3 /* ListDetailViewController.swift in Sources */,
-				72D619D51E5815C800A2BFCF /* BooksReadModel.swift in Sources */,
 				722BC8751E5A020D0038B1D3 /* MyListsFooterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

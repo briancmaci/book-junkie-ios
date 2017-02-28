@@ -46,6 +46,7 @@ struct K {
         static let grayBG1 = UIColor(red: 229/255, green: 229/255, blue: 229/255, alpha: 1)
         static let selectedGreen = UIColor(red:0, green: 109/255, blue:5/255, alpha: 1)
         static let selectedYellow = UIColor(red:219/255, green: 183/255, blue:14/255, alpha: 1)
+        static let statusNoneGray = UIColor(red:153/255, green:153/255, blue:153/255, alpha: 1)
     }
     
     //Icons
@@ -82,7 +83,8 @@ struct K {
     //NIB Names
     struct NIBName {
         static let BottomNavigation = "BottomNavigation"
-        static let BookDetailOverlay = "BookDetailOverlay"
+        static let OverviewBookDetailOverlay = "OverviewBookDetailOverlay"
+        static let ListBookDetailOverlay = "ListBookDetailOverlay"
         
         //UITableViewCells
         static let MyListsCell = "MyListsCell"
@@ -150,6 +152,11 @@ struct K {
         //Twitter
         static let TwitterFinishedCopy = "I just read\n\"%@\"\nand I give it %d stars!\n@BookJunkieApp #finishedIt"
         static let TwitterRateImageBase = "TwitterRate%d"
+        
+        //Book Detail Overlay Strings
+        static let StatusNone = "NONE"
+        static let StatusNextUp = "NEXT UP"
+        static let StatusFinished = "FINISHED"
     }
     
     //Constant numerical values

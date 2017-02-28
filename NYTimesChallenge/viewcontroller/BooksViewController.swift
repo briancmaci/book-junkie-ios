@@ -9,7 +9,7 @@
 import UIKit
 import SWTableViewCell
 
-class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, BooksSubnavigationDelegate, SWTableViewCellDelegate {
+class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, BooksSubnavigationDelegate, SWTableViewCellDelegate, BaseBookDetailOverlayDelegate {
 
     @IBOutlet weak var myBooksTable:UITableView!
     @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
@@ -21,6 +21,8 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     var nextUpBooksArray : [BookModel] = [BookModel]()
     var finishedBooksArray : [BookModel] = [BookModel]()
     
+    var listBookDetailOverlay : ListBookDetailOverlay!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,11 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         buildBookArrays()
         initBooksSubnav()
         initTableView()
+    }
+    
+    //re-enabling users to tap table
+    override func viewWillAppear(_ animated: Bool) {
+        myBooksTable.isUserInteractionEnabled = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,16 +128,12 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //select - toggle listIsSelected
         
-        //let cell = tableView.cellForRow(at: indexPath) as! MyBookCell
+        //blocking users from tapping twice on a single row before the new view appears
+        myBooksTable.isUserInteractionEnabled = false
         
-//        UserModel.sharedInstance.lists[cell.thisIndex].listIsSelected = !UserModel.sharedInstance.lists[cell.thisIndex].listIsSelected
-//        
-//        cell.updateRowWith(model: UserModel.sharedInstance.lists[cell.thisIndex])
-//        
-//        //Push to CoreData
-//        CoreDataManager.updateBestSellerListSelection(listNameEncoded: cell.thisModel.listNameEncoded, isSelected: cell.thisModel.listIsSelected)
+        let cell = tableView.cellForRow(at: indexPath) as! MyBookCell
+        initListBookDetailOverlay(thisModel: cell.thisModel)
         
         //deselect
         tableView.deselectRow(at: indexPath, animated: false)
@@ -232,6 +235,47 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         myBooksTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        
+    }
+    
+    func initListBookDetailOverlay(thisModel:BookModel) {
+        
+        listBookDetailOverlay = ListBookDetailOverlay.instanceFromNib(name: K.NIBName.ListBookDetailOverlay) as! ListBookDetailOverlay
+        
+        listBookDetailOverlay.delegate = self
+        
+        listBookDetailOverlay.populate(model: thisModel)
+        
+        
+        listBookDetailOverlay.frame = listBookDetailOverlay.offFrame
+        
+        view.addSubview(listBookDetailOverlay)
+        
+        //animate In
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.listBookDetailOverlay.frame = self.listBookDetailOverlay.onFrame
+        }, completion: nil)
+    }
+    
+    ////MARK - BaseBookDetailOverlayDelegate Methods
+    internal func addToNextUpTapped(model:BookModel) {
+        print("Add this book next: \(model.bookTitle)")
+    }
+    
+    internal func overlayClosed() {
+        
+        //re-enabling users to tap table
+        myBooksTable.isUserInteractionEnabled = true
+        
+        //animate Out
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.listBookDetailOverlay.frame = self.listBookDetailOverlay.offFrame
+        }) { (true) in
+            
+            //Remove Detail
+            self.listBookDetailOverlay.removeFromSuperview()
+            self.listBookDetailOverlay = nil
+        }
         
     }
     

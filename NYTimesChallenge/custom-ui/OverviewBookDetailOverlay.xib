@@ -21,13 +21,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookDetailOverlay" customModule="NYTimesChallenge" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OverviewBookDetailOverlay" customModule="NYTimesChallenge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.93000000000000005" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDg-oG-c4G" userLabel="BackgroundView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
-                    <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4f-7H-TCE" userLabel="DetailView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
@@ -115,7 +115,6 @@
                                         <constraint firstAttribute="height" constant="34" id="acE-79-wtJ"/>
                                     </constraints>
                                     <state key="normal" image="ButtonAddNextUp"/>
-                                    <state key="selected" image="ButtonAddNextUpOn"/>
                                     <connections>
                                         <action selector="addNextButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Tb-Ik-uOQ"/>
                                     </connections>
@@ -127,7 +126,6 @@
                                         <constraint firstAttribute="height" constant="34" id="WWf-RV-O3F"/>
                                     </constraints>
                                     <state key="normal" image="ButtonBuy"/>
-                                    <state key="selected" image="ButtonBuyOn"/>
                                     <connections>
                                         <action selector="buyButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="xQ5-0j-qkY"/>
                                     </connections>
@@ -185,11 +183,9 @@
             <connections>
                 <outlet property="addNextUpButton" destination="0Na-By-AWG" id="iW7-qV-eVp"/>
                 <outlet property="authorLabel" destination="4U0-Dy-MV4" id="sPk-u9-tml"/>
-                <outlet property="backgroundView" destination="PDg-oG-c4G" id="Ktw-xb-SoV"/>
                 <outlet property="bookImageView" destination="0is-Iu-zbH" id="Arr-19-gmy"/>
                 <outlet property="buyButton" destination="CeQ-df-e6v" id="3HL-GZ-0cg"/>
                 <outlet property="closeButton" destination="YYY-SP-itd" id="54e-rX-GC8"/>
-                <outlet property="containerView" destination="C4f-7H-TCE" id="wbK-hu-ufv"/>
                 <outlet property="descriptionTextView" destination="fkj-NJ-mfS" id="yLq-54-KO8"/>
                 <outlet property="listNameLabel" destination="Gy3-yL-Vtj" id="6OC-MG-bVl"/>
                 <outlet property="rankLabel" destination="d2W-Mx-T2W" id="XHQ-tW-W4p"/>
@@ -201,9 +197,7 @@
     </objects>
     <resources>
         <image name="ButtonAddNextUp" width="90" height="34"/>
-        <image name="ButtonAddNextUpOn" width="196" height="34"/>
         <image name="ButtonBuy" width="90" height="34"/>
-        <image name="ButtonBuyOn" width="72" height="34"/>
         <image name="IconOverlayClose" width="27" height="27"/>
     </resources>
 </document>

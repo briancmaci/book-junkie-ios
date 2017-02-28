@@ -13,7 +13,6 @@ class MyBookCell: SWTableViewCell {
     
     @IBOutlet weak var listLabel : UILabel!
     @IBOutlet weak var background : UIView!
-    @IBOutlet weak var iconNext : UIImageView!
     @IBOutlet weak var rowRatingView : MyBookRowRatingView!
     
     var thisModel : BookModel!
@@ -41,11 +40,9 @@ class MyBookCell: SWTableViewCell {
         
         switch thisModel.saveState {
         case .finished:
-            iconNext.isHidden = true
             rowRatingView.isHidden = false
             
         case .nextUp, .none:
-            iconNext.isHidden = false
             rowRatingView.isHidden = true
         }
     }

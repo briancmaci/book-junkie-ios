@@ -36,13 +36,6 @@
                         <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRowNext" translatesAutoresizingMaskIntoConstraints="NO" id="GvL-X1-qhR">
-                        <rect key="frame" x="290" y="15" width="6" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="6" id="6VP-W5-SQp"/>
-                            <constraint firstAttribute="height" constant="13" id="t2G-xB-qmd"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-48-ZTW" customClass="MyBookRowRatingView" customModule="NYTimesChallenge" customModuleProvider="target">
                         <rect key="frame" x="249" y="18" width="49" height="9"/>
                         <subviews>
@@ -109,10 +102,8 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="6JD-T0-YeF" secondAttribute="trailing" constant="77" id="6ha-Ty-y1l"/>
                     <constraint firstAttribute="trailing" secondItem="3Eg-wW-8A6" secondAttribute="trailing" id="A0V-6v-hFD"/>
-                    <constraint firstItem="GvL-X1-qhR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AgC-ex-Xht"/>
                     <constraint firstAttribute="bottom" secondItem="3Eg-wW-8A6" secondAttribute="bottom" id="LDy-bf-QR2"/>
                     <constraint firstItem="Nnh-48-ZTW" firstAttribute="centerY" secondItem="6JD-T0-YeF" secondAttribute="centerY" id="Mav-e6-lTr"/>
-                    <constraint firstAttribute="trailing" secondItem="GvL-X1-qhR" secondAttribute="trailing" constant="24" id="S9z-Rl-47D"/>
                     <constraint firstItem="6JD-T0-YeF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="VOK-5U-aVp"/>
                     <constraint firstItem="6JD-T0-YeF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Whj-Vx-ruQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Nnh-48-ZTW" secondAttribute="trailing" constant="14" id="cN0-GC-itq"/>
@@ -122,7 +113,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="background" destination="3Eg-wW-8A6" id="jYq-6r-LQs"/>
-                <outlet property="iconNext" destination="GvL-X1-qhR" id="FgA-fU-XFe"/>
                 <outlet property="listLabel" destination="6JD-T0-YeF" id="ZBA-pI-XlF"/>
                 <outlet property="rowRatingView" destination="Nnh-48-ZTW" id="3p7-8n-yVN"/>
             </connections>
@@ -130,7 +120,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconRowNext" width="6" height="13"/>
         <image name="IconRowStarOff" width="9" height="8"/>
     </resources>
 </document>

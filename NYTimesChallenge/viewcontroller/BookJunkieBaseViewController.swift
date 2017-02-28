@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class BookJunkieBaseViewController: UIViewController, BookRateOverlayDelegate {
 
@@ -127,14 +128,14 @@ class BookJunkieBaseViewController: UIViewController, BookRateOverlayDelegate {
             CoreDataManager.updateBookWith(saveState: model.saveState, uid: model.uid)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    ////SFSafariViewControllerDelegate Methods
+    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController)
+    {
+        controller.dismiss(animated: true, completion: nil)
+        
+        //Show Bottom Nav
+        getBottomNavigation().show(visible: true)
     }
-    */
 
 }

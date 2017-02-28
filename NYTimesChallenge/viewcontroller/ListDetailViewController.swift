@@ -8,8 +8,9 @@
 
 import UIKit
 import SWTableViewCell
+import SafariServices
 
-class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
+class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, BaseBookDetailOverlayDelegate, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var listDetailTable:UITableView!
     @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
@@ -19,6 +20,7 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     var listToSearch : String = ""
     
     var bookArray : [BookModel] = [BookModel]()
+    var listBookDetailOverlay : ListBookDetailOverlay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,11 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         
     }
     
+    //re-enabling users to tap table
+    override func viewWillAppear(_ animated: Bool) {
+        listDetailTable.isUserInteractionEnabled = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,7 +51,6 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         
         //register UITableViewCells
         listDetailTable.register(UINib(nibName: K.NIBName.MyListDetailsCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyListDetailsCellID)
-        
     }
     
     func adjustTitleTextResize() {
@@ -83,6 +89,25 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         }
     }
     
+    func initListBookDetailOverlay(thisModel:BookModel) {
+        
+        listBookDetailOverlay = ListBookDetailOverlay.instanceFromNib(name: K.NIBName.ListBookDetailOverlay) as! ListBookDetailOverlay
+        
+        listBookDetailOverlay.delegate = self
+        
+        listBookDetailOverlay.populate(model: thisModel)
+        
+        
+        listBookDetailOverlay.frame = listBookDetailOverlay.offFrame
+        
+        view.addSubview(listBookDetailOverlay)
+        
+        //animate In
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.listBookDetailOverlay.frame = self.listBookDetailOverlay.onFrame
+        }, completion: nil)
+    }
+    
     ////MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,9 +125,11 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //select - load book detail page
         
-        let cell = tableView.cellForRow(at: indexPath) as! MyListDetailsCell
+        //blocking users from tapping twice on a single row before the new view appears
+        listDetailTable.isUserInteractionEnabled = false
         
-        print("Load book detail for \(cell.thisModel.uid)")
+        let cell = tableView.cellForRow(at: indexPath) as! MyListDetailsCell
+        initListBookDetailOverlay(thisModel: cell.thisModel)
         
         //deselect
         tableView.deselectRow(at: indexPath, animated: false)
@@ -158,6 +185,28 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     
     func swipeableTableViewCellShouldHideUtilityButtons(onSwipe cell: SWTableViewCell!) -> Bool {
         return true
+    }
+    
+    ////MARK - BaseBookDetailOverlayDelegate Methods
+    internal func addToNextUpTapped(model:BookModel) {
+        print("Add this book next: \(model.bookTitle)")
+    }
+    
+    internal func overlayClosed() {
+        
+        //re-enabling users to tap table
+        listDetailTable.isUserInteractionEnabled = true
+        
+        //animate Out
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.listBookDetailOverlay.frame = self.listBookDetailOverlay.offFrame
+        }) { (true) in
+            
+            //Remove Detail
+            self.listBookDetailOverlay.removeFromSuperview()
+            self.listBookDetailOverlay = nil
+        }
+        
     }
     
 }

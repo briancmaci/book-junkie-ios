@@ -8,12 +8,12 @@
 
 import UIKit
 
-class OverviewBookModel: NSObject {
+class OverviewBookModel: BookModel {
 
     //book information
-    var bookTitle : String = ""
-    var author : String = ""
-    var summary : String = ""
+//    var bookTitle : String = ""
+//    var author : String = ""
+//    var summary : String = ""
     
     //image information
     var imageURL : String = ""
@@ -26,12 +26,12 @@ class OverviewBookModel: NSObject {
     var weeksOnList : Int = 0
     
     //buy link (Amazon for now)
-    var buyURL : String = ""
+//    var buyURL : String = ""
     
     
     init(title:String, auth:String, sum:String, iurl:String, width:Int, height:Int, rank:Int, list:BestSellerListModel, weeks:Int, buy:String) {
         
-        super.init()
+        super.init(title: title, auth: auth, desc: sum, buy: buy)
         
         bookTitle = title
         author = auth

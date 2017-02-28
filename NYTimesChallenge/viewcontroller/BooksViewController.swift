@@ -323,7 +323,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     }
     
     internal func overlayClosed() {
-        
+    
         //re-enabling users to tap table
         myBooksTable.isUserInteractionEnabled = true
         

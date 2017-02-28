@@ -13,8 +13,6 @@ enum FinishedRank: Int{
     case noob = 0, pageTurner, bookworm, bookJunkie
 }
 
-let awardsRankThreshold : [Int] = [0, 5, 10, 15]
-
 class UserModel: NSObject {
 
     static let sharedInstance = UserModel()
@@ -22,6 +20,8 @@ class UserModel: NSObject {
     var lists : [BestSellerListModel] = [BestSellerListModel]()
     var overview : [OverviewBookModel] = [OverviewBookModel]()
     var books : [String : BookModel] = [String : BookModel]()
+    
+    let awardsRankThreshold : [Int] = [0, 5, 10, 15]
 }
 
 extension UserModel {

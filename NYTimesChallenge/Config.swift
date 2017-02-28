@@ -98,6 +98,9 @@ struct K {
         
         //Book Rate Overlay
         static let BookRateOverlay = "BookRateOverlay"
+        
+        //Rank Up Overlay
+        static let RankUpOverlay = "RankUpOverlay"
     }
     
     //UITableViewCell reuseIdentifiers
@@ -144,6 +147,11 @@ struct K {
         static let RankBookworm = "BOOKWORM!"
         static let RankBookJunkie = "BOOKJUNKIE!!"
         
+        //Rank Overlay Strings
+        static let RankOverlayHeader = "NEW RANK: ACCOMPLISHED"
+        static let RankSubheader = "You have leveled up to"
+        static let RankTitle:[String] = ["NOOB", "PAGE TURNER", "BOOKWORM", "BOOK JUNKIE!"]
+        
         //Rating Overlay Strings
         static let RateHeader = "BESTSELLER: ACCOMPLISHED"
         static let RateSubheader = "How would you rate"
@@ -152,11 +160,18 @@ struct K {
         //Twitter
         static let TwitterFinishedCopy = "I just read\n\"%@\"\nand I give it %d stars!\n@BookJunkieApp #finishedIt"
         static let TwitterRateImageBase = "TwitterRate%d"
+        static let TwitterRankCopy = "I just finished reading %d bestsellers!\nNew Rank: %@\n@BookJunkieApp #rankedUp"
+        static let TwitterRankImageBase = "TwitterRank%d"
         
         //Book Detail Overlay Strings
         static let StatusNone = "NONE"
         static let StatusNextUp = "NEXT UP"
         static let StatusFinished = "FINISHED"
+        
+        //Empty table messages
+        static let EmptyNextUp = "What's next? Apparently nothing! Find some bestsellers!"
+        static let EmptyFinished = "You have no bestsellers finished! Get crackin'."
+        
     }
     
     //Constant numerical values

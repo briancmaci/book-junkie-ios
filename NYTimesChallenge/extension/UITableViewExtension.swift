@@ -2,32 +2,41 @@
 //  UITableViewExtension.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/20/17.
+//  Created by Brian Maci on 2/20/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
 extension UITableView {
     
-    func sizeToContent(top:NSLayoutConstraint, bottom:NSLayoutConstraint) {
+    func sizeToContent(maxHeight:CGFloat, bottom:NSLayoutConstraint) {
         
-        if contentSize.height >= frame.size.height {
-            bottom.constant = K.NumberConstant.BottomNavHeight - top.constant
-            layoutIfNeeded()
-            return
-        }
+        
+//        if contentSize.height >= frame.size.height {
+//            bottom.constant = K.NumberConstant.BottomNavHeight - top.constant
+//            layoutIfNeeded()
+//            return
+//        }
         
         //The minimum constraint value
-        let constraintMinimum = K.NumberConstant.BottomNavHeight
-        let maxHeight = K.Screen.Height - constraintMinimum - top.constant
+//        let constraintMinimum = K.NumberConstant.BottomNavHeight
+//        let maxHeight = K.Screen.Height - constraintMinimum - top.constant
+//        
+//        if contentSize.height < maxHeight {
+//             let newConstraintValue = maxHeight - contentSize.height
+//            
+//            bottom.constant = newConstraintValue
+//            layoutIfNeeded()
+//        }
         
-        if contentSize.height < maxHeight {
-             let newConstraintValue = maxHeight - contentSize.height
-            
-            bottom.constant = newConstraintValue
+        if contentSize.height >= frame.size.height {
+            bottom.constant = K.NumberConstant.BottomNavHeight
             layoutIfNeeded()
         }
         
-        
+        else {
+            bottom.constant = maxHeight - contentSize.height
+            layoutIfNeeded()
+        }
         
     }
 }

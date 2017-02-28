@@ -11,7 +11,7 @@ import Koloda
 import SDWebImage
 import SafariServices
 
-class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, BaseBookDetailOverlayDelegate, SFSafariViewControllerDelegate {
+class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, KolodaViewDelegate, OverviewBookDelegate, BaseBookDetailOverlayDelegate/*, SFSafariViewControllerDelegate*/ {
     
     @IBOutlet weak var copyrightLine:UILabel!
     @IBOutlet weak var kolodaView: KolodaView!
@@ -129,29 +129,24 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         return UserModel.sharedInstance.overview.count
     }
     
+    public func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
+        return false
+    }
+    
+    public func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        koloda.resetCurrentCardIndex()
+        koloda.reloadData()
+    }
+    
     ////MARK - OverlayBookDelegate Methods
     internal func overviewTapped(model: OverviewBookModel) {
         initOverviewBookDetailOverlay(thisModel: model)
     }
     
     ////MARK - BaseBookDetailOverlayDelegate Methods
-    internal func addToNextUpTapped(model:BookModel) {
-        print("Add this book next: \(model.bookTitle)")
-    }
-    
-    internal func buyBookTapped(url: String) {
-        
-        //Load Buy Link in SafariViewController
-        let svc = SFSafariViewController(url: NSURL(string: url)! as URL, entersReaderIfAvailable: true)
-        svc.view.tintColor = UIColor.black
-        //svc.navigationController?.navigationBar.tintColor = UIColor.black
-        
-        self.present(svc, animated: true, completion: nil)
-        
-        svc.delegate = self
-        
-        //Hide Bottom Nav
-        getBottomNavigation().show(visible: false)
+    internal override func addToNextUpTapped(model:BookModel) {
+        super.addToNextUpTapped(model: model)
+        overlayClosed()
     }
     
     internal func overlayClosed() {
@@ -159,8 +154,8 @@ class HomeViewController: BookJunkieBaseViewController, KolodaViewDataSource, Ko
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
             self.bookDetailOverlay.frame = self.bookDetailOverlay.offFrame
         }) { (true) in
-            //swipe Right
-            self.kolodaView.swipe(.right)
+            //swipe Right -- Removed for better UX experience
+            //self.kolodaView.swipe(.right)
             
             //Remove Detail and Blur
             self.bookDetailOverlay.removeFromSuperview()

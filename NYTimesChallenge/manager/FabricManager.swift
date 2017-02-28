@@ -2,7 +2,7 @@
 //  FabricManager.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/26/17.
+//  Created by Brian Maci on 2/26/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
@@ -31,6 +31,25 @@ class FabricManager: NSObject {
             else {
                 //Tweet Sending -- Close RateOverlay
                 vc.removeRateOverlay()
+            }
+        }
+    }
+    
+    class func tweetRankedUp(forRankLevel:Int, vc:BookJunkieBaseViewController) {
+        
+        let composer = TWTRComposer()
+        
+        composer.setText(String(format: K.StringFormat.TwitterRankCopy, UserModel.getReadBooksTotal(), K.StringFormat.RankTitle[forRankLevel]))
+        composer.setImage(UIImage(named: String(format:K.StringFormat.TwitterRankImageBase, forRankLevel)))
+        
+        // Called from a UIViewController
+        composer.show(from: vc) { result in
+            if (result == TWTRComposerResult.cancelled) {
+                //Tweet Canceled -- Return to RateOverlay
+            }
+            else {
+                //Tweet Sending -- Close RateOverlay
+                vc.removeRankOverlay()
             }
         }
     }

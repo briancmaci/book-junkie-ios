@@ -2,7 +2,7 @@
 //  CoreDataManager.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/19/17.
+//  Created by Brian Maci on 2/19/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
@@ -121,14 +121,14 @@ class CoreDataManager: NSObject {
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-            //return [BestSellerListModel]()
+            
         }
         
         return booksInModels
     }
     
     class func saveBook(thisBook: BookModel) {
-        print("SAVE BOOK!")
+        
         let entity =  NSEntityDescription.entity(forEntityName: K.CoreData.Entity.BestSellerBook,
                                                  in:K.CoreData.managedContext)
         
@@ -143,7 +143,6 @@ class CoreDataManager: NSObject {
         book.setValue(thisBook.userRating, forKey: "userRating")
         book.setValue(thisBook.saveState.rawValue, forKey: "saveList")
         
-        print("This book to be saved \(book)")
         do {
             try K.CoreData.managedContext.save()
             

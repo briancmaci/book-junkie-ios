@@ -227,7 +227,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-kV-pz2" userLabel="ButtonView">
-                            <rect key="frame" x="91" y="483" width="194" height="34"/>
+                            <rect key="frame" x="39" y="483" width="298" height="34"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Na-By-AWG" userLabel="AddNextButton">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
@@ -241,7 +241,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-df-e6v">
-                                    <rect key="frame" x="104" y="0.0" width="90" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="90" id="9PU-WX-T7P"/>
                                         <constraint firstAttribute="height" constant="34" id="WWf-RV-O3F"/>
@@ -251,15 +251,41 @@
                                         <action selector="buyButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="xQ5-0j-qkY"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lL-6p-WVm">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="H7A-Ol-svc"/>
+                                        <constraint firstAttribute="width" constant="90" id="X9R-3W-qHr"/>
+                                    </constraints>
+                                    <state key="normal" image="ButtonFinish"/>
+                                    <connections>
+                                        <action selector="finishedButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="qpf-lf-QCJ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG6-fR-EGR">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="4ek-26-UNh"/>
+                                        <constraint firstAttribute="width" constant="90" id="VcB-GS-THc"/>
+                                    </constraints>
+                                    <state key="normal" image="ButtonDelete"/>
+                                    <connections>
+                                        <action selector="deleteButtonTappedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="6MU-l3-vyu"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="CeQ-df-e6v" secondAttribute="trailing" id="6A7-cc-F38"/>
+                                <constraint firstItem="1lL-6p-WVm" firstAttribute="leading" secondItem="6gv-kV-pz2" secondAttribute="leading" id="6wH-sS-7h0"/>
                                 <constraint firstItem="0Na-By-AWG" firstAttribute="leading" secondItem="6gv-kV-pz2" secondAttribute="leading" id="8Ph-QZ-Wdc"/>
-                                <constraint firstAttribute="width" constant="194" id="Sga-Wo-12C"/>
+                                <constraint firstItem="lG6-fR-EGR" firstAttribute="leading" secondItem="6gv-kV-pz2" secondAttribute="leading" id="E0L-re-O9y"/>
+                                <constraint firstItem="lG6-fR-EGR" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="Qky-k3-EpS"/>
+                                <constraint firstAttribute="width" constant="298" id="Sga-Wo-12C"/>
                                 <constraint firstItem="0Na-By-AWG" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="WIx-Ln-rIJ"/>
                                 <constraint firstItem="CeQ-df-e6v" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="Y38-5B-fpE"/>
+                                <constraint firstItem="1lL-6p-WVm" firstAttribute="top" secondItem="6gv-kV-pz2" secondAttribute="top" id="ZJm-cU-m7w"/>
                                 <constraint firstAttribute="height" constant="34" id="fzq-kQ-dKE"/>
+                                <constraint firstItem="CeQ-df-e6v" firstAttribute="leading" secondItem="6gv-kV-pz2" secondAttribute="leading" id="oOn-ZZ-tRK"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -287,13 +313,19 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addNextUpButton" destination="0Na-By-AWG" id="iW7-qV-eVp"/>
+                <outlet property="addNextUpButtonLeadingConstraint" destination="8Ph-QZ-Wdc" id="Njw-yq-aYq"/>
                 <outlet property="authorLabel" destination="4U0-Dy-MV4" id="sPk-u9-tml"/>
                 <outlet property="bookContentView" destination="X40-rg-tDU" id="e26-Cx-l7N"/>
                 <outlet property="bookContentViewHeightConstraint" destination="7bf-yj-sbW" id="Zqs-jx-aAz"/>
                 <outlet property="buyButton" destination="CeQ-df-e6v" id="3HL-GZ-0cg"/>
+                <outlet property="buyButtonLeadingConstraint" destination="oOn-ZZ-tRK" id="sph-ZF-03m"/>
                 <outlet property="closeButton" destination="YYY-SP-itd" id="54e-rX-GC8"/>
+                <outlet property="deleteButton" destination="lG6-fR-EGR" id="d4d-Tr-2ly"/>
+                <outlet property="deleteButtonLeadingConstraint" destination="E0L-re-O9y" id="HnF-Jr-MCN"/>
                 <outlet property="descriptionHeightConstraint" destination="n5i-Dw-MSZ" id="8Mb-8R-GyR"/>
                 <outlet property="descriptionTextView" destination="fkj-NJ-mfS" id="yLq-54-KO8"/>
+                <outlet property="finishButton" destination="1lL-6p-WVm" id="GAq-2U-vvw"/>
+                <outlet property="finishButtonLeadingConstraint" destination="6wH-sS-7h0" id="Op8-W6-cDP"/>
                 <outlet property="ratingStars" destination="lJw-A1-6Fx" id="sfU-Zf-Xmo"/>
                 <outlet property="ratingView" destination="3Qo-Jj-TCE" id="y8e-ug-oak"/>
                 <outlet property="statusLabel" destination="QFt-VJ-S8S" id="bdZ-Sj-fhy"/>
@@ -305,6 +337,8 @@
     <resources>
         <image name="ButtonAddNextUp" width="90" height="34"/>
         <image name="ButtonBuy" width="90" height="34"/>
+        <image name="ButtonDelete" width="90" height="34"/>
+        <image name="ButtonFinish" width="90" height="34"/>
         <image name="IconOverlayClose" width="27" height="27"/>
         <image name="IconRateStarOff" width="19" height="18"/>
     </resources>

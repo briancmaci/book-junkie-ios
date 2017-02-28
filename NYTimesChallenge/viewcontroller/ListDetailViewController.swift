@@ -2,15 +2,14 @@
 //  ListDetailViewController.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/20/17.
+//  Created by Brian Maci on 2/20/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
 import UIKit
 import SWTableViewCell
-import SafariServices
 
-class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, BaseBookDetailOverlayDelegate, SFSafariViewControllerDelegate {
+class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, BaseBookDetailOverlayDelegate {
 
     @IBOutlet weak var listDetailTable:UITableView!
     @IBOutlet weak var tableTopConstraint:NSLayoutConstraint!
@@ -32,6 +31,8 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         initTableView()
         
         loadListBooks()
+        
+        tableMaxHeight = listDetailTable.frame.size.height
         
     }
     
@@ -74,7 +75,7 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
                 self.loadSaveStatesFromUserModel()
                 
                 self.listDetailTable.reloadData()
-                self.listDetailTable.sizeToContent(top: self.tableTopConstraint, bottom: self.tableBottomConstraint)
+                self.listDetailTable.sizeToContent(maxHeight: self.tableMaxHeight, bottom: self.tableBottomConstraint)
             }
         }
     }
@@ -106,6 +107,24 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
         UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
             self.listBookDetailOverlay.frame = self.listBookDetailOverlay.onFrame
         }, completion: nil)
+    }
+    
+    //We need to retrieve which cell we've updated from the overlay to update
+    func cellForBookModel( model:BookModel ) -> MyListDetailsCell {
+        
+        var cellWithModel:MyListDetailsCell!
+    
+        for thisRow in 0...listDetailTable.numberOfRows(inSection: 0) {
+            
+            let cell = listDetailTable.cellForRow(at: IndexPath(row: thisRow, section: 0)) as! MyListDetailsCell
+            
+            if model.uid == cell.thisModel.uid {
+                cellWithModel = cell
+                break
+            }
+        }
+        
+        return cellWithModel
     }
     
     ////MARK: - UITableViewDelegate Methods
@@ -188,8 +207,39 @@ class ListDetailViewController: BookJunkieBaseViewController, UITableViewDelegat
     }
     
     ////MARK - BaseBookDetailOverlayDelegate Methods
-    internal func addToNextUpTapped(model:BookModel) {
-        print("Add this book next: \(model.bookTitle)")
+    internal override func addToNextUpTapped(model:BookModel) {
+        super.addToNextUpTapped(model: model)
+        
+        let thisCell = cellForBookModel(model: model)
+        
+        thisCell.thisModel.saveState = .nextUp
+        thisCell.updateSaveState()
+        overlayClosed()
+    }
+    
+    internal override func finishedTapped(model: BookModel) {
+        super.finishedTapped(model: model)
+        
+        let thisCell = cellForBookModel(model: model)
+        
+        thisCell.thisModel.saveState = .finished
+        thisCell.updateSaveState()
+        overlayClosed()
+        
+        //load overlay
+        loadRateOverlay(model: thisCell.thisModel)
+    }
+    
+    internal func deleteTapped(model: BookModel) {
+        
+        //Update books
+        UserModel.sharedInstance.books[model.uid] = nil
+        CoreDataManager.deleteBook(uid: model.uid)
+        
+        let thisCell = cellForBookModel(model: model)
+        thisCell.thisModel.saveState = .none
+        thisCell.updateSaveState()
+        overlayClosed()
     }
     
     internal func overlayClosed() {

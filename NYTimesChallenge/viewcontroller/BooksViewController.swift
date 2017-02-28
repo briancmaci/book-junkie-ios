@@ -30,9 +30,13 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         navigationItem.titleView = nil
         title = K.VCTitle.MyBooks
         
+        tableMaxHeight = myBooksTable.frame.size.height
+        
         buildBookArrays()
         initBooksSubnav()
         initTableView()
+        
+        
     }
     
     //re-enabling users to tap table
@@ -63,6 +67,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         //register UITableViewCells
         myBooksTable.register(UINib(nibName: K.NIBName.MyBookCell, bundle: nil), forCellReuseIdentifier: K.ReuseID.MyBookCellID)
         
+        updateTableListAndData(isNextUp: true)
     }
     
     func buildBookArrays() {
@@ -93,7 +98,27 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         booksSubnav.setCurrentList(toNextUp: isNextUpList)
         
         myBooksTable.reloadData()
-        myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
+        
+    }
+    
+    //We need to retrieve which cell we've updated from the overlay to update
+    func indexPathForBookModel( model:BookModel ) -> IndexPath {
+        
+        var indexPathForModel:IndexPath!
+        
+        for thisRow in 0...myBooksTable.numberOfRows(inSection: 0) {
+            
+            let indexPath = IndexPath(row: thisRow, section: 0)
+            let cell = myBooksTable.cellForRow(at: indexPath) as! MyBookCell
+            
+            if model.uid == cell.thisModel.uid {
+                indexPathForModel = indexPath
+                break
+            }
+        }
+        
+        return indexPathForModel
     }
     
     ////MARK: - BooksSubnavDelegate Methods
@@ -105,6 +130,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     func finishedTapped() {
         updateTableListAndData(isNextUp: false)
     }
+    
     ////MARK: - UITableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -201,7 +227,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
                 
                 nextUpBooksArray.remove(at: cellIndexPath.row)
                 myBooksTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
-                myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+                myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
                 
                 buildBookArrays()
             }
@@ -234,7 +260,7 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         CoreDataManager.deleteBook(uid: thisUid)
         
         myBooksTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        myBooksTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
         
     }
     
@@ -258,8 +284,42 @@ class BooksViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
     }
     
     ////MARK - BaseBookDetailOverlayDelegate Methods
-    internal func addToNextUpTapped(model:BookModel) {
-        print("Add this book next: \(model.bookTitle)")
+    internal override func addToNextUpTapped(model:BookModel) {
+        super.addToNextUpTapped(model: model)
+        overlayClosed()
+    }
+    
+    internal override func finishedTapped(model: BookModel) {
+        model.saveState = .finished
+        
+        //load overlay
+        loadRateOverlay(model: model)
+        
+        //push changes to CoreData + UserModel singleton
+        updateBookSaveStateWith(model: model)
+        
+        //Update Book Arrays
+        let cellIndexPath:IndexPath = indexPathForBookModel(model: model)
+        
+        nextUpBooksArray.remove(at: cellIndexPath.row)
+        myBooksTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
+        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
+        
+        buildBookArrays()
+        overlayClosed()
+    }
+    
+    internal func deleteTapped(model: BookModel) {
+        //Update arrays
+        UserModel.sharedInstance.books[model.uid] = nil
+        buildBookArrays()
+        
+        CoreDataManager.deleteBook(uid: model.uid)
+        
+        myBooksTable.deleteRows(at: [indexPathForBookModel(model: model)], with: UITableViewRowAnimation.fade)
+        myBooksTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
+        
+        overlayClosed()
     }
     
     internal func overlayClosed() {

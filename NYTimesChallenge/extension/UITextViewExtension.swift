@@ -2,7 +2,7 @@
 //  UITextViewExtension.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/27/17.
+//  Created by Brian Maci on 2/27/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 

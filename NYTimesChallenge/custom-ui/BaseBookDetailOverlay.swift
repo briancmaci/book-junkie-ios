@@ -2,7 +2,7 @@
 //  BaseBookDetailOverlay.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/27/17.
+//  Created by Brian Maci on 2/27/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
@@ -60,7 +60,11 @@ class BaseBookDetailOverlay: UIView {
     }
     
     @IBAction func buyButtonTapped( sender: UIButton ) {
-        delegate?.buyBookTapped!(url: (thisModel?.buyURL)! )
+        
+        let thisURL = thisModel?.buyURL
+        if UIApplication.shared.canOpenURL(URL(string: thisURL!)!) {
+            delegate?.buyBookTapped!(url: (thisURL)! )
+        }
     }
     
     @IBAction func addNextButtonTapped( sender: UIButton ) {

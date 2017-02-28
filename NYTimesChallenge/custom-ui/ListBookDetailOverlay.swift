@@ -2,16 +2,11 @@
 //  OverviewBookDetailOverlay.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/18/17.
+//  Created by Brian Maci on 2/18/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
 import UIKit
-
-//protocol OverviewDetailOverlayDelegate : BaseBookDetailOverlayDelegate {
-//    func buyBookTapped( url:String )
-//    func addToNextUpTapped( model:OverviewBookModel )
-//}
 
 class ListBookDetailOverlay : BaseBookDetailOverlay {
 
@@ -30,6 +25,15 @@ class ListBookDetailOverlay : BaseBookDetailOverlay {
     //Constraints needing change per content size
     @IBOutlet weak var bookContentViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var descriptionHeightConstraint : NSLayoutConstraint!
+    
+    //Constraints to place buttons
+    @IBOutlet weak var deleteButtonLeadingConstraint : NSLayoutConstraint!
+    @IBOutlet weak var addNextUpButtonLeadingConstraint : NSLayoutConstraint!
+    @IBOutlet weak var finishButtonLeadingConstraint : NSLayoutConstraint!
+    @IBOutlet weak var buyButtonLeadingConstraint : NSLayoutConstraint!
+    
+    let buttonSpacing:CGFloat = 14
+    let buttonWidth:CGFloat = 90
     
     override func populate(model:BookModel) {
         
@@ -52,12 +56,25 @@ class ListBookDetailOverlay : BaseBookDetailOverlay {
             statusLabel.textColor = K.Color.statusNoneGray
             
             //button updates
+            addNextUpButtonLeadingConstraint.constant = 0
+            finishButtonLeadingConstraint.constant = buttonWidth + buttonSpacing
+            buyButtonLeadingConstraint.constant = (buttonWidth + buttonSpacing) * 2
+            
+            deleteButton.removeFromSuperview()
+            layoutIfNeeded()
+            
             
         case SaveState.nextUp:
             statusLabel.text = K.StringFormat.StatusNextUp
             statusLabel.textColor = K.Color.selectedYellow
             
             //button updates
+            finishButtonLeadingConstraint.constant = 0
+            deleteButtonLeadingConstraint.constant = buttonWidth + buttonSpacing
+            buyButtonLeadingConstraint.constant = (buttonWidth + buttonSpacing) * 2
+            
+            addNextUpButton.removeFromSuperview()
+            layoutIfNeeded()
             
         case SaveState.finished:
             statusLabel.text = K.StringFormat.StatusFinished
@@ -70,6 +87,12 @@ class ListBookDetailOverlay : BaseBookDetailOverlay {
             }
             
             //button updates
+            deleteButtonLeadingConstraint.constant = buttonWidth + buttonSpacing
+            
+            addNextUpButton.removeFromSuperview()
+            finishButton.removeFromSuperview()
+            buyButton.removeFromSuperview()
+            layoutIfNeeded()
             
             
         }

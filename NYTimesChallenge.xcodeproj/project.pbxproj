@@ -63,6 +63,8 @@
 		72B494651E628A4E00FE0444 /* BookRateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494641E628A4E00FE0444 /* BookRateOverlay.swift */; };
 		72B494671E628B1C00FE0444 /* RateStarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B494661E628B1C00FE0444 /* RateStarButtons.swift */; };
 		72B494691E628F3800FE0444 /* BookRateOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B494681E628F3800FE0444 /* BookRateOverlay.xib */; };
+		72B881551E653BB000EB3B2E /* RankUpOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B881531E653BB000EB3B2E /* RankUpOverlay.swift */; };
+		72B881561E653BB000EB3B2E /* RankUpOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B881541E653BB000EB3B2E /* RankUpOverlay.xib */; };
 		72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */; };
 		72D619CB1E57EB1400A2BFCF /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */; };
 		72D619CD1E57EB3A00A2BFCF /* BottomNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */; };
@@ -168,6 +170,8 @@
 		72B494641E628A4E00FE0444 /* BookRateOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookRateOverlay.swift; path = "custom-ui/BookRateOverlay.swift"; sourceTree = "<group>"; };
 		72B494661E628B1C00FE0444 /* RateStarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateStarButtons.swift; path = "custom-ui/RateStarButtons.swift"; sourceTree = "<group>"; };
 		72B494681E628F3800FE0444 /* BookRateOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookRateOverlay.xib; path = "custom-ui/BookRateOverlay.xib"; sourceTree = "<group>"; };
+		72B881531E653BB000EB3B2E /* RankUpOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankUpOverlay.swift; path = "custom-ui/RankUpOverlay.swift"; sourceTree = "<group>"; };
+		72B881541E653BB000EB3B2E /* RankUpOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankUpOverlay.xib; path = "custom-ui/RankUpOverlay.xib"; sourceTree = "<group>"; };
 		72D619C71E57E35700A2BFCF /* BookJunkieBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookJunkieBaseViewController.swift; path = viewcontroller/BookJunkieBaseViewController.swift; sourceTree = "<group>"; };
 		72D619CA1E57EB1400A2BFCF /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomNavigation.swift; path = "custom-ui/BottomNavigation.swift"; sourceTree = "<group>"; };
 		72D619CC1E57EB3A00A2BFCF /* BottomNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomNavigation.xib; path = "custom-ui/BottomNavigation.xib"; sourceTree = "<group>"; };
@@ -490,6 +494,15 @@
 			name = "rate-overlay";
 			sourceTree = "<group>";
 		};
+		72B881521E653B2500EB3B2E /* rank-up-overlay */ = {
+			isa = PBXGroup;
+			children = (
+				72B881531E653BB000EB3B2E /* RankUpOverlay.swift */,
+				72B881541E653BB000EB3B2E /* RankUpOverlay.xib */,
+			);
+			name = "rank-up-overlay";
+			sourceTree = "<group>";
+		};
 		72D619C61E57E32100A2BFCF /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +519,7 @@
 				722BC86C1E59F8090038B1D3 /* bottom-nav */,
 				722F93AB1E61B1D7009C817D /* my-book-cells */,
 				722BC8721E59F8510038B1D3 /* my-lists-cells */,
+				72B881521E653B2500EB3B2E /* rank-up-overlay */,
 				72B494631E6289F600FE0444 /* rate-overlay */,
 			);
 			name = "custom-ui";
@@ -659,6 +673,7 @@
 				722F93A61E61A83C009C817D /* BooksSubnavOffView.xib in Resources */,
 				722BC8691E58FD4F0038B1D3 /* OverviewBookDetailOverlay.xib in Resources */,
 				72268C7B1E5641B200F96DB9 /* Main.storyboard in Resources */,
+				72B881561E653BB000EB3B2E /* RankUpOverlay.xib in Resources */,
 				72268CF81E57D2AF00F96DB9 /* WhitneyCondensed-Semibold.otf in Resources */,
 				72268CFA1E57D2AF00F96DB9 /* WhitneyCondensed-Light.otf in Resources */,
 				72268CF91E57D2AF00F96DB9 /* WhitneyCondensed-Medium.otf in Resources */,
@@ -761,6 +776,7 @@
 				72268CEC1E578C3500F96DB9 /* DataParseManager.swift in Sources */,
 				72268CEE1E57997400F96DB9 /* UserModel.swift in Sources */,
 				72D619C81E57E35700A2BFCF /* BookJunkieBaseViewController.swift in Sources */,
+				72B881551E653BB000EB3B2E /* RankUpOverlay.swift in Sources */,
 				726A675C1E63DEDD00E7C2F9 /* MyBookRowRatingView.swift in Sources */,
 				72268CA61E564BAB00F96DB9 /* APICallManager.swift in Sources */,
 				722BC8FC1E5A5F9E0038B1D3 /* CoreDataManager.swift in Sources */,

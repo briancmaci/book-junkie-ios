@@ -27,6 +27,8 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         
         initTableView()
         
+        tableMaxHeight = myListsTable.frame.size.height
+        
         //load data
         loadBestsellerLists()
     }
@@ -37,7 +39,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         //reload table with new data
         buildMyListsArray()
         myListsTable.reloadData()
-        myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        myListsTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +100,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
         }
         
         myListsTable.reloadData()
-        myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+        myListsTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
     }
     
     ////MARK: - UITableViewDelegate Methods
@@ -204,7 +206,7 @@ class ListsViewController: BookJunkieBaseViewController, UITableViewDelegate, UI
             //Rebuild myListsArray
             myListsArray.remove(at: cellIndexPath.row)
             myListsTable.deleteRows(at: [cellIndexPath], with: UITableViewRowAnimation.automatic)
-            myListsTable.sizeToContent(top: tableTopConstraint, bottom: tableBottomConstraint)
+            myListsTable.sizeToContent(maxHeight: tableMaxHeight, bottom: tableBottomConstraint)
             
             
         }

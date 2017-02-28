@@ -2,15 +2,15 @@
 //  BookRateOverlay.swift
 //  NYTimesChallenge
 //
-//  Created by Chelsea Power on 2/25/17.
+//  Created by Brian Maci on 2/25/17.
 //  Copyright © 2017 Brian Maci. All rights reserved.
 //
 
 import UIKit
 
 protocol BookRateOverlayDelegate {
-    func overlayCloseTapped(model:BookModel)
-    func overlayShareTapped(model:BookModel)
+    func rateOverlayCloseTapped(model:BookModel)
+    func rateOverlayShareTapped(model:BookModel)
 }
 
 class BookRateOverlay: UIView {
@@ -41,11 +41,11 @@ class BookRateOverlay: UIView {
     }
     
     @IBAction func closeTapped(sender: UIButton) {
-        delegate?.overlayCloseTapped(model:thisModel)
+        delegate?.rateOverlayCloseTapped(model:thisModel)
     }
     
     @IBAction func shareTapped(sender: UIButton) {
-        delegate?.overlayShareTapped(model:thisModel)
+        delegate?.rateOverlayShareTapped(model:thisModel)
     }
     
     var thisModel:BookModel!
